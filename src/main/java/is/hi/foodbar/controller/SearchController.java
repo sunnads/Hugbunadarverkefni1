@@ -1,5 +1,6 @@
 package is.hi.foodbar.controller;
 
+import is.hi.foodbar.model.Resturants;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -13,12 +14,20 @@ import org.springframework.web.bind.annotation.RequestParam;
  * setur inn skipun.
  *
  * @author Elvar Kjartansson, elk11@hi.is
- * @version 1.0
+ * @date september 2017
+ * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
 @Controller
 @RequestMapping("/demo") // Request Mapping er gerð fyrir klasann til að slóðin byrji á /demo fyrir allar skipanir
 public class SearchController {
 
+/*
+    Voru að vinna í þessu í gær 19 sept
+    private  Resturants[] = new rList;
+
+    Resturants Hornid = Resturants ( "Hornið", 101, "", int phoneNumber,
+                        int quality, String[] type, String[] menuType, int[] openingTime,
+                        int[] closingTime) */
     /**
      * Birtir demo.jsp í viðmótinu.
      * Þar er textinn "Sýnidæmi" birtur.
