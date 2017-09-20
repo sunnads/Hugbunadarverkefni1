@@ -131,8 +131,12 @@ public class SearchController {
     }
 
     @RequestMapping(value="/search", method=RequestMethod.POST)
-    public String search(@RequestParam(value="nafnVeitingastad", required=false) String nafnVeitingastad, ModelMap model){
+    public String search(@RequestParam(value="nafnVeitingastad", required=false)
+                        @RequestParam(value="postNumer", required=false)
+                                     String nafnVeitingastad, ArrayList<Integer> postNumer, ModelMap model){
+
         model.addAttribute("nafnVeitingastad", nafnVeitingastad);
+        model.addAttribute("postCode", postNumer);
         ArrayList<Resturants> resultList = searchResturant(nafnVeitingastad);
         model.addAttribute("listi", resultList);
         return "view/searchPage";
@@ -147,7 +151,55 @@ public class SearchController {
                 System.out.println("Hallo virkar ég ? ");
                 resultList.add(rList.get(i));
             }
+
+            if (rList.get(i).getPostCode() == (postNumer)) {
+                System.out.println("Ég er postCode prufa ");
+                resultList.add(rList.get(i));
+            }
+
+            else if (rList.get(i).getAddress().equals("address")) {
+                System.out.println("Ég er addres prufa ");
+                resultList.add(rList.get(i));
+            }
+
+            else if (rList.get(i).getPhoneNumber() == ("phoneNumber")) {
+                System.out.println("Ég er PhineNumber prufa ");
+                resultList.add(rList.get(i));
+            }
+
+            else if (rList.get(i).getQuality().== ("quality")) {
+                System.out.println("Ég er Quality  prufa ");
+                resultList.add(rList.get(i));
+            }
+
+            else if (rList.get(i).getType().equals("type")) {
+                System.out.println("Ég er Type prufa ");
+                resultList.add(rList.get(i));
+            }
+
+            else if (rList.get(i).getMenuType().equals("menuType")) {
+                System.out.println("Ég er menuType prufa ");
+                resultList.add(rList.get(i));
+            }
+
+            else if (rList.get(i).getOpeningTime().equals("openingTime")) {
+                System.out.println("Ég er openingTime prufa ");
+                resultList.add(rList.get(i));
+            }
+
+            else if (rList.get(i).getClosingTime().equals("closingTime")) {
+                System.out.println("Ég er closingTime prufa ");
+                resultList.add(rList.get(i));
+            }
+
+
+
+
+
+
         }
+
+
         return resultList;
     }
 }
