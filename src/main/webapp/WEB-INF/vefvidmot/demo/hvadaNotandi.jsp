@@ -16,10 +16,10 @@
 
 <h1></h1>
 
-<form method="POST" action="/demo/hver">
-    Hvað heitirðu? <input name="nafn" type="text" placeholder="Nafn"></input>
-    <input type="submit" value="Í lagi" />
-</form>
+    <form method="POST" action="/demo/hver">
+        Hvað heitirðu? <input name="nafn" type="text" placeholder="Nafn"></input>
+        <input type="submit" value="Í lagi" />
+    </form>
 
 </body>
 

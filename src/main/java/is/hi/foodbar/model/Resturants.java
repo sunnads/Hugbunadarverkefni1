@@ -1,5 +1,7 @@
 package is.hi.foodbar.model;
 
+import java.util.ArrayList;
+
 /**
  * Resturant classi sem geymir upplýsingar um veitingastaðinna
  *
@@ -12,17 +14,17 @@ public class Resturants {
 
 
     private String name; // nafn á veitingastað
-    private int[] postCode; // póstnúmer á staðsetningu veitingastaðar
-    private String[] address; // heimilisfang veitingarstaðar
+    private ArrayList<Integer> postCode; // póstnúmer á staðsetningu veitingastaðar
+    private ArrayList<String> address; // heimilisfang veitingarstaðar
     private int phoneNumber; // síma númer veitingastaðar
     private int quality; // gæða staðall veitingastaðar
-    private String[] type; // tengund veitingastaðar
+    private ArrayList<String> type; // tengund veitingastaðar
     private String[] menuType; // morgun-, hádeigs-  og kvöldmatar seðill
     private int[] openingTime; // opnunartímar veitingastaðar
     private int[] closingTime; // lokunartímar veitingastaðar
 
-    public Resturants ( String name, int[] postCode, String[] address, int phoneNumber,
-                        int quality, String[] type, String[] menuType, int[] openingTime,
+    public Resturants ( String name, ArrayList<Integer> postCode, ArrayList<String> address, int phoneNumber,
+                        int quality, ArrayList<String> type, String[] menuType, int[] openingTime,
                         int[] closingTime){
 
         this.name = name;
@@ -40,11 +42,11 @@ public class Resturants {
         return name;
     }
 
-    public int[] getPostCode() {
+    public ArrayList<Integer> getPostCode() {
         return postCode;
     }
 
-    public String[] getAddress() {
+    public ArrayList<String> getAddress() {
         return address;
     }
 
@@ -56,7 +58,7 @@ public class Resturants {
         return quality;
     }
 
-    public String[] getType() {
+    public ArrayList<String> getType() {
         return type;
     }
 
