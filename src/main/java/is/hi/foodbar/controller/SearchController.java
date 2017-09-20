@@ -134,7 +134,7 @@ public class SearchController {
     public String search(@RequestParam(value="nafnVeitingastad", required=false) String nafnVeitingastad, ModelMap model){
         model.addAttribute("nafnVeitingastad", nafnVeitingastad);
         ArrayList<Resturants> resultList = searchResturant(nafnVeitingastad);
-        model.addAttribute("listSize", resultList.size());
+        model.addAttribute("listi", resultList);
         return "view/searchPage";
     }
 

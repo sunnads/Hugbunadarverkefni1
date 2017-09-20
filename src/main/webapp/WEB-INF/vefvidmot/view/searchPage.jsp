@@ -16,7 +16,12 @@
 </head>
 <body>
 
-    <h1>Listi:  ${listSize}</h1>
+    <!-- <h1>Listi:  ${listSize}</h1> -->
+    <h1>
+        <c:forEach items="${listi}" var="listItem">
+            ${listItem.name}
+        </c:forEach>
+    </h1>
 
 </body>
 
