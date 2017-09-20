@@ -131,75 +131,133 @@ public class SearchController {
     }
 
     @RequestMapping(value="/search", method=RequestMethod.POST)
-    public String search(@RequestParam(value="nafnVeitingastad", required=false)
-                        @RequestParam(value="postNumer", required=false)
-                                     String nafnVeitingastad, ArrayList<Integer> postNumer, ModelMap model){
+    public String search(@RequestParam(value="nafnVeitingastad", required=false) String nafnVeitingastad,
+                         @RequestParam(value="postCode", required=false) Integer postCode,
+                         @RequestParam(value="address", required=false) String address,
+                         @RequestParam(value="phoneNumber", required=false) Integer phoneNumber,
+                         @RequestParam(value="quality", required=false) Integer quality,
+                         @RequestParam(value="type", required=false) String type,
+                         @RequestParam(value="menuType", required=false) Integer menuType,
+                         @RequestParam(value="openingTime", required=false) Integer openingTime,
+                         @RequestParam(value="closingTime", required=false) Integer closingTime, ModelMap model){
 
         model.addAttribute("nafnVeitingastad", nafnVeitingastad);
-        model.addAttribute("postCode", postNumer);
-        ArrayList<Resturants> resultList = searchResturant(nafnVeitingastad);
+        model.addAttribute("postCode", postCode);
+        model.addAttribute("address", address);
+        model.addAttribute("phoneNumber", phoneNumber);
+        model.addAttribute("quality", quality);
+        model.addAttribute("type", type);
+        model.addAttribute("menuType", menuType);
+        model.addAttribute("openingTime", openingTime);
+        model.addAttribute("closingTime", closingTime);
+
+        if(nafnVeitingastad == null) nafnVeitingastad = "";
+        if(postCode == null) postCode = -5;
+        if(address == null) address = "";
+        if(phoneNumber == null) phoneNumber = -5;
+        if(quality == null) quality = -5;
+        if(type == null) type = "";
+        if(menuType == null) menuType = -5;
+        if(openingTime == null) openingTime = -5;
+        if(closingTime == null) closingTime = -5;
+
+        ArrayList<Resturants> resultList = searchResturant(nafnVeitingastad, postCode, address, phoneNumber, quality,
+                                                            type, menuType, openingTime, closingTime);
         model.addAttribute("listi", resultList);
         return "view/searchPage";
     }
 
-    private ArrayList<Resturants> searchResturant(String nafnVeitingastad) {
+    /**
+     * Hjálparfall til að athuga hvort það var leitað að einhverju af númerunum í listanum.
+     *
+     * @param rList listinn inniheldur Resturant object sem verið er að prófa á móti
+     * @param i heiltala sem segir okkur hvar í listanum rList við erum komin
+     * @param resultList listi af öllum Resturant sem passa við leitarskilyrðin
+     * @param test heiltalan sem verið er að athuga hvort hún sé í listanum í Resturant objectinu
+     * @return boolean gildi sem segir okkur hvort við fundum það sem var leitað að
+     */
+    private boolean testArrayListInt(ArrayList<Resturants>  rList, int i,
+                                     ArrayList<Resturants> resultList, int test) {
+        for (int j = 0; j < rList.get(i).getPostCode().size(); j++) {
+            if (rList.get(i).getPostCode().get(j) == test) {
+                System.out.println("Ég er postCode prufa ");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Hjálparfall til að athuga hvort það var leitað að einhverju af strengjunum í listanum.
+     *
+     * @param rList listinn inniheldur Resturant object sem verið er að prófa á móti
+     * @param i heiltala sem segir okkur hvar í listanum rList við erum komin
+     * @param resultList listi af öllum Resturant sem passa við leitarskilyrðin
+     * @param test Strengurinn sem verið er að athuga hvort hún sé í listanum í Resturant objectinu
+     * @return boolean gildi sem segir okkur hvort við fundum það sem var leitað að
+     */
+    private boolean testArrayListString(ArrayList<Resturants>  rList, int i,
+                                        ArrayList<Resturants> resultList, String test) {
+        for (int j = 0; j < rList.get(i).getPostCode().size(); j++) {
+            if (rList.get(i).getPostCode().get(j).equals(test)) {
+                System.out.println("Ég er postCode prufa ");
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private ArrayList<Resturants> searchResturant(String nafnVeitingastad, int postCode, String address, int phoneNumber,
+                                                  int quality, String type, int menuType,
+                                                  int openingTime, int closingTime) {
         ArrayList<Resturants> rList = resturantList(); // seina kalla á gagnagrun
         ArrayList<Resturants> resultList = new ArrayList<Resturants>();
 
         for (int i = 0; i < rList.size(); i++) {
             if(rList.get(i).getName().equals(nafnVeitingastad) ) {
-                System.out.println("Hallo virkar ég ? ");
+                System.out.println(postCode);
                 resultList.add(rList.get(i));
             }
 
-            if (rList.get(i).getPostCode() == (postNumer)) {
+            else if (testArrayListInt(rList, i, resultList, postCode)) {
                 System.out.println("Ég er postCode prufa ");
                 resultList.add(rList.get(i));
             }
-
-            else if (rList.get(i).getAddress().equals("address")) {
+            else if (testArrayListString(rList, i, resultList, address)) {
                 System.out.println("Ég er addres prufa ");
                 resultList.add(rList.get(i));
             }
 
-            else if (rList.get(i).getPhoneNumber() == ("phoneNumber")) {
+            else if (rList.get(i).getPhoneNumber() == phoneNumber) {
                 System.out.println("Ég er PhineNumber prufa ");
                 resultList.add(rList.get(i));
             }
 
-            else if (rList.get(i).getQuality().== ("quality")) {
+            else if (rList.get(i).getQuality() == quality) {
                 System.out.println("Ég er Quality  prufa ");
                 resultList.add(rList.get(i));
             }
 
-            else if (rList.get(i).getType().equals("type")) {
+            else if (testArrayListString(rList, i, resultList, type)) {
                 System.out.println("Ég er Type prufa ");
                 resultList.add(rList.get(i));
             }
 
-            else if (rList.get(i).getMenuType().equals("menuType")) {
+            else if (testArrayListInt(rList, i, resultList, menuType)) {
                 System.out.println("Ég er menuType prufa ");
                 resultList.add(rList.get(i));
             }
 
-            else if (rList.get(i).getOpeningTime().equals("openingTime")) {
+            else if (testArrayListInt(rList, i, resultList, openingTime)) {
                 System.out.println("Ég er openingTime prufa ");
                 resultList.add(rList.get(i));
             }
 
-            else if (rList.get(i).getClosingTime().equals("closingTime")) {
+            else if (testArrayListInt(rList, i, resultList, closingTime)) {
                 System.out.println("Ég er closingTime prufa ");
                 resultList.add(rList.get(i));
             }
-
-
-
-
-
-
         }
-
-
         return resultList;
     }
 }
