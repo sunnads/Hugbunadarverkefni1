@@ -17,12 +17,12 @@
 
     <body>
         <h1>Foo´d´bar</h1>
-        <form method="POST" action="/veiw/search">
+        <form method="POST" action="/search">
             <fieldset>
                 <legend>Leit að veitingastað</legend>
                 <div>
                     <label>Nafn:</label>
-                    <input name="leit" type="search" placeholder="Leitarorð"/>
+                    <input name="nafnVeitingastad" type="search" placeholder="Nafn á veitingastað"/>
                 </div>
                 <div>
                     <label>Póstnúmer:</label>
@@ -49,7 +49,7 @@
                 </div>
                 <div>
                     <label>Matseðil:</label>
-                    <select name="matsedil">
+                    <select name="matsedil" >
                         <option value="morgunmatur">Morgunmatur</option>
                         <option value="kvoldmatur">Kvöldmatur</option>
                         <option value="hadeigismatur">Hádeigismatur</option>

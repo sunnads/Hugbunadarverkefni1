@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="daf92075-b5e7-44b8-a011-4f1677d96abf" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/is/hi/foodbar/controller/SearchController.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/is/hi/foodbar/controller/SearchController.java" afterPath="$PROJECT_DIR$/src/main/java/is/hi/foodbar/controller/SearchController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/hvadaNotandi.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/hvadaNotandi.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/indexPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/indexPage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/searchPage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/searchPage.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,24 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/foodbar/controller/SearchController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-669">
-              <caret line="59" column="72" lean-forward="false" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#982#994#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Resturants.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/foodbar/model/Resturants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="23" />
+            <state relative-caret-position="263">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="e#1495#1496#0" expanded="true" />
                 <element signature="e#1522#1523#0" expanded="true" />
@@ -105,18 +95,8 @@
       <file leaf-file-name="demo.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/demo.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="searchPage.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/searchPage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="153">
+              <caret line="9" column="16" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -125,19 +105,43 @@
       <file leaf-file-name="hvadaNotandi.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/hvadaNotandi.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="19" column="73" lean-forward="false" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="indexPage.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/indexPage.jsp">
+      <file leaf-file-name="synaNotandi.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/synaNotandi.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="65" column="26" lean-forward="false" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+            <state relative-caret-position="272">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="29" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="searchPage.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/searchPage.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="86" lean-forward="true" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SearchController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/foodbar/controller/SearchController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="149" column="9" lean-forward="true" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#984#996#0" expanded="true" />
+                <element signature="e#6274#6286#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -152,6 +156,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_CHANGES_POLICY" value="SHELVE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -167,10 +172,11 @@
         <option value="$PROJECT_DIR$/src/main/java/is/hi/foodbar/resturants.java" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/foodbar/model/ResturantList.java" />
         <option value="$PROJECT_DIR$/src/main/java/is/hi/foodbar/model/Resturants.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/hvadaNotandi.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/is/hi/foodbar/controller/SearchController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/hvadaNotandi.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/indexPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/searchPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/is/hi/foodbar/controller/SearchController.java" />
       </list>
     </option>
   </component>
@@ -858,7 +864,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505855278722</updated>
-      <workItem from="1505858258271" duration="14407000" />
+      <workItem from="1505858258271" duration="21156000" />
     </task>
     <task id="LOCAL-00001" summary="jola jóla">
       <created>1505862590623</created>
@@ -881,11 +887,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505909416382</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Html síða kominn og faike leit">
+      <created>1505911672958</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1505911672958</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14407000" />
+    <option name="totallyTimeSpent" value="21156000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -908,7 +921,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34203655" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31201044" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -932,7 +945,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="jola jóla" />
-    <option name="LAST_COMMIT_MESSAGE" value="jola jóla" />
+    <MESSAGE value="Html síða kominn og faike leit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Html síða kominn og faike leit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1007,7 +1021,8 @@
           <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#982#994#0" expanded="true" />
+            <element signature="e#984#996#0" expanded="true" />
+            <element signature="e#6274#6286#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1016,14 +1031,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/synaNotandi.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -1054,30 +1061,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/hvadaNotandi.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/demo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/foodbar/model/ResturantList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1086,29 +1069,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/searchPage.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/demo.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="153">
+          <caret line="9" column="16" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/foodbar/controller/SearchController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/synaNotandi.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-669">
-          <caret line="59" column="72" lean-forward="false" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#982#994#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/indexPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/foodbar/model/Resturants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="23" />
+        <state relative-caret-position="263">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="e#1495#1496#0" expanded="true" />
             <element signature="e#1522#1523#0" expanded="true" />
@@ -1132,11 +1128,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/indexPage.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/view/searchPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="65" column="26" lean-forward="false" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+        <state relative-caret-position="119">
+          <caret line="7" column="86" lean-forward="true" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/vefvidmot/demo/hvadaNotandi.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="73" lean-forward="false" selection-start-line="19" selection-start-column="73" selection-end-line="19" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/foodbar/controller/SearchController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="149" column="9" lean-forward="true" selection-start-line="149" selection-start-column="9" selection-end-line="149" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#984#996#0" expanded="true" />
+            <element signature="e#6274#6286#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

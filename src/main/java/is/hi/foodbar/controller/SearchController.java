@@ -20,7 +20,7 @@ import java.util.Arrays;
  * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
 @Controller
-@RequestMapping("/demo") // Request Mapping er gerð fyrir klasann til að slóðin byrji á /demo fyrir allar skipanir
+//@RequestMapping("/demo") // Request Mapping er gerð fyrir klasann til að slóðin byrji á /demo fyrir allar skipanir
 public class SearchController {
 
     private ArrayList<Resturants> resturantList() {
@@ -29,7 +29,7 @@ public class SearchController {
         Resturants dominos = new Resturants( "Dominos", new ArrayList<Integer>(Arrays.asList(101,107,105)),
                 new ArrayList<String>(Arrays.asList("Skúlagata", "Hjarðarhaga", "Skeifan")) , 5812345,
                 1, new ArrayList<String>(Arrays.asList("Pizzastaður","Skyndibiti")), new String[] {"Kvöldmatur", "Hádeigismatur"},
-                new int[] {1100,1100,1100, 1100, 1000, 1300, 1300 }, new int[] {22,22,22,22,24,24,22});
+                new int[] {1100,1100,1100, 1100, 1000, 1300, 1300 }, new int[] {2200,2200,2200,2200,2400,2400,2200});
 
         rList.add(dominos);
 
@@ -130,4 +130,24 @@ public class SearchController {
         // skoðið application.properties til að sjá hvernig slóðin er sett
     }
 
+    @RequestMapping(value="/search", method=RequestMethod.POST)
+    public String search(@RequestParam(value="nafnVeitingastad", required=false) String nafnVeitingastad, ModelMap model){
+        model.addAttribute("nafnVeitingastad", nafnVeitingastad);
+        ArrayList<Resturants> resultList = searchResturant(nafnVeitingastad);
+        model.addAttribute("listSize", resultList.size());
+        return "view/searchPage";
+    }
+
+    private ArrayList<Resturants> searchResturant(String nafnVeitingastad) {
+        ArrayList<Resturants> rList = resturantList(); // seina kalla á gagnagrun
+        ArrayList<Resturants> resultList = new ArrayList<Resturants>();
+
+        for (int i = 0; i < rList.size(); i++) {
+            if(rList.get(i).getName().equals(nafnVeitingastad) ) {
+                System.out.println("Hallo virkar ég ? ");
+                resultList.add(rList.get(i));
+            }
+        }
+        return resultList;
+    }
 }
