@@ -57,7 +57,7 @@ public class SearchController {
 
         Resturants caruso = new Resturants( "Caruso", new ArrayList<Integer>(Arrays.asList(101)),
                 new ArrayList<String>(Arrays.asList("Austurstræti 22")) , 5627335,
-                5, new ArrayList<String>(Arrays.asList("Pizzastaður","SKyndibiti")), new String[] {"Kvöldmatur", "Hádeigismatur"},
+                5, new ArrayList<String>(Arrays.asList("Pizzastaður","Skyndibiti")), new String[] {"Kvöldmatur", "Hádeigismatur"},
                 new int[] {1130,1130,1130,1130,1130,1200,1700}, new int[] {2230,2230,2230,2230,2230,2230,2200});
 
         rList.add(caruso);
@@ -126,7 +126,7 @@ public class SearchController {
     // Þar sem klasinn hefur slóðina "/demo", er þessi slóð "/demo/page"
     @RequestMapping("/index")
     public String indexPage(){
-        return "veiw/indexPage"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/demo/demo.jsp
+        return "view/indexPage"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/demo/demo.jsp
         // skoðið application.properties til að sjá hvernig slóðin er sett
     }
 

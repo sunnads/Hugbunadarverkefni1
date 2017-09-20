@@ -9,7 +9,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<html lang="en">
+<html lang="is">
 
     <head>
         <title>Foo´d´bar</title>
@@ -21,12 +21,49 @@
             <fieldset>
                 <legend>Leit að veitingastað</legend>
                 <div>
-                    <input name="leit" type="text" placeholder="Leit:"></input>
-                    <input type="submit" value="Í lagi" />
+                    <label>Nafn:</label>
+                    <input name="leit" type="search" placeholder="Leitarorð"/>
                 </div>
                 <div>
-                    <input name="leit" type="text" placeholder="Leit:"></input>
-                    <input type="submit" value="Í lagi" />
+                    <label>Póstnúmer:</label>
+                    <select name="Póstnúmer">
+                        <option value="101">101</option>
+                        <option value="107">107</option>
+                        <option value="105">105</option>
+                        <option value="109">109</option>
+                        <option value="111">111</option>
+                        <option value="200">200</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Heimiisfang:</label>
+                    <input name="heimilisfang" type="text" placeholder="Austurstræti 10"/>
+                </div>
+                <div>
+                    <label>Gæðaflokkur:</label>
+                    <select name="gæðaflokkur">
+                        <option value="1">Skyndibitastaður</option>
+                        <option value="3">Millifínt</option>
+                        <option value="5">Fínt</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Matseðil:</label>
+                    <select name="matsedil">
+                        <option value="morgunmatur">Morgunmatur</option>
+                        <option value="kvoldmatur">Kvöldmatur</option>
+                        <option value="hadeigismatur">Hádeigismatur</option>
+                        <option value="kaffiogkokur">Kaffi og kökur</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Opnunartími:</label>
+                    <input name="openingTime" type="time" />
+                     -
+                    <input name="closingTime" type="time" />
+                </div>
+                <div>
+                    <input type="submit" value="Leita" />
                 </div>
             </fieldset>
         </form>
