@@ -23,6 +23,11 @@ import java.util.Arrays;
 //@RequestMapping("/demo") // Request Mapping er gerð fyrir klasann til að slóðin byrji á /demo fyrir allar skipanir
 public class SearchController {
 
+    /**
+     * Fake gagnagrunnur
+     *
+     * @return listi af Resturants objectum
+     */
     private ArrayList<Resturants> resturantList() {
         ArrayList<Resturants> rList = new ArrayList<Resturants>();
 
@@ -130,13 +135,25 @@ public class SearchController {
         // skoðið application.properties til að sjá hvernig slóðin er sett
     }
 
+    /**
+     * Notar POST til að ná í upplýsingar frá notanda og setja þær í model.
+     * Kallar á searchResturant(...) og setur niðurstöðurnar í lista.
+     *
+     * @param nafnVeitingastad Strengur sem inniheldur það sem notandi skrifaði í nafn gluggan
+     * @param postCode Integer sem inniheldur það sem notandi valdi fyrir póstnúmer
+     * @param address Strengur sem inniheldur það sem notandi skrifaði í address gluggan
+     * @param quality Integer sem inniheldur það sem notandi valdi fyrir gæðastaðal
+     * @param menuType Integer sem inniheldur það sem notandi valdi fyrir matseðil
+     * @param openingTime Integer sem inniheldur það sem notandi valdi fyrir opnunartíma
+     * @param closingTime Integer sem inniheldur það sem notandi valdi fyrir lokunartíma
+     * @param model Modelið sem við notum
+     * @return Strengur sem inniheldur slóð á síðuna sem á að birta
+     */
     @RequestMapping(value="/search", method=RequestMethod.POST)
     public String search(@RequestParam(value="nafnVeitingastad", required=false) String nafnVeitingastad,
                          @RequestParam(value="postCode", required=false) Integer postCode,
                          @RequestParam(value="address", required=false) String address,
-                         @RequestParam(value="phoneNumber", required=false) Integer phoneNumber,
                          @RequestParam(value="quality", required=false) Integer quality,
-                         @RequestParam(value="type", required=false) String type,
                          @RequestParam(value="menuType", required=false) Integer menuType,
                          @RequestParam(value="openingTime", required=false) Integer openingTime,
                          @RequestParam(value="closingTime", required=false) Integer closingTime, ModelMap model){
@@ -144,25 +161,23 @@ public class SearchController {
         model.addAttribute("nafnVeitingastad", nafnVeitingastad);
         model.addAttribute("postCode", postCode);
         model.addAttribute("address", address);
-        model.addAttribute("phoneNumber", phoneNumber);
         model.addAttribute("quality", quality);
-        model.addAttribute("type", type);
         model.addAttribute("menuType", menuType);
         model.addAttribute("openingTime", openingTime);
         model.addAttribute("closingTime", closingTime);
 
+        System.out.println(address);
+
         if(nafnVeitingastad == null) nafnVeitingastad = "";
         if(postCode == null) postCode = -5;
         if(address == null) address = "";
-        if(phoneNumber == null) phoneNumber = -5;
         if(quality == null) quality = -5;
-        if(type == null) type = "";
         if(menuType == null) menuType = -5;
         if(openingTime == null) openingTime = -5;
         if(closingTime == null) closingTime = -5;
 
-        ArrayList<Resturants> resultList = searchResturant(nafnVeitingastad, postCode, address, phoneNumber, quality,
-                                                            type, menuType, openingTime, closingTime);
+        ArrayList<Resturants> resultList = searchResturant(nafnVeitingastad, postCode, address, quality,
+                                                            menuType, openingTime, closingTime);
         model.addAttribute("listi", resultList);
         return "view/searchPage";
     }
@@ -179,7 +194,7 @@ public class SearchController {
     private boolean testArrayListInt(ArrayList<Resturants>  rList, int i,
                                      ArrayList<Resturants> resultList, int test) {
         for (int j = 0; j < rList.get(i).getPostCode().size(); j++) {
-            if (rList.get(i).getPostCode().get(j) == test) {
+            if (rList.get(i).getPostCode().get(j) == test) {    // virkar bara fyrir postCode í bili
                 System.out.println("Ég er postCode prufa ");
                 return true;
             }
@@ -199,7 +214,7 @@ public class SearchController {
     private boolean testArrayListString(ArrayList<Resturants>  rList, int i,
                                         ArrayList<Resturants> resultList, String test) {
         for (int j = 0; j < rList.get(i).getPostCode().size(); j++) {
-            if (rList.get(i).getPostCode().get(j).equals(test)) {
+            if (rList.get(i).getAddress().get(j).equals(test)) {   // virkar bara fyrir address í bili
                 System.out.println("Ég er postCode prufa ");
                 return true;
             }
@@ -207,8 +222,21 @@ public class SearchController {
         return false;
     }
 
-    private ArrayList<Resturants> searchResturant(String nafnVeitingastad, int postCode, String address, int phoneNumber,
-                                                  int quality, String type, int menuType,
+    /**
+     * Fallið ber saman það sem notandi valdi/skrifaði inn í gluggan og það sem er í Resturants objectunum okkar,
+     * þ.e. leitar að því sem notandi vildi finna.
+     *
+     * @param nafnVeitingastad Strengur sem inniheldur það sem notandi skrifaði í nafn gluggan
+     * @param postCode Integer sem inniheldur það sem notandi valdi fyrir póstnúmer
+     * @param address Strengur sem inniheldur það sem notandi skrifaði í address gluggan
+     * @param quality Integer sem inniheldur það sem notandi valdi fyrir gæðastaðal
+     * @param menuType Integer sem inniheldur það sem notandi valdi fyrir matseðil
+     * @param openingTime Integer sem inniheldur það sem notandi valdi fyrir opnunartíma
+     * @param closingTime Integer sem inniheldur það sem notandi valdi fyrir lokunartíma
+     * @return Listi af öllum Resturants sem passa við það sem notandi leitaði að
+     */
+    private ArrayList<Resturants> searchResturant(String nafnVeitingastad, int postCode, String address,
+                                                  int quality, int menuType,
                                                   int openingTime, int closingTime) {
         ArrayList<Resturants> rList = resturantList(); // seina kalla á gagnagrun
         ArrayList<Resturants> resultList = new ArrayList<Resturants>();
@@ -228,18 +256,8 @@ public class SearchController {
                 resultList.add(rList.get(i));
             }
 
-            else if (rList.get(i).getPhoneNumber() == phoneNumber) {
-                System.out.println("Ég er PhineNumber prufa ");
-                resultList.add(rList.get(i));
-            }
-
             else if (rList.get(i).getQuality() == quality) {
                 System.out.println("Ég er Quality  prufa ");
-                resultList.add(rList.get(i));
-            }
-
-            else if (testArrayListString(rList, i, resultList, type)) {
-                System.out.println("Ég er Type prufa ");
                 resultList.add(rList.get(i));
             }
 

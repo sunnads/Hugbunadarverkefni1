@@ -26,7 +26,8 @@
                 </div>
                 <div>
                     <label>Póstnúmer:</label>
-                    <select name="Póstnúmer">
+                    <select name="postCode">
+                        <option value="0">Veldu</option>
                         <option value="101">101</option>
                         <option value="107">107</option>
                         <option value="105">105</option>
@@ -37,11 +38,12 @@
                 </div>
                 <div>
                     <label>Heimiisfang:</label>
-                    <input name="heimilisfang" type="text" placeholder="Austurstræti 10"/>
+                    <input name="address" type="search" placeholder="Austurstræti 10"/>
                 </div>
                 <div>
                     <label>Gæðaflokkur:</label>
-                    <select name="gæðaflokkur">
+                    <select name="quality">
+                        <option value="0">Veldu</option>
                         <option value="1">Skyndibitastaður</option>
                         <option value="3">Millifínt</option>
                         <option value="5">Fínt</option>
@@ -49,7 +51,8 @@
                 </div>
                 <div>
                     <label>Matseðil:</label>
-                    <select name="matsedil" >
+                    <select name="menuType" >
+                        <option value="0">Veldu</option>
                         <option value="morgunmatur">Morgunmatur</option>
                         <option value="kvoldmatur">Kvöldmatur</option>
                         <option value="hadeigismatur">Hádeigismatur</option>
