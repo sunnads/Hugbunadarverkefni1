@@ -15,13 +15,20 @@
     <title>Niðurstöður leitar</title>
 </head>
 <body>
+    <h1>Foo´d´bar</h1>
 
     <!-- <h1>Listi:  ${listSize}</h1> -->
-    <h1>
+    <h2>
         <c:forEach items="${listi}" var="listItem">
-            ${listItem.name}
+
+            <form id="myForm" action="/info" method="post">
+                <input type="hidden" name="item" value= ${listItem} />
+                <a href="#" onclick="document.getElementById('myForm').submit();">${listItem.name}</a>
+            </form>
+
+            <!-- <a href="/info">${listItem.name}</a> -->
         </c:forEach>
-    </h1>
+    </h2>
 
 </body>
 
