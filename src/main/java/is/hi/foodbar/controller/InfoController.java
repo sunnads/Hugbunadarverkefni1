@@ -20,9 +20,9 @@ public class InfoController {
      *
      * @return slóðin á skránna infoPage.jsp
      */
-    @RequestMapping("/info")
-    public String infoPage(@RequestParam(value="listItem", required=false) String item){
-        //model.addAttribute("listItem", item);
+    @RequestMapping(value="/info", method=RequestMethod.POST)
+    public String infoPage(@RequestParam(value="item", required=false) Resturants item, ModelMap model){
+        model.addAttribute("item", item);
         return "view/infoPage"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/infoPage.jsp
     }
 }
