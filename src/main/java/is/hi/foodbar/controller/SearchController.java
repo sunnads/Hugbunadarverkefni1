@@ -77,12 +77,14 @@ public class SearchController {
      *
      * @return slóðin á skránna demo.jsp
      */
+    /*
     // Þar sem klasinn hefur slóðina "/demo", er þessi slóð "/demo/page"
     @RequestMapping("/page")
     public String demoPage(){
         return "demo/demo"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/demo/demo.jsp
         // skoðið application.properties til að sjá hvernig slóðin er sett
     }
+    */
 
     /**
      * Birtir synaNotandi.jsp í viðmótinu.
@@ -91,11 +93,13 @@ public class SearchController {
      * @param model modelið sem er notað til að færa gögnin frá controller til viðmóts
      * @return slóðin á skránna synaNotandi.jsp
      */
+    /*
     @RequestMapping("/notandi")
     public String notandi(Model model){
         model.addAttribute("nafn", "notandi");
         return "demo/synaNotandi";
     }
+    */
 
     /**
      * Birtir hvadaNotandi.jsp í viðmótinu.
@@ -103,10 +107,12 @@ public class SearchController {
      *
      * @return slóðin á skránna hvadaNotandi.jsp
      */
+    /*
     @RequestMapping("/spyrjaNotanda")
     public String spyrjaNotandi(){
         return "demo/hvadaNotandi";
     }
+    */
 
     /**
      * Notar POST til að setja nafnið úr hvadaNotandi í synaNotandi.
@@ -115,11 +121,13 @@ public class SearchController {
      * @param model modelið sem er notað til að færa gögnin milli controller og viðmóts
      * @return slóðin á skránna synaNotandi.jsp
      */
+    /*
     @RequestMapping(value="/hver", method=RequestMethod.POST)
     public String hver(@RequestParam(value="nafn", required=false) String nafn, ModelMap model){
         model.addAttribute("nafn", nafn);
         return "demo/synaNotandi";
     }
+    */
 
 
     /**
@@ -128,10 +136,10 @@ public class SearchController {
      *
      * @return slóðin á skránna indexPage.jsp
      */
-    // Þar sem klasinn hefur slóðina "/demo", er þessi slóð "/demo/page"
+    // Þar sem klasinn hefur enga slóð, er þessi slóð "/index"
     @RequestMapping("/index")
     public String indexPage(){
-        return "view/indexPage"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/demo/demo.jsp
+        return "view/indexPage"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
         // skoðið application.properties til að sjá hvernig slóðin er sett
     }
 
@@ -169,12 +177,12 @@ public class SearchController {
         System.out.println(address);
 
         if(nafnVeitingastad == null) nafnVeitingastad = "";
-        if(postCode == null) postCode = -5;
+        if(postCode == null) postCode = -1;
         if(address == null) address = "";
-        if(quality == null) quality = -5;
-        if(menuType == null) menuType = -5;
-        if(openingTime == null) openingTime = -5;
-        if(closingTime == null) closingTime = -5;
+        if(quality == null) quality = -1;
+        if(menuType == null) menuType = -1;
+        if(openingTime == null) openingTime = -1;
+        if(closingTime == null) closingTime = -1;
 
         ArrayList<Resturants> resultList = searchResturant(nafnVeitingastad, postCode, address, quality,
                                                             menuType, openingTime, closingTime);
@@ -238,7 +246,7 @@ public class SearchController {
     private ArrayList<Resturants> searchResturant(String nafnVeitingastad, int postCode, String address,
                                                   int quality, int menuType,
                                                   int openingTime, int closingTime) {
-        ArrayList<Resturants> rList = resturantList(); // seina kalla á gagnagrun
+        ArrayList<Resturants> rList = resturantList(); // seinna kalla á gagnagrunn
         ArrayList<Resturants> resultList = new ArrayList<Resturants>();
 
         for (int i = 0; i < rList.size(); i++) {
