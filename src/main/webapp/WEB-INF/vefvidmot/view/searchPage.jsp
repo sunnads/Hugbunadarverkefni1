@@ -15,13 +15,15 @@
     <title>Niðurstöður leitar</title>
 </head>
 <body>
+    <h1>Foo´d´bar</h1>
 
     <!-- <h1>Listi:  ${listSize}</h1> -->
-    <h1>
+    <h2>
         <c:forEach items="${listi}" var="listItem">
-            ${listItem.name}
+
+            <a href="/info">${listItem.name}</a>
         </c:forEach>
-    </h1>
+    </h2>
 
 </body>
 
