@@ -145,7 +145,7 @@ public class SearchController {
 
     /**
      * Notar POST til að ná í upplýsingar frá notanda og setja þær í model.
-     * Kallar á searchResturant(...) og setur niðurstöðurnar í lista.
+     * Kallar á  chResturant(...) og setur niðurstöðurnar í lista.
      *
      * @param nafnVeitingastad Strengur sem inniheldur það sem notandi skrifaði í nafn gluggan
      * @param postCode Integer sem inniheldur það sem notandi valdi fyrir póstnúmer

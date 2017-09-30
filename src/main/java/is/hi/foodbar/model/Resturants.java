@@ -10,6 +10,8 @@ import java.util.ArrayList;
  * @date september 2017
  * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
+
+//@Table (name="resturants")
 public class Resturants {
 
 
