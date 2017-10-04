@@ -26,7 +26,7 @@ public interface RestaurantsService  {
      * @param menuType         Integer sem inniheldur það sem notandi valdi fyrir matseðil
      * @return Listi af öllum Resturants sem passa við það sem notandi leitaði að
      */
-    public List<Restaurants> searchRestaurant(String nafnVeitingastad, int postCode, String address,
+    List<Restaurants> searchRestaurant(String nafnVeitingastad, int postCode, String address,
                                                    int quality, String menuType);
 
     /**
@@ -34,12 +34,12 @@ public interface RestaurantsService  {
      *
      * @return listi af veitingastöðum
      */
-    public List<Restaurants> findByName(String name);
+    List<Restaurants> findByName(String name);
 
     /**
      * Skilar öllum veitingastöðum í restaurants
      *
      * @return listi af veitingastöðum
      */
-    public List<Restaurants> allRestaurants();
+    List<Restaurants> allRestaurants();
 }

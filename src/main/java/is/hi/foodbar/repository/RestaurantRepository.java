@@ -12,6 +12,7 @@ import is.hi.foodbar.model.Restaurants;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import java.util.ArrayList;
 
 /**
  *
@@ -36,8 +37,10 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
      * @return  Listi af nöfnum á veitingastöðum sem passa akkúrat við leitina
      *          Ef enginn veitingarstaður finnst, skilar auðum lista
      */
-    @Query("SELECT name FROM Restaurants WHERE LOWER(name) LIKE LOWER(:name)")
-    List<Restaurants> findRestaurantsByName(@Param("name")String name);
+    @Query("SELECT name FROM Restaurants WHERE LOWER(name) LIKE LOWER(name)")
+    List<Restaurants> findRestaurantsByName(String name);
+
+
 
     //List<Resturants> findAllByOrderByIdDesc();
 

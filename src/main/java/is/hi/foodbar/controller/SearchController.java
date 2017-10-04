@@ -77,8 +77,9 @@ public class SearchController {
 
 
 
-        List<Restaurants> nameList = restaurantsService.findByName("%" + nafnVeitingastad + "%");
-        System.out.println(nameList);
+        ArrayList<Restaurants> nameList;
+        nameList = (ArrayList <Restaurants>) restaurantsService.findByName("%" + nafnVeitingastad + "%");
+
         model.addAttribute("listi", nameList);
 
        // ArrayList<Restaurants> resultList = restaurantsService.searchRestaurant(nafnVeitingastad, postCode, address, quality, menuType);
