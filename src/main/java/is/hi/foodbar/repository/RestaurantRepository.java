@@ -5,10 +5,10 @@
  */
 package is.hi.foodbar.repository;
 
-import is.hi.foodbar.model.Resturants;
+import is.hi.foodbar.model.Restaurants;
 import java.util.List;
 
-import is.hi.foodbar.model.Resturants;
+import is.hi.foodbar.model.Restaurants;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -17,12 +17,12 @@ import org.springframework.data.jpa.repository.Query;
  * @author Karítas Sif, Brynja Pálína, Sunna Dröfn
  */
 
-public interface ResturantRepository extends JpaRepository<Resturants, Long>{
+public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
     /**
      * Nær í öll restaurants
      * @return listi af resturants
      */
-    List<Resturants> findAll();
+    List<Restaurants> findAll();
     
     /**
      * Nær í alla kennara
@@ -34,15 +34,15 @@ public interface ResturantRepository extends JpaRepository<Resturants, Long>{
      * 
      * @return lista af kennurum með nafn lengra en 3 stafir
      */ 
-   // @Query(value = "SELECT name FROM resturants where length name LIKE '%nafnVeitingastad%' ")
-    List<Resturants> findResturantsByName(String name);
+    @Query(value = "SELECT name FROM resturants where  name LIKE '%name%' ")
+    List<Restaurants> findResturantsByName(String name);
 
     //List<Resturants> findAllByOrderByIdDesc();
 
    @Override
-   Resturants findOne(Long id);
+   Restaurants findOne(Long id);
 
-   Resturants save (Resturants resturants);
+   Restaurants save (Restaurants resturants);
    
    // Notið sama nafn og dálkanafn í töflunni/tilviksbreytan (e. attribute) 
    //List<Resturants> findByName(String name);

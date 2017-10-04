@@ -17,8 +17,8 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table (name="resturants")
-public class Resturants {
+@Table (name="restaurants")
+public class Restaurants {
 
     // Skilgrein id sem auðkenni (e. identity)  hlutarins
     @Id
@@ -33,7 +33,7 @@ public class Resturants {
     private int[] openingTime; // opnunartímar veitingastaðar
     private int[] closingTime; // lokunartímar veitingastaðar
 
-    public Resturants ( String name, int postCode, String address, int phoneNumber,
+    public Restaurants ( String name, int postCode, String address, int phoneNumber,
                         int quality, ArrayList<String> type, ArrayList<String> menuType, int[] openingTime,
                         int[] closingTime){
 
