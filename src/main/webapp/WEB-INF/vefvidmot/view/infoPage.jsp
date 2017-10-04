@@ -16,7 +16,7 @@
 
     <body>
         <h1>Foo´d´bar</h1>
-        <h2>hi: ${listItem.name}</h2>
+        <h2>hi: ${item.name}</h2>
     </body>
 
 </html>
