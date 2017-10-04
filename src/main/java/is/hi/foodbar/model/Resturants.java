@@ -24,17 +24,17 @@ public class Resturants {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name; // nafn á veitingastað
-    private ArrayList<Integer> postCode; // póstnúmer á staðsetningu veitingastaðar
-    private ArrayList<String> address; // heimilisfang veitingarstaðar
+    private int postCode; // póstnúmer á staðsetningu veitingastaðar
+    private String address; // heimilisfang veitingarstaðar
     private int phoneNumber; // síma númer veitingastaðar
     private int quality; // gæða staðall veitingastaðar
     private ArrayList<String> type; // tengund veitingastaðar
-    private String[] menuType; // morgun-, hádeigs-  og kvöldmatar seðill
+    private ArrayList<String> menuType; // morgun-, hádeigs-  og kvöldmatar seðill
     private int[] openingTime; // opnunartímar veitingastaðar
     private int[] closingTime; // lokunartímar veitingastaðar
 
-    public Resturants ( String name, ArrayList<Integer> postCode, ArrayList<String> address, int phoneNumber,
-                        int quality, ArrayList<String> type, String[] menuType, int[] openingTime,
+    public Resturants ( String name, int postCode, String address, int phoneNumber,
+                        int quality, ArrayList<String> type, ArrayList<String> menuType, int[] openingTime,
                         int[] closingTime){
 
         this.name = name;
@@ -52,11 +52,11 @@ public class Resturants {
         return name;
     }
 
-    public ArrayList<Integer> getPostCode() {
+    public int getPostCode() {
         return postCode;
     }
 
-    public ArrayList<String> getAddress() {
+    public String getAddress() {
         return address;
     }
 
@@ -72,7 +72,7 @@ public class Resturants {
         return type;
     }
 
-    public String[] getMenuType() {
+    public ArrayList<String> getMenuType() {
         return menuType;
     }
 
