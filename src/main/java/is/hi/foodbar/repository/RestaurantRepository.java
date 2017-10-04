@@ -11,6 +11,7 @@ import java.util.List;
 import is.hi.foodbar.model.Restaurants;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
@@ -30,12 +31,13 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
      */
    // Resturants save(Resturants resturants);
     /**
-     * Finnum alla kennara sem hafa lengra nafn en 3 stafir
-     * 
-     * @return lista af kennurum með nafn lengra en 3 stafir
-     */ 
-    @Query(value = "SELECT name FROM resturants where  name LIKE '%name%' ")
-    List<Restaurants> findResturantsByName(String name);
+     * Finnur nafn á veitingastað eftir því sem er leitað af
+     * @param name
+     * @return  Listi af nöfnum á veitingastöðum sem passa akkúrat við leitina
+     *          Ef enginn veitingarstaður finnst, skilar auðum lista
+     */
+    @Query("SELECT name FROM Restaurants WHERE LOWER(name) LIKE LOWER(:name)")
+    List<Restaurants> findRestaurantsByName(@Param("name")String name);
 
     //List<Resturants> findAllByOrderByIdDesc();
 

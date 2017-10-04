@@ -1,7 +1,9 @@
 package is.hi.foodbar.services;
 
 import is.hi.foodbar.model.Restaurants;
+import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +26,20 @@ public interface RestaurantsService  {
      * @param menuType         Integer sem inniheldur það sem notandi valdi fyrir matseðil
      * @return Listi af öllum Resturants sem passa við það sem notandi leitaði að
      */
-    ArrayList<Restaurants> searchRestaurant(String nafnVeitingastad, int postCode, String address,
-                                                  int quality, String menuType);
+    public List<Restaurants> searchRestaurant(String nafnVeitingastad, int postCode, String address,
+                                                   int quality, String menuType);
 
-    List<Restaurants> findByName();
-    List<Restaurants> allRestaurants();
+    /**
+     * Skilar öllum veitingastöðum í restaurants sem passa við leitina
+     *
+     * @return listi af veitingastöðum
+     */
+    public List<Restaurants> findByName(String name);
+
+    /**
+     * Skilar öllum veitingastöðum í restaurants
+     *
+     * @return listi af veitingastöðum
+     */
+    public List<Restaurants> allRestaurants();
 }

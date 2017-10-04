@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -45,7 +46,7 @@ public class SearchController {
      * Notar POST til að ná í upplýsingar frá notanda og setja þær í model.
      * Kallar á searchResturant(...) og setur niðurstöðurnar í lista.
      *
-     * @param nafnVeitingastad Strengur sem inniheldur það sem notandi skrifaði í nafn gluggan
+     * @param nafnVeitingastad Strengur sem inniheldur það sem notandi skrifaði í nafn gluggann
      * @param postCode Integer sem inniheldur það sem notandi valdi fyrir póstnúmer
      * @param address Strengur sem inniheldur það sem notandi skrifaði í address gluggan
      * @param quality Integer sem inniheldur það sem notandi valdi fyrir gæðastaðal
@@ -75,6 +76,10 @@ public class SearchController {
         if(menuType == null) menuType = "";
 
 
+
+        List<Restaurants> nameList = restaurantsService.findByName("%" + nafnVeitingastad + "%");
+        System.out.println(nameList);
+        model.addAttribute("listi", nameList);
 
        // ArrayList<Restaurants> resultList = restaurantsService.searchRestaurant(nafnVeitingastad, postCode, address, quality, menuType);
       //  model.addAttribute("listi", resultList);

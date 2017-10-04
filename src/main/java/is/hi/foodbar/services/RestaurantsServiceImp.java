@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class RestaurantsServiceImp implements RestaurantsService{
 
-    // Tenging yfir í safn af kennurum
+    // Tenging yfir í safn af veitingastöðum
     @Autowired
     RestaurantRepository restoRep;
 
@@ -29,15 +29,15 @@ public class RestaurantsServiceImp implements RestaurantsService{
 
 
     @Override
-    public List<Restaurants> findByName() { return restoRep.findResturantsByName("name");
+    public List<Restaurants> findByName(String name) { return restoRep.findRestaurantsByName(name);
     }
 
     @Override
-    public ArrayList<Restaurants> searchRestaurant(String nafnVeitingastad, int postCode, String address,
+    public List<Restaurants> searchRestaurant(String nafnVeitingastad, int postCode, String address,
                                                     int quality, String menuType) {
 
-        ArrayList<Restaurants> list = new ArrayList<Restaurants>();
-        ArrayList<Restaurants> resultList = new ArrayList<Restaurants>();
+        List<Restaurants> list = new ArrayList<Restaurants>();
+        List<Restaurants> resultList = new ArrayList<Restaurants>();
 
         //list = findResturantsByName(nafnVeitingastad);
 
