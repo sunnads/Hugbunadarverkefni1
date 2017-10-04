@@ -77,14 +77,14 @@ public class SearchController {
      *
      * @return slóðin á skránna demo.jsp
      */
-    /*
+
     // Þar sem klasinn hefur slóðina "/demo", er þessi slóð "/demo/page"
     @RequestMapping("/page")
     public String demoPage(){
         return "demo/demo"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/demo/demo.jsp
         // skoðið application.properties til að sjá hvernig slóðin er sett
     }
-    */
+
 
     /**
      * Birtir synaNotandi.jsp í viðmótinu.
@@ -139,6 +139,7 @@ public class SearchController {
     // Þar sem klasinn hefur enga slóð, er þessi slóð "/index"
     @RequestMapping("/index")
     public String indexPage(){
+        System.out.println("test prenta út index");
         return "view/indexPage"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
         // skoðið application.properties til að sjá hvernig slóðin er sett
     }

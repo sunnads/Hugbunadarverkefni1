@@ -1,6 +1,11 @@
 package is.hi.foodbar.model;
 
+import javax.persistence.Entity;
 import java.util.ArrayList;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Resturant classi sem geymir upplýsingar um veitingastaðinna
@@ -11,10 +16,13 @@ import java.util.ArrayList;
  * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
 
-//@Table (name="resturants")
+@Entity
+@Table (name="resturants")
 public class Resturants {
 
-
+    // Skilgrein id sem auðkenni (e. identity)  hlutarins
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name; // nafn á veitingastað
     private ArrayList<Integer> postCode; // póstnúmer á staðsetningu veitingastaðar
     private ArrayList<String> address; // heimilisfang veitingarstaðar

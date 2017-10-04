@@ -19,7 +19,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ResturantRepository extends JpaRepository<Resturants, Long>{
     /**
-     * Nær í öll resturants
+     * Nær í öll restaurants
      * @return listi af resturants
      */
     List<Resturants> findAll();
@@ -34,14 +34,16 @@ public interface ResturantRepository extends JpaRepository<Resturants, Long>{
      * 
      * @return lista af kennurum með nafn lengra en 3 stafir
      */ 
-    @Query(value = "SELECT name FROM resturants where length name LIKE '%nafnVeitingastad%' ")
-    List<Resturants> findResturantsByName();
+   // @Query(value = "SELECT name FROM resturants where length name LIKE '%nafnVeitingastad%' ")
+    List<Resturants> findResturantsByName(String name);
 
     //List<Resturants> findAllByOrderByIdDesc();
 
    @Override
    Resturants findOne(Long id);
+
+   Resturants save (Resturants resturants);
    
    // Notið sama nafn og dálkanafn í töflunni/tilviksbreytan (e. attribute) 
-   //List<Kennari> findByNafn(String nafn);
+   //List<Resturants> findByName(String name);
 }
