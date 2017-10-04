@@ -5,24 +5,26 @@
  */
 package is.hi.foodbar.repository;
 
-import is.hi.foodbar.model.Resturants;
+import is.hi.foodbar.model.Restaurants;
 import java.util.List;
 
-import is.hi.foodbar.model.Resturants;
+import is.hi.foodbar.model.Restaurants;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import java.util.ArrayList;
 
 /**
  *
  * @author Karítas Sif, Brynja Pálína, Sunna Dröfn
  */
 
-public interface ResturantRepository extends JpaRepository<Resturants, Long>{
+public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
     /**
      * Nær í öll restaurants
      * @return listi af resturants
      */
-    List<Resturants> findAll();
+    List<Restaurants> findAll();
     
     /**
      * Nær í alla kennara
@@ -30,19 +32,22 @@ public interface ResturantRepository extends JpaRepository<Resturants, Long>{
      */
    // Resturants save(Resturants resturants);
     /**
-     * Finnum alla kennara sem hafa lengra nafn en 3 stafir
-     * 
-     * @return lista af kennurum með nafn lengra en 3 stafir
-     */ 
-   // @Query(value = "SELECT name FROM resturants where length name LIKE '%nafnVeitingastad%' ")
-    List<Resturants> findResturantsByName(String name);
+     * Finnur nafn á veitingastað eftir því sem er leitað af
+     * @param name
+     * @return  Listi af nöfnum á veitingastöðum sem passa akkúrat við leitina
+     *          Ef enginn veitingarstaður finnst, skilar auðum lista
+     */
+    @Query("SELECT name FROM Restaurants WHERE LOWER(name) LIKE LOWER(name)")
+    List<Restaurants> findRestaurantsByName(String name);
+
+
 
     //List<Resturants> findAllByOrderByIdDesc();
 
    @Override
-   Resturants findOne(Long id);
+   Restaurants findOne(Long id);
 
-   Resturants save (Resturants resturants);
+   Restaurants save (Restaurants resturants);
    
    // Notið sama nafn og dálkanafn í töflunni/tilviksbreytan (e. attribute) 
    //List<Resturants> findByName(String name);
