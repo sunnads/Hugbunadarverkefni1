@@ -78,14 +78,25 @@ public class SearchController {
 
 
         ArrayList<Restaurants> nameList;
-        nameList = (ArrayList <Restaurants>) restaurantsService.findByName("%" + nafnVeitingastad + "%");
+        //nameList = (ArrayList <Restaurants>) restaurantsService.findByName("%" + nafnVeitingastad + "%");
 
-        model.addAttribute("listi", nameList);
+        //model.addAttribute("listi", nameList);
 
        // ArrayList<Restaurants> resultList = restaurantsService.searchRestaurant(nafnVeitingastad, postCode, address, quality, menuType);
       //  model.addAttribute("listi", resultList);
         return "view/searchPage";
     }
+
+    @RequestMapping("/admin")
+    public String admin(){
+        return "view/adminPage";
+    }
+
+    @RequestMapping("/addRestaurant")
+    public String addRestaurant(){
+        return "view/addRestaurantPage";
+    }
+
 
     /**
      * Hjálparfall til að athuga hvort það var leitað að einhverju af týpunum í listanum.

@@ -37,7 +37,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
      * @return  Listi af nöfnum á veitingastöðum sem passa akkúrat við leitina
      *          Ef enginn veitingarstaður finnst, skilar auðum lista
      */
-    @Query("SELECT name FROM Restaurants WHERE LOWER(name) LIKE LOWER(name)")
+    //@Query("SELECT name FROM Restaurants WHERE LOWER(name) LIKE LOWER(name)")
     List<Restaurants> findRestaurantsByName(String name);
 
 

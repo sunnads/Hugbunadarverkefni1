@@ -22,7 +22,6 @@ public class Restaurants {
 
     // Skilgrein id sem auðkenni (e. identity)  hlutarins
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String name; // nafn á veitingastað
     private int postCode; // póstnúmer á staðsetningu veitingastaðar
     private String address; // heimilisfang veitingarstaðar
@@ -32,6 +31,8 @@ public class Restaurants {
     private ArrayList<String> menuType; // morgun-, hádeigs-  og kvöldmatar seðill
     private int[] openingTime; // opnunartímar veitingastaðar
     private int[] closingTime; // lokunartímar veitingastaðar
+
+    protected Restaurants(){}
 
     public Restaurants ( String name, int postCode, String address, int phoneNumber,
                         int quality, ArrayList<String> type, ArrayList<String> menuType, int[] openingTime,
