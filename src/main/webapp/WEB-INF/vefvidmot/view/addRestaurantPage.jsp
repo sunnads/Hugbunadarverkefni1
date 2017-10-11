@@ -11,6 +11,7 @@
 
     <head>
         <title>Foo'd'bar - Bæta við veitingastað</title>
+
     </head>
 
     <body>
@@ -20,7 +21,7 @@
                 <legend>Grunnupplýsingar</legend>
                 <div>
                     <label>Nafn:</label>
-                    <input name="addNameRestaurant" type="search" placeholder="Nafn á veitingastað" required/>
+                    <input name="addNameRest" type="search" placeholder="Nafn á veitingastað" required/>
                 </div>
                 <div>
                     <label>Póstnúmer:</label>
@@ -29,6 +30,10 @@
                 <div>
                     <label>Heimiisfang:</label>
                     <input name="addAddress" type="search" placeholder="Heimilisfang" required/>
+                </div>
+                <div>
+                    <label>Símanúmer:</label>
+                    <input name="addNumber" type="search" placeholder="Símanúmer" required/>
                 </div>
             </fieldset>
         </form>
@@ -111,7 +116,7 @@
             </fieldset>
         </form>
         <div>
-            <input type="submit" value="Bæta við veitingastað" />
+            <button type="button" value="Bæta við veitingastað" onclick="/addedRest">Bæta við veitingastað</button>
         </div>
 
     </body>
