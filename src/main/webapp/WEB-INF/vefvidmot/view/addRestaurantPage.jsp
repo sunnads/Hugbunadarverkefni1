@@ -16,7 +16,7 @@
 
     <body>
         <h1>Bættu við veitingastað hér fyrir neðan</h1>
-        <form method="POST" action="/search">
+        <form method="POST" action="/addedRest">
             <fieldset>
                 <legend>Grunnupplýsingar</legend>
                 <div>
@@ -35,11 +35,6 @@
                     <label>Símanúmer:</label>
                     <input name="addNumber" type="search" placeholder="Símanúmer" required/>
                 </div>
-            </fieldset>
-        </form>
-        <form>
-            <fieldset>
-                <legend>Nánari Upplýsingar</legend>
                 <div>
                     <label>Gæðaflokkur:</label>
                     <input name="addQuality" type="search" placeholder="Gæðaflokkur"/>
@@ -52,11 +47,6 @@
                     <label>Tegund:</label>
                     <input name="addType" type="search" placeholder="Tegund matar"/>
                 </div>
-            </fieldset>
-        </form>
-        <form>
-            <fieldset>
-                <legend>Opnunar- og Lokunartímar</legend>
                 <div>
                     <label>Opnunartími Mánudagar:</label>
                     <input name="addOpenMon" type="search" placeholder="Opnunartími"/>
@@ -113,10 +103,14 @@
                     <label>Lokunartími Sunnudagar:</label>
                     <input name="addCloseMon" type="search" placeholder="Lokunartími" class="spaceAfter"/>
                 </div>
+                <div>
+                    <input type="submit" value="Bæta við veitingastað" />
+                </div>
             </fieldset>
         </form>
         <div>
             <button type="button" value="Bæta við veitingastað" onclick="/addedRest">Bæta við veitingastað</button>
+            <a method="POST" href="/addedRest">Bæta við veitingastað</a>
         </div>
 
     </body>

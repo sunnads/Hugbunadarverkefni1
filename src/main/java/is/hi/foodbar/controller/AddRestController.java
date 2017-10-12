@@ -50,7 +50,7 @@ public class AddRestController {
     public String addRestaurant(@RequestParam(value="addNameRest", required=false) String name,
                                 @RequestParam(value="addPostCode", required=false) Integer postCode,
                                 @RequestParam(value="addAddress", required=false) String address,
-                                @RequestParam(value="addNumber", required=false) int phoneNumber,
+                                @RequestParam(value="addNumber", required=false) Integer phoneNumber,
                                 @RequestParam(value="addQuality", required=false) Integer quality,
                                 @RequestParam(value="addType", required=false) ArrayList type,
                                 @RequestParam(value="addMenuType", required=false) ArrayList menuType,
@@ -61,7 +61,7 @@ public class AddRestController {
         model.addAttribute("restaurants", r);
         restaurantService.addRestaurant(r);
 
-        return "view/addedRestaurantPage";
+        return "view/addedRestPage";
     }
 
     @RequestMapping("/restList")

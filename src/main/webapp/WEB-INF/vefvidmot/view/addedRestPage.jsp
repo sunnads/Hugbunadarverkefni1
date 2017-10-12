@@ -9,14 +9,14 @@
 
 <html lang="is">
 
-    <head>
-        <title>Foo'd'bar - Veitingastaði bætt við</title>
-    </head>
+<head>
+    <title>Foo'd'bar - Veitingastaði bætt við</title>
+</head>
 
-    <body>
-        <h1>Eftirfarandi veitingastað hefur verið bætt við</h1>
-        <p>Nafn: ${restaurants.getName()}</p>
-        <button onclick="/restList">Skoða veitingastaði</button>
-    </body>
+<body>
+<h1>Eftirfarandi veitingastað hefur verið bætt við</h1>
+<p>Nafn: ${restaurants.getName()}</p>
+<button onclick="/restList">Skoða veitingastaði</button>
+</body>
 
 </html>
