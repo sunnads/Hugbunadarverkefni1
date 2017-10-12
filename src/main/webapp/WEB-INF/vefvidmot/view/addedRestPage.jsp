@@ -16,7 +16,7 @@
 <body>
 <h1>Eftirfarandi veitingastað hefur verið bætt við</h1>
 <p>Nafn: ${restaurants.getName()}</p>
-<button onclick="/restList">Skoða veitingastaði</button>
+<a method="POST" href="/restList">Skoða veitingastaði</a>
 </body>
 
 </html>
