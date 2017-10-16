@@ -1,4 +1,5 @@
 <!-- Höfundur: Brynja Pálína Sigurgeirsdóttir, bps5@hi.is -->
+<!-- Höfundur: Elvar Kjartansson, elk11@hi.is -->
 
 <!DOCTYPE html>
 
@@ -11,7 +12,6 @@
 
     <head>
         <title>Foo'd'bar - Bæta við veitingastað</title>
-
     </head>
 
     <body>
@@ -21,100 +21,94 @@
                 <legend>Grunnupplýsingar</legend>
                 <div>
                     <label>Nafn:</label>
-                    <input name="addNameRest" type="search" placeholder="Nafn á veitingastað" required/>
+                    <input name="addNameRest" type="text" placeholder="Nafn á veitingastað" required/>
                 </div>
                 <div>
                     <label>Póstnúmer:</label>
-                    <input name="addPostCode" type="search" placeholder="Póstnúmer" required/>
+                    <input name="addPostCode" type="text" placeholder="Póstnúmer" required/>
                 </div>
                 <div>
                     <label>Heimiisfang:</label>
-                    <input name="addAddress" type="search" placeholder="Heimilisfang" required/>
+                    <input name="addAddress" type="text" placeholder="Heimilisfang" required/>
                 </div>
                 <div>
                     <label>Símanúmer:</label>
-                    <input name="addNumber" type="search" placeholder="Símanúmer" required/>
+                    <input name="addNumber" type="text" placeholder="Símanúmer" required/>
                 </div>
                 <div>
                     <label>Gæðaflokkur:</label>
-                    <input name="addQuality" type="search" placeholder="Gæðaflokkur"/>
+                    <input name="addQuality" type="text" placeholder="Gæðaflokkur"/>
                 </div>
                 <div>
                     <label>Matseðil:</label>
-                    <input name="addMenuType" type="search" placeholder="Matseðill"/>
+                    <input name="addMenuType" type="text" placeholder="Matseðill"/>
                 </div>
                 <div>
                     <label>Tegund:</label>
-                    <input name="addType" type="search" placeholder="Tegund matar"/>
+                    <input name="addType" type="text" placeholder="Tegund matar"/>
                 </div>
                 <div>
                     <label>Opnunartími Mánudagar:</label>
-                    <input name="addOpenMon" type="search" placeholder="Opnunartími"/>
+                    <input name="addOpenMon" type="text" placeholder="Opnunartími"/>
                 </div>
                 <div>
                     <label>Lokunartími Mánudagar:</label>
-                    <input name="addCloseMon" type="search" placeholder="Lokunartími" class="spaceAfter"/>
+                    <input name="addCloseMon" type="text" placeholder="Lokunartími" class="spaceAfter"/>
                 </div>
                 <div>
                     <label>Opnunartími Þriðjudagar:</label>
-                    <input name="addOpenTue" type="search" placeholder="Opnunartími"/>
+                    <input name="addOpenTue" type="text" placeholder="Opnunartími"/>
                 </div>
                 <div>
                     <label>Lokunartími Þriðjudagar:</label>
-                    <input name="addCloseMon" type="search" placeholder="Lokunartími" class="spaceAfter"/>
+                    <input name="addCloseMon" type="text" placeholder="Lokunartími" class="spaceAfter"/>
                 </div>
                 <div>
                     <label>Opnunartími Miðvikudagar:</label>
-                    <input name="addOpenWed" type="search" placeholder="Opnunartími"/>
+                    <input name="addOpenWed" type="text" placeholder="Opnunartími"/>
                 </div>
                 <div>
                     <label>Lokunartími Miðvikudagar:</label>
-                    <input name="addCloseMon" type="search" placeholder="Lokunartími" class="spaceAfter"/>
+                    <input name="addCloseMon" type="text" placeholder="Lokunartími" class="spaceAfter"/>
                 </div>
                 <div>
                     <label>Opnunartími Fimmtudagar:</label>
-                    <input name="addOpenThu" type="search" placeholder="Opnunartími"/>
+                    <input name="addOpenThu" type="text" placeholder="Opnunartími"/>
                 </div>
                 <div>
                     <label>Lokunartími Fimmtudagar:</label>
-                    <input name="addCloseMon" type="search" placeholder="Lokunartími" class="spaceAfter"/>
+                    <input name="addCloseMon" type="text" placeholder="Lokunartími" class="spaceAfter"/>
                 </div>
                 <div>
                     <label>Opnunartími Föstudagar:</label>
-                    <input name="addOpenFri" type="search" placeholder="Opnunartími"/>
+                    <input name="addOpenFri" type="text" placeholder="Opnunartími"/>
                 </div>
                 <div>
                     <label>Lokunartími Föstudagar:</label>
-                    <input name="addCloseMon" type="search" placeholder="Lokunartími" class="spaceAfter"/>
+                    <input name="addCloseMon" type="text" placeholder="Lokunartími" class="spaceAfter"/>
                 </div>
                 <div>
                     <label>Opnunartími Laugardagar:</label>
-                    <input name="addOpenSat" type="search" placeholder="Opnunartími"/>
+                    <input name="addOpenSat" type="text" placeholder="Opnunartími"/>
                 </div>
                 <div>
                     <label>Lokunartími Laugardagar:</label>
-                    <input name="addCloseMon" type="search" placeholder="Lokunartími" class="spaceAfter"/>
+                    <input name="addCloseMon" type="text" placeholder="Lokunartími" class="spaceAfter"/>
                 </div>
                 <div>
                     <label>Opnunartími Sunnudagar:</label>
-                    <input name="addOpenSun" type="search" placeholder="Opnunartími"/>
+                    <input name="addOpenSun" type="text" placeholder="Opnunartími"/>
                 </div>
                 <div>
                     <label>Lokunartími Sunnudagar:</label>
-                    <input name="addCloseMon" type="search" placeholder="Lokunartími" class="spaceAfter"/>
+                    <input name="addCloseMon" type="text" placeholder="Lokunartími" class="spaceAfter"/>
                 </div>
                 <div>
                     <input type="submit" value="Bæta við veitingastað" />
                 </div>
             </fieldset>
         </form>
-        <div>
-            <button type="button" value="Bæta við veitingastað" onclick="/addedRest">Bæta við veitingastað</button>
-            <a method="POST" href="/addedRest">Bæta við veitingastað</a>
-        </div>
-
     </body>
-
 </html>
 
 <style>

@@ -39,8 +39,8 @@
                         <td>${restaurant.quality}</td>
                         <td>${restaurant.type}</td>
                         <td>${restaurant.menuType}</td>
-                        <td>${restaurant.open}</td>
-                        <td>${restaurant.closed}</td>
+                        <td>${restaurant.openingTime}</td>
+                        <td>${restaurant.closingTime}</td>
                     </tr>
                 </c:forEach>
             </table>

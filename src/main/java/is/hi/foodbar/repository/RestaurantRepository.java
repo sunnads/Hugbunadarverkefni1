@@ -12,7 +12,11 @@ import org.springframework.data.jpa.repository.Query;
 
 /**
  *
- * @author Brynja Pálína Sigurgeirsdóttir
+ *
+ * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
+ * @author Elvar Kjartansson, elk11@hi.is
+ * @date Október 2017
+ * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
 
 public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
@@ -24,7 +28,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
 
     /**
      * Bætir við restaurant
-     * @param restaurants
+     * @param restaurants veitingastaðurinn sem á að bæta í gagnagrunninn
      */
-    Restaurants save (Restaurants restaurants);
+    Restaurants save(Restaurants restaurants);
 }
