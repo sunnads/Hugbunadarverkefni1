@@ -1,46 +1,42 @@
+
 package is.hi.foodbar.services;
 
 import is.hi.foodbar.model.Restaurants;
+
+import java.util.List;
+
 import is.hi.foodbar.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
- * @author ALLUR HÓPURINN
- * @date októmber 2017
+ * @author Brynja Pálína Sigurgeirsdóttir
+ * @date október 2017
  * HBV501G Hugbúnaðarverkefni 1
  * Háskóli Íslands
  */
 @Service
 public class RestaurantsServiceImp implements RestaurantsService{
 
-    // Tenging yfir í safn af veitingastöðum
+    // Tenging yfir í safn af kennurum 
     @Autowired
-    RestaurantRepository restoRep;
+    RestaurantRepository restaurantRep;
+
+    @Override
+    public void addRestaurant(Restaurants r) {
+        restaurantRep.save(r);    // Notum save en ekki add
+    }
 
     @Override
     public List<Restaurants> allRestaurants() {
-        return restoRep.findAll();    // Notum findAll í staðinn fyrir getAll
-    }
-
-
-    @Override
-    public List<Restaurants> findByName(String name) { return restoRep.findRestaurantsByName(name);
+        return restaurantRep.findAll();    // Notum findAll í staðinn fyrir getAll
     }
 
     @Override
-    public List<Restaurants> searchRestaurant(String nafnVeitingastad, int postCode, String address,
-                                                    int quality, String menuType) {
-
-        List<Restaurants> list = new ArrayList<Restaurants>();
-        List<Restaurants> resultList = new ArrayList<Restaurants>();
-
-        //list = findResturantsByName(nafnVeitingastad);
-
-        return resultList;
+    public Restaurants save(Restaurants restaurants) {
+        return restaurantRep.save(restaurants);
     }
+
+
 }

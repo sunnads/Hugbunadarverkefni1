@@ -1,4 +1,4 @@
-<!-- Höfundur: Elvar Kjartansson, elk11@hi.is -->
+<!-- Höfundur: Brynja Pálína Sigurgeirsdóttir, bps5@hi.is -->
 
 <!DOCTYPE html>
 
@@ -7,20 +7,16 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<html lang="en">
+<html lang="is">
 
 <head>
-    <title>Hver er notandinn</title>
+    <title>Foo'd'bar - Veitingastaði bætt við</title>
 </head>
+
 <body>
-
-<h1></h1>
-
-    <form method="POST" action="/demo/hver">
-        Hvað heitirðu? <input name="nafn" type="text" placeholder="Nafn"/>
-        <input type="submit" value="Í lagi" />
-    </form>
-
+<h1>Eftirfarandi veitingastað hefur verið bætt við</h1>
+<p>Nafn: ${restaurants.getName()}</p>
+<a method="POST" href="/restList">Skoða veitingastaði</a>
 </body>
 
 </html>

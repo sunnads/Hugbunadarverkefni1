@@ -15,15 +15,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
- * Byrjunarcontroller sem stýrir hvað er gert þegar notandi eða viðmót
+ * Controller sem stýrir hvað er gert þegar notandi eða viðmót
  * setur inn skipun.
  *
+ * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
  * @author Elvar Kjartansson, elk11@hi.is
- * @date september 2017
+ * @author Karítas Sif Halldórsdóttir, ksh18@hi.is
+ * @author Sunna Dröfn Sigfúsdóttir, sds21@hi.is
+ * @date Október 2017
  * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
 @Controller
-//@RequestMapping("/demo") // Request Mapping er gerð fyrir klasann til að slóðin byrji á /demo fyrir allar skipanir
 public class SearchController {
 
     @Autowired
@@ -33,18 +35,16 @@ public class SearchController {
      * Birtir indexPage.jsp í viðmótinu.
      * Þar er leitin fyrir veitingastaði birt
      *
-     * @return slóðin á skránna indexPage.jsp
+     * @return vefsíða sem hefur upphafsviðmótið
      */
     // Þar sem klasinn hefur enga slóð, er þessi slóð "/index"
     @RequestMapping("/index")
     public String indexPage(){
         return "view/indexPage"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
-        // skoðið application.properties til að sjá hvernig slóðin er sett
     }
 
     /**
      * Notar POST til að ná í upplýsingar frá notanda og setja þær í model.
-     * Kallar á searchResturant(...) og setur niðurstöðurnar í lista.
      *
      * @param nafnVeitingastad Strengur sem inniheldur það sem notandi skrifaði í nafn gluggann
      * @param postCode Integer sem inniheldur það sem notandi valdi fyrir póstnúmer
@@ -52,7 +52,7 @@ public class SearchController {
      * @param quality Integer sem inniheldur það sem notandi valdi fyrir gæðastaðal
      * @param menuType Integer sem inniheldur það sem notandi valdi fyrir matseðil
      * @param model Modelið sem við notum
-     * @return Strengur sem inniheldur slóð á síðuna sem á að birta
+     * @return vefsíða sem birtir leitarniðurstöður
      */
     @RequestMapping(value="/search", method=RequestMethod.POST)
     public String search(@RequestParam(value="nafnVeitingastad", required=false) String nafnVeitingastad,
@@ -67,54 +67,19 @@ public class SearchController {
         model.addAttribute("quality", quality);
         model.addAttribute("menuType", menuType);
 
-        System.out.println(address);
-
+        // Passa að við fáum ekki null error
         if(nafnVeitingastad == null) nafnVeitingastad = "";
         if(postCode == null) postCode = -1;
         if(address == null) address = "";
         if(quality == null) quality = -1;
         if(menuType == null) menuType = "";
 
-
-
-        ArrayList<Restaurants> nameList;
+        // Sýna leitarniðurstöður á searchPage (í vinnslu)
+        //ArrayList<Restaurants> nameList;
         //nameList = (ArrayList <Restaurants>) restaurantsService.findByName("%" + nafnVeitingastad + "%");
 
         //model.addAttribute("listi", nameList);
 
-       // ArrayList<Restaurants> resultList = restaurantsService.searchRestaurant(nafnVeitingastad, postCode, address, quality, menuType);
-      //  model.addAttribute("listi", resultList);
         return "view/searchPage";
     }
-
-    @RequestMapping("/admin")
-    public String admin(){
-        return "view/adminPage";
-    }
-
-    @RequestMapping("/addRestaurant")
-    public String addRestaurant(){
-        return "view/addRestaurantPage";
-    }
-
-
-    /**
-     * Hjálparfall til að athuga hvort það var leitað að einhverju af týpunum í listanum.
-     *
-     * @param rList listinn inniheldur Resturant object sem verið er að prófa á móti
-     * @param i heiltala sem segir okkur hvar í listanum rList við erum komin
-     * @param test menu type sem verið er að athuga hvort hún sé í listanum í Resturant objectinu
-     * @return boolean gildi sem segir okkur hvort við fundum það sem var leitað að
-     */
-    /*
-    private boolean testArrayListMenuType(ArrayList<Resturants> rList, int i, String test) {
-        for (int j = 0; j < rList.get(i).getMenuType().size(); j++) {
-            if (rList.get(i).getMenuType().get(j).equals(test)) {
-                return true;
-            }
-        }
-        return false;
-    }
-*/
-
 }

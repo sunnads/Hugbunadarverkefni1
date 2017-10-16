@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Resturant classi sem geymir upplýsingar um veitingastaðinna
+ * Resturant geymir upplýsingar um veitingastaðinna
  *
  * @author Elvar Kjartansson, elk11@hi.is
  * @author Karítas Sif Halldórsdóttir, ksh18@hi.is
@@ -22,9 +22,11 @@ public class Restaurants {
 
     // Skilgrein id sem auðkenni (e. identity)  hlutarins
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name; // nafn á veitingastað
-    private int postCode; // póstnúmer á staðsetningu veitingastaðar
     private String address; // heimilisfang veitingarstaðar
+    private int postCode; // póstnúmer á staðsetningu veitingastaðar
     private int phoneNumber; // síma númer veitingastaðar
     private int quality; // gæða staðall veitingastaðar
     private ArrayList<String> type; // tengund veitingastaðar
@@ -83,5 +85,10 @@ public class Restaurants {
 
     public int[] getClosingTime() {
         return closingTime;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("<BR>" + "nafn: "+ name + "<BR>" +"heimilisfang: "+ address);
     }
 }
