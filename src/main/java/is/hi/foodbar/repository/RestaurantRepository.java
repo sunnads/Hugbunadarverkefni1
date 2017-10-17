@@ -37,6 +37,6 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
      *
      * @return lista af kennurum með nafn lengra en 3 stafir
      */
-    @Query(value = "SELECT name FROM Restaurants restaurants where restaurants.name = nafn")
+    @Query(value = "SELECT name FROM Restaurants restaurants where restaurants.name LIKE %?1%")
     List<Restaurants> findByName(String nafn);
 }

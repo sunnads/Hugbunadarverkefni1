@@ -23,10 +23,10 @@
 
                 <form id="myForm" action="/info" method="post">
                     <input type="hidden" name="item" value= ${listItem} />
-                    <a href="#" onclick="document.getElementById('myForm').submit();">${listItem.name}</a>
+                    <a href="#" onclick="document.getElementById('myForm').submit();">${listItem}</a>
                 </form>
 
-                <!-- <a href="/info">${listItem.name}</a> -->
+                <!-- <a href="/info">${listItem}</a> -->
             </c:forEach>
         </h2>
 
