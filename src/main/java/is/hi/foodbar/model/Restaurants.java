@@ -22,6 +22,8 @@ public class Restaurants {
 
     // Skilgrein id sem auðkenni (e. identity)  hlutarins
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name; // nafn á veitingastað
     private String address; // heimilisfang veitingarstaðar
     private int postCode; // póstnúmer á staðsetningu veitingastaðar

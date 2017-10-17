@@ -30,8 +30,8 @@
       <file leaf-file-name="Restaurants.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/foodbar/model/Restaurants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+            <state relative-caret-position="289">
+              <caret line="27" column="59" lean-forward="true" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -765,7 +765,7 @@
       <workItem from="1507809581850" duration="119000" />
       <workItem from="1507814411226" duration="652000" />
       <workItem from="1508258186756" duration="8000" />
-      <workItem from="1508258262704" duration="681000" />
+      <workItem from="1508258262704" duration="889000" />
     </task>
     <task id="LOCAL-00001" summary="jola jóla">
       <created>1505862590623</created>
@@ -886,11 +886,18 @@
       <option name="project" value="LOCAL" />
       <updated>1508258334526</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="lagaði restaurants model klasann">
+      <created>1508258976576</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1508258976576</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122097000" />
+    <option name="totallyTimeSpent" value="122305000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -985,7 +992,8 @@
     <MESSAGE value="bætti við tveim view-um, addedRestaurantPage og restaurantListPage, einum controller, run-ar en kemur ekki virknin sem ég vill fá" />
     <MESSAGE value="lagaði nokkra bug-a" />
     <MESSAGE value="lagaði eitt komment í restaurant service imp" />
-    <option name="LAST_COMMIT_MESSAGE" value="lagaði eitt komment í restaurant service imp" />
+    <MESSAGE value="lagaði restaurants model klasann" />
+    <option name="LAST_COMMIT_MESSAGE" value="lagaði restaurants model klasann" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1277,8 +1285,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/is/hi/foodbar/model/Restaurants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="15" column="45" lean-forward="true" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        <state relative-caret-position="289">
+          <caret line="27" column="59" lean-forward="true" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
           <folding />
         </state>
       </provider>
