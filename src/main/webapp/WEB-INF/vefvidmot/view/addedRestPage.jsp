@@ -14,9 +14,17 @@
 </head>
 
 <body>
-<h1>Eftirfarandi veitingastað hefur verið bætt við</h1>
-<p>Nafn: ${restaurants.getName()}</p>
-<a method="POST" href="/restList">Skoða veitingastaði</a>
+    <h1>Eftirfarandi veitingastað hefur verið bætt við</h1>
+    <p>Nafn: ${restaurants.getName()}</p>
+    <p>Heimilisfang: ${restaurants.getAddress()}</p>
+    <p>Póstnúmer: ${restaurants.getPostCode()}</p>
+    <p>Símanúmer: ${restaurants.getPhoneNumber()}</p>
+    <p>Gæðakrafa: ${restaurants.getQuality()}</p>
+    <p>Tegund: ${restaurants.getType()}</p>
+    <p>Matseðill: ${restaurants.getMenuType()}</p>
+    <p>Opnunartími: ${restaurants.getOpeningTime()}</p>
+    <p>Lokunartími: ${restaurants.getClosingTime()}</p>
+    <a method="POST" href="/restList">Skoða veitingastaði</a>
 </body>
 
 </html>

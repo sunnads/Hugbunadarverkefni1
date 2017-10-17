@@ -49,6 +49,8 @@
             <h3> Engir veitingastaðir></h3>
         </c:otherwise>
     </c:choose>
+
+    <a method="POST" href="/addRestaurant">Til baka í bæta við veitingastaði</a>
     </body>
 
 </html>
