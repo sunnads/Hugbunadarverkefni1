@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RestaurantsServiceImp implements RestaurantsService{
 
-    // Tenging yfir í safn af kennurum 
+    // Tenging yfir í safn af veitingastöðum
     @Autowired
     RestaurantRepository restaurantRep;
 
