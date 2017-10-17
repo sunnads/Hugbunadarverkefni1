@@ -51,6 +51,8 @@
     </c:choose>
 
     <a method="POST" href="/addRestaurant">Til baka í bæta við veitingastaði</a>
+    <a method="POST" href="/admin">Skrá út</a>
+    <a method="POST" href="/index">Til baka í leit</a>
     </body>
 
 </html>
