@@ -74,6 +74,11 @@ public class SearchController {
         if(quality == null) quality = -1;
         if(menuType == null) menuType = "";
 
+        ArrayList<Restaurants> listi;
+        listi = (ArrayList<Restaurants>) RestaurantsService.findAllNameMatches(nafnVeitingastad);
+        model.addAttribute("veitingastaðir", listi);
+
+
         // Sýna leitarniðurstöður á searchPage (í vinnslu)
         //ArrayList<Restaurants> nameList;
         //nameList = (ArrayList <Restaurants>) restaurantsService.findByName("%" + nafnVeitingastad + "%");
@@ -82,4 +87,5 @@ public class SearchController {
 
         return "view/searchPage";
     }
+
 }

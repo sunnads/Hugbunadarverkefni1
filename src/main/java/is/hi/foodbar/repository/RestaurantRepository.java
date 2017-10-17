@@ -31,4 +31,12 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
      * @param restaurants veitingastaðurinn sem á að bæta í gagnagrunninn
      */
     Restaurants save(Restaurants restaurants);
+
+    /**
+     * Finnum alla kennara sem hafa lengra nafn en 3 stafir
+     *
+     * @return lista af kennurum með nafn lengra en 3 stafir
+     */
+    @Query(value = "SELECT name FROM Restaurants restaurants where restaurants.name = nafn")
+    List<Restaurants> findByName(String nafn);
 }

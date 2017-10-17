@@ -38,5 +38,8 @@ public class RestaurantsServiceImp implements RestaurantsService{
         return restaurantRep.save(restaurants);
     }
 
-
+    @Override
+    public List<Restaurants> findAllNameMatches(String nafn) {
+        return restaurantRep.findByName(nafn);
+    }
 }

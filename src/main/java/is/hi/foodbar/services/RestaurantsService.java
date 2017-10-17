@@ -1,6 +1,9 @@
 package is.hi.foodbar.services;
 
 import is.hi.foodbar.model.Restaurants;
+import is.hi.foodbar.repository.RestaurantRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 /**
@@ -34,4 +37,7 @@ public interface RestaurantsService {
      * @return
      */
     Restaurants save(Restaurants restaurants);
+
+    List<Restaurants> findAllNameMatches(String nafn);
+
 }
