@@ -32,7 +32,7 @@
                 </div>
             </fieldset>
         </form>
-
+        <a method="POST" href="/index">Til baka í leit</a>
     </body>
 
 </html>

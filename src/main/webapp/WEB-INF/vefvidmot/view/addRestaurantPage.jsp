@@ -108,6 +108,8 @@
                 </div>
             </fieldset>
         </form>
+        <a method="POST" href="/restList">Skoða veitingastaði</a>
+        <a method="POST" href="/admin">Skrá út</a>
     </body>
 </html>
 
