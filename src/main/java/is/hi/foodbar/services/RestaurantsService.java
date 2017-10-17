@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * Þjónusta sem athugar hvort nafn er á réttu formi
+ * Þjónusta sem tengir við gagnagrunninn
  *
  * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
  * @author Elvar Kjartansson, elk11@hi.is
@@ -31,13 +31,18 @@ public interface RestaurantsService {
     List<Restaurants> allRestaurants();
 
     /**
-     *
+     * ónotað, óþarft?
      *
      * @param restaurants
      * @return
      */
     Restaurants save(Restaurants restaurants);
 
+    /**
+     * Leitar í gagnagrunn að nafni sem notandi slær inn.
+     *
+     * @param nafn Strengurinn sem notandi sló inn
+     * @return listi af veitingastöðum sem hafa nafn sem passar við það sem notandi leitaði að
+     */
     List<Restaurants> findAllNameMatches(String nafn);
-
 }

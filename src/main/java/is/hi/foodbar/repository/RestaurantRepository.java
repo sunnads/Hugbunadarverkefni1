@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 /**
- *
+ * Tenging við gagnagrunninn.
  *
  * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
  * @author Elvar Kjartansson, elk11@hi.is
@@ -22,20 +22,23 @@ import org.springframework.data.jpa.repository.Query;
 public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
     /**
      * Nær í öll restaurants
+     *
      * @return listi af restaurants
      */
     List<Restaurants> findAll();
 
     /**
      * Bætir við restaurant
+     *
      * @param restaurants veitingastaðurinn sem á að bæta í gagnagrunninn
      */
     Restaurants save(Restaurants restaurants);
 
     /**
-     * Finnum alla kennara sem hafa lengra nafn en 3 stafir
+     * Finnum alla veitingastaði sem innihalda nafnið sem leitað er að í sínu nafni.
      *
-     * @return lista af kennurum með nafn lengra en 3 stafir
+     * @param nafn Strengur sem leitað er að
+     * @return lista af veitingastöðum sem passa við leitina
      */
     @Query(value = "SELECT name FROM Restaurants restaurants where restaurants.name LIKE %?1%")
     List<Restaurants> findByName(String nafn);
