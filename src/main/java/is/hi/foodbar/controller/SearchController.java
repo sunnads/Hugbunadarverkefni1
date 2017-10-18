@@ -45,6 +45,7 @@ public class SearchController {
 
     /**
      * Notar POST til að ná í upplýsingar frá notanda og setja þær í model.
+     * Sýnir niðurstöður leitarinnar á searchPage.
      *
      * @param nafnVeitingastad Strengur sem inniheldur það sem notandi skrifaði í nafn gluggann
      * @param postCode Integer sem inniheldur það sem notandi valdi fyrir póstnúmer
@@ -73,6 +74,13 @@ public class SearchController {
         if(address == null) address = "";
         if(quality == null) quality = -1;
         if(menuType == null) menuType = "";
+
+        // Setjum niðurstöður leitarinnar í lista og setjum hann í model
+        //
+        ArrayList<Restaurants> listi;
+        listi = (ArrayList<Restaurants>) restaurantsService.findAllMatches(nafnVeitingastad, postCode, address, quality, menuType);
+        model.addAttribute("listi", listi);
+
 
         // Sýna leitarniðurstöður á searchPage (í vinnslu)
         //ArrayList<Restaurants> nameList;

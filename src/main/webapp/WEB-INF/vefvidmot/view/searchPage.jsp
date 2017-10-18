@@ -22,7 +22,7 @@
             <c:forEach items="${listi}" var="listItem">
 
                 <form id="myForm" action="/info" method="post">
-                    <input type="hidden" name="item" value= ${listItem} />
+                    <!-- input type="hidden" name="item" value="${listItem}" / -->
                     <a href="#" onclick="document.getElementById('myForm').submit();">${listItem.name}</a>
                 </form>
 
