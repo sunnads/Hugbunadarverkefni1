@@ -78,8 +78,7 @@ public class SearchController {
         // Setjum niðurstöður leitarinnar í lista og setjum hann í model
         //
         ArrayList<Restaurants> listi;
-        // Leita eftir nafni
-        listi = (ArrayList<Restaurants>) restaurantsService.findAllNameMatches(nafnVeitingastad);
+        listi = (ArrayList<Restaurants>) restaurantsService.findAllMatches(nafnVeitingastad, postCode, address, quality, menuType);
         model.addAttribute("listi", listi);
 
 
@@ -91,5 +90,4 @@ public class SearchController {
 
         return "view/searchPage";
     }
-
 }
