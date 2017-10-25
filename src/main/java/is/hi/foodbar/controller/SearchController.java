@@ -39,8 +39,18 @@ public class SearchController {
      */
     // Þar sem klasinn hefur enga slóð, er þessi slóð "/index"
     @RequestMapping("/index")
-    public String indexPage(){
-        return "view/indexPage"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
+    public String index(){
+        return "index"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
+    }
+    // bara test til að sjá mythmleaf keyra
+    @RequestMapping("/test")
+    public String test(){
+        return "test"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
+    }
+    // færa allt af index yfir á þessa síðu til að finna villu hví hún keyrir ekki í thymleaf
+    @RequestMapping("/indexto")
+    public String indexto(){
+        return "indexto"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
     }
 
     /**
