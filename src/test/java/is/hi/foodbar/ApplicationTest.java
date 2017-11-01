@@ -18,8 +18,10 @@ import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 /**
  *
- * @author Ebba Þóra Hvannberg
- * @date október 2017
+ * @author Karítas Sif Halldórsdóttir
+ * @author Brynja Pálína Sigurgeirsdóttir
+ * @author Elvar Kjartansson
+ * @date nóvember 2017
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  *
  * Prófunarklasi sem framkvæmir prófanir án þess að þurfa að kalla á þjóninn
@@ -35,8 +37,9 @@ public class ApplicationTest {
     private MockMvc mockMvc;
 
     /**
-     * Aðferð til að athuga hvort virkar að senda HttpRequest á /nyrKennari
-     * og fá til baka nyrKennari.html síðuna sem inniheldur strenginn Karl
+     * Aðferð til að athuga hvort virkar að senda HttpRequest á /index
+     * og fá til baka indexPage.jsp síðuna
+     *
      */
     @Test
     public void demoProf() throws Exception {

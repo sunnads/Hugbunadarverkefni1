@@ -101,7 +101,7 @@ public class AddRestController {
     /**
      * Dæmi til að sýna prófanir með kalli á service klasa
      * @param model
-     * @return skilar heima.html ef þjónustan "er á lífi" annars listiKennara
+     * @return skilar indexPage.jsp ef þjónustan "er á lífi" annars restaurantListPage
      */
     @RequestMapping (value = "/lifir", method=RequestMethod.GET)
     public String lifir(Model model) {

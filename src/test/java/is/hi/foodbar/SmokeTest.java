@@ -8,9 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 /**
- *
+ * @author Karítas Sif Halldórsdóttir
+ * @author Brynja Pálína Sigurgeirsdóttir
  * @author Elvar Kjartansson, elk11@hi.is
- * @date október 2017
+ * @date nóvember 2017
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  *
  * Prófunarklasi sem athugar hvort SearchController keyrir

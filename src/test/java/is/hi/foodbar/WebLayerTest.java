@@ -30,7 +30,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @author Karítas Sif Halldórsdóttir
  * @author Brynja Pálína Sigurgeirsdóttir
  * @author Elvar Kjartansson
- * @date Nóvember 2017
+ * @date nóvember 2017
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  * 
  * Prófunarklasi sem framkvæmir prófanir á weblayer og notar WebMvcTest 

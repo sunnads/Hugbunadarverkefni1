@@ -28,8 +28,10 @@ import org.springframework.test.web.servlet.ResultActions;
 
 /**
  *
- * @author Ebba Þóra Hvannberg
- * @date október 2017
+ * @author Karítas Sif Halldórsdóttir
+ * @author Brynja Pálína Sigurgeirsdóttir
+ * @author Elvar Kjartansson
+ * @date nóvember 2017
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  *
  * Prófunarklasi sem framkvæmir prófanir á weblayer og notar WebMvcTest og
@@ -39,8 +41,8 @@ import org.springframework.test.web.servlet.ResultActions;
 @RunWith(SpringRunner.class)
 /**
  *  Aðeins veflagið er keyrt upp en ekki allur "context"-inn
- *  Getum beðið um að keyra bara upp KennariController klasann
- *  Biðjum um að bæta KennariService inn í "context-inn" sem Mock (prófanahlut)
+ *  Getum beðið um að keyra bara upp AddRestController klasann
+ *  Biðjum um að bæta RestaurantsService inn í "context-inn" sem Mock (prófanahlut)
  */
 @WebMvcTest(AddRestController.class)
 
@@ -56,8 +58,8 @@ public class WebMockTest {
     RestaurantsService restaurantsService;
 
     /**
-     * Aðferð sem prófar /lifir á KennariController en með
-     * erALifi() false. Ættum að fá til baka nyrKennari.html síðuna
+     * Aðferð sem prófar /lifir á AddRestController en með
+     * erALifi() false. Ættum að fá til baka indexPage.jsp síðuna
      */
     @Test
     public void testaLifirTrue() throws Exception {
@@ -75,8 +77,8 @@ public class WebMockTest {
 
     }
     /**
-     * Aðferð sem prófar /lifir á KennariController en með
-     * erALifi() false. Ættum að fá til baka listiKennara.html síðuna
+     * Aðferð sem prófar /lifir AddRestController en með
+     * erALifi() false. Ættum að fá til baka restaurantListPage.jsp síðuna
      */
     @Test
     public void testaLifirFalse() throws Exception {
