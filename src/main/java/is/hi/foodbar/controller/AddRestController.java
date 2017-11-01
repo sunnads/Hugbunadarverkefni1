@@ -97,4 +97,19 @@ public class AddRestController {
     public String addRestaurant(){
         return "view/addRestaurantPage";
     }
+
+    /**
+     * Dæmi til að sýna prófanir með kalli á service klasa
+     * @param model
+     * @return skilar heima.html ef þjónustan "er á lífi" annars listiKennara
+     */
+    @RequestMapping (value = "/lifir", method=RequestMethod.GET)
+    public String lifir(Model model) {
+        Restaurants r = new Restaurants();
+        model.addAttribute("restaurants", r);
+        if(restaurantService.erALifi())
+            return "view/indexPage";
+        else
+            return "view/restaurantListPage";
+    }
 }
