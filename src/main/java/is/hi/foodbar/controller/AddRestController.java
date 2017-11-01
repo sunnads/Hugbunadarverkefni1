@@ -44,7 +44,7 @@ public class AddRestController {
      * @param model Módel með attributum
      * @return vefsíðu sem birtir upplýsingar um veitingastað sem bætt var við
      */
-    @RequestMapping(value = "/addedRest", method=RequestMethod.POST)
+    @RequestMapping("/addedRest")
     public String addRestaurant(@RequestParam(value="addNameRest", required=false) String name,
                                 @RequestParam(value="addPostCode", required=false) Integer postCode,
                                 @RequestParam(value="addAddress", required=false) String address,

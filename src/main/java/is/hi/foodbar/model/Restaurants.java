@@ -69,7 +69,7 @@ public class Restaurants {
         return quality;
     }
 
-    public ArrayList<String> getType() {return type; }
+   public ArrayList<String> getType() {return type; }
 
     public ArrayList<String> getMenuType() {return menuType;}
 
