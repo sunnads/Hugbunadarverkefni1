@@ -34,7 +34,7 @@ public class Restaurants {
     private int[] openingTime; // opnunartímar veitingastaðar
     private int[] closingTime; // lokunartímar veitingastaðar
 
-    protected Restaurants(){}
+    public Restaurants(){}
 
     public Restaurants ( String name, int postCode, String address, int phoneNumber,
                         int quality, ArrayList<String> type, ArrayList<String> menuType, int[] openingTime,

@@ -48,4 +48,9 @@ public class RestaurantsServiceImp implements RestaurantsService{
             return restaurantRep.findByName(name);
             //return restaurantRep.findByAll(name, postCode, address, quality, menuType);
     }
+
+    @Override
+    public boolean erALifi() {
+        return true;
+    }
 }
