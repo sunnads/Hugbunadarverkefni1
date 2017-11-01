@@ -1,0 +1,51 @@
+<!-- Höfundur: Brynja Pálína Sigurgeirsdóttir, bps5@hi.is -->
+<!-- Höfundur: Karítas Sif Halldórsdottir, ksh18@hi.is -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foo'd'bar</title>
+</head>
+<body>
+    <th:choose>
+        <th:when test="${not empty restaurantList}">
+            <table>
+                <thead>
+                <tr>
+                    <th>Nafn</th>
+                    <th>Póstnúmer</th>
+                    <th>Heimilisfang</th>
+                    <th>Símanúmer</th>
+                    <th>Gæðiskrafa</th>
+                    <th>Tegund</th>
+                    <th>Matseðill</th>
+                    <th>Opnunartími</th>
+                    <th>Lokunartími</th>
+                </tr>
+                </thead>
+                <c:forEach var ="restaurant" items="${restaurantList}">
+                    <tr>
+                        <td>${restaurant.name} </td>
+                        <td>${restaurant.postCode}</td>
+                        <td>${restaurant.address}</td>
+                        <td>${restaurant.phoneNumber}</td>
+                        <td>${restaurant.quality}</td>
+                        <td>${restaurant.type}</td>
+                        <td>${restaurant.menuType}</td>
+                        <td>${restaurant.openingTime}</td>
+                        <td>${restaurant.closingTime}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </th:when>
+        <c:otherwise>
+            <h3> Engir veitingastaðir></h3>
+        </c:otherwise>
+    </th:choose>
+
+    <a method="POST" href="/addRestaurant">Til baka í bæta við veitingastaði</a>
+    <a method="POST" href="/admin">Skrá út</a>
+</body>
+</html>

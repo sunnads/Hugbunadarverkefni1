@@ -44,7 +44,7 @@ public class AddRestController {
      * @param model Módel með attributum
      * @return vefsíðu sem birtir upplýsingar um veitingastað sem bætt var við
      */
-    @RequestMapping("/addedRest")
+    @RequestMapping(value = "/addedRest", method=RequestMethod.POST)
     public String addRestaurant(@RequestParam(value="addNameRest", required=false) String name,
                                 @RequestParam(value="addPostCode", required=false) Integer postCode,
                                 @RequestParam(value="addAddress", required=false) String address,
@@ -59,7 +59,7 @@ public class AddRestController {
         model.addAttribute("restaurants", r);
         restaurantService.addRestaurant(r);
 
-        return "view/addedRestPage";
+        return "addedRestPage";
     }
 
     /**
@@ -74,7 +74,7 @@ public class AddRestController {
         ArrayList<Restaurants> listi;
         listi = (ArrayList<Restaurants>) restaurantService.allRestaurants();
         model.addAttribute("restaurantList", listi);
-        return "view/restaurantListPage";
+        return "restaurantListPage";
     }
 
     /**
@@ -84,7 +84,7 @@ public class AddRestController {
      */
     @RequestMapping("/admin")
     public String admin(){
-        return "view/adminPage";
+        return "adminPage";
     }
 
     /**
@@ -95,6 +95,6 @@ public class AddRestController {
      */
     @RequestMapping("/addRestaurant")
     public String addRestaurant(){
-        return "view/addRestaurantPage";
+        return "addRestaurantPage";
     }
 }

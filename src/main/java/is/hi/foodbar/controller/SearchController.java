@@ -53,6 +53,11 @@ public class SearchController {
         return "indexto"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
     }
 
+    @RequestMapping("/head")
+    public String head(){
+        return "head"; // skilar .html skrá sem er /resources//templates/WEB-INF/head.html
+    }
+
     /**
      * Notar POST til að ná í upplýsingar frá notanda og setja þær í model.
      * Sýnir niðurstöður leitarinnar á searchPage.
@@ -98,6 +103,6 @@ public class SearchController {
 
         //model.addAttribute("listi", nameList);
 
-        return "view/searchPage";
+        return "searchResults";
     }
 }
