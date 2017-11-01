@@ -24,6 +24,7 @@
     <p>Matseðill: ${restaurants.getMenuType()}</p>
     <p>Opnunartími: ${restaurants.getOpeningTime()}</p>
     <p>Lokunartími: ${restaurants.getClosingTime()}</p>
+    <a method="POST" href="/addRestaurant">Bættu við öðrum veitingarstað</a>
     <a method="POST" href="/restList">Skoða veitingastaði</a>
 </body>
 
