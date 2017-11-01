@@ -35,7 +35,7 @@ public class HttpRequestTest {
         /**
          * Aðferð til að athuga hvort virkar að senda HttpRequest á heimaslóðina og
          * fá til baka síðu sem inniheldur Foo'd'bar
-        
+         *
          * @throws Exception
          */
 	@Test
