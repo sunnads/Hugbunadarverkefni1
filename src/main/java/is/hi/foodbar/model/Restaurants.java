@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Resturant geymir upplýsingar um veitingastaðinna
@@ -24,17 +28,30 @@ public class Restaurants {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull(message = "Settu inn nafn veitingarstaðs")
+    @Size(min=1, max=100, message="Settu inn nafn veitingarstaðs")
     private String name; // nafn á veitingastað
+
+    @NotNull(message = "Settu inn heimilisfang veitingarstaðs")
+    @Size(min=1, max=100, message="Settu inn heimilisfang veitingarstaðs")
     private String address; // heimilisfang veitingarstaðar
+
+    @Min(value=100, message = "Póstnúmer verður að vera þrír stafir ")
+    @Max(value=999, message = "Póstnúmer verður að vera þrír stafir ")
     private int postCode; // póstnúmer á staðsetningu veitingastaðar
+
+    @Min(value=1000000, message = "Símanúmer verður að vera sjö stafir ")
+    @Max(value=9999999, message = "Símanúmer verður að vera sjö stafir ")
     private int phoneNumber; // síma númer veitingastaðar
+
     private int quality; // gæða staðall veitingastaðar
     private ArrayList<String> type; // tengund veitingastaðar
     private ArrayList<String> menuType; // morgun-, hádeigs-  og kvöldmatar seðill
     private int[] openingTime; // opnunartímar veitingastaðar
     private int[] closingTime; // lokunartímar veitingastaðar
 
-    protected Restaurants(){}
+    public Restaurants(){}
 
     public Restaurants ( String name, int postCode, String address, int phoneNumber,
                         int quality, ArrayList<String> type, ArrayList<String> menuType, int[] openingTime,
