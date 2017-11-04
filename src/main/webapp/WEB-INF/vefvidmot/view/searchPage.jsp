@@ -19,7 +19,7 @@
 
         <!-- <h1>Listi:  ${listSize}</h1> -->
         <h2>
-            <th:forEach items="${listi}" var="listItem">
+            <c:forEach items="${listi}" var="listItem">
 
                 <form id="myForm" action="/info" method="post">
                     <!-- input type="hidden" name="item" value="${listItem}" / -->
@@ -27,7 +27,7 @@
                 </form>
 
                 <!-- <a href="/info">${listItem.name}</a> -->
-            </th:forEach>
+            </c:forEach>
         </h2>
 
     </body>

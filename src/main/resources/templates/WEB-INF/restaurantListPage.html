@@ -3,49 +3,56 @@
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foo'd'bar</title>
+<head th:replace="head :: haus">
+    <!-- linkur til að ná í Bootstrap -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous" />
 </head>
 <body>
-    <th:choose>
-        <th:when test="${not empty restaurantList}">
-            <table>
-                <thead>
-                <tr>
-                    <th>Nafn</th>
-                    <th>Póstnúmer</th>
-                    <th>Heimilisfang</th>
-                    <th>Símanúmer</th>
-                    <th>Gæðiskrafa</th>
-                    <th>Tegund</th>
-                    <th>Matseðill</th>
-                    <th>Opnunartími</th>
-                    <th>Lokunartími</th>
-                </tr>
-                </thead>
-                <c:forEach var ="restaurant" items="${restaurantList}">
-                    <tr>
-                        <td>${restaurant.name} </td>
-                        <td>${restaurant.postCode}</td>
-                        <td>${restaurant.address}</td>
-                        <td>${restaurant.phoneNumber}</td>
-                        <td>${restaurant.quality}</td>
-                        <td>${restaurant.type}</td>
-                        <td>${restaurant.menuType}</td>
-                        <td>${restaurant.openingTime}</td>
-                        <td>${restaurant.closingTime}</td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </th:when>
-        <c:otherwise>
-            <h3> Engir veitingastaðir></h3>
-        </c:otherwise>
-    </th:choose>
+<div th:replace="head :: valmyndir">Staðbundinn haus</div>
+<div th:if="${not #lists.isEmpty(restaurantList)}">
+    <table>
+        <thead>
+        <tr>
+            <th>Nafn</th>
+            <th>Póstnúmer</th>
+            <th>Heimilisfang</th>
+            <th>Símanúmer</th>
+            <th>Gæðiskrafa</th>
+            <th>Tegund</th>
+            <th>Matseðill</th>
+            <th>Opnunartími</th>
+            <th>Lokunartími</th>
+        </tr>
+        </thead>
+        <tr th:each ="restaurant :${restaurantList}">
+            <td th:text ="${restaurant.name}"> </td>
+            <td th:text ="${restaurant.postCode}"></td>
+            <td th:text ="${restaurant.address}"></td>
+            <td th:text ="${restaurant.phoneNumber}"></td>
+            <td th:text ="${restaurant.quality}"></td>
+            <td th:text ="${restaurant.type}"></td>
+            <td th:text ="${restaurant.menuType}"></td>
+            <td th:text ="${restaurant.openingTime}"></td>
+            <td th:text ="${restaurant.closingTime}"></td>
+        </tr>
+    </table>
+</div>
 
-    <a method="POST" href="/addRestaurant">Til baka í bæta við veitingastaði</a>
-    <a method="POST" href="/admin">Skrá út</a>
+<a method="POST" href="/addRestaurant">Til baka í bæta við veitingastaði</a>
+<a method="POST" href="/admin">Skrá út</a>
+
+    <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
 </body>
 </html>

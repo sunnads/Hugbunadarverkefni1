@@ -48,15 +48,7 @@ public class SearchController {
         return "test"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
     }
     // færa allt af index yfir á þessa síðu til að finna villu hví hún keyrir ekki í thymleaf
-    @RequestMapping("/indexto")
-    public String indexto(){
-        return "indexto"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
-    }
 
-    @RequestMapping("/head")
-    public String head(){
-        return "head"; // skilar .html skrá sem er /resources//templates/WEB-INF/head.html
-    }
 
     /**
      * Notar POST til að ná í upplýsingar frá notanda og setja þær í model.

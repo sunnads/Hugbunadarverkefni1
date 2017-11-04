@@ -16,7 +16,8 @@
     <div th:replace="head :: valmyndir">Staðbundinn haus</div>
     <h1>Bættu við veitingastað hér fyrir neðan</h1>
 
-    <form th:action="@{/addedRest}"  method="POST">
+    <form th:action="addedRest" role="form"  method="POST">
+
         <fieldset>
             <legend>Grunnupplýsingar</legend>
             <div>
