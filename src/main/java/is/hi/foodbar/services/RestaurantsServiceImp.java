@@ -9,6 +9,8 @@ import is.hi.foodbar.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 /**
  *
  * @author Brynja Pálína Sigurgeirsdóttir
@@ -23,6 +25,7 @@ public class RestaurantsServiceImp implements RestaurantsService{
     @Autowired
     RestaurantRepository restaurantRep;
 
+    @Transactional
     @Override
     public void addRestaurant(Restaurants r) {
         restaurantRep.save(r);    // Notum save en ekki add

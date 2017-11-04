@@ -80,21 +80,15 @@ public class Restaurants {
         return address;
     }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
+    public int getPhoneNumber() { return phoneNumber;}
 
     public int getQuality() {
         return quality;
     }
 
-    public ArrayList<String> getType() {
-        return type;
-    }
+   public ArrayList<String> getType() {return type; }
 
-    public ArrayList<String> getMenuType() {
-        return menuType;
-    }
+    public ArrayList<String> getMenuType() {return menuType;}
 
     public int[] getOpeningTime() {
         return openingTime;

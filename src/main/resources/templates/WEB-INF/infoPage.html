@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="head :: haus">
+    <!-- linkur til að ná í Bootstrap -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous" />
+</head>
+<body>
+<!--header for webpage-->
+<div th:replace="head :: valmyndir">Staðbundinn haus</div>
+
+<h1>Foo´d´bar</h1>
+<h2>
+    <th:forEach items="${listi}" var="listItem">
+
+        <form id="myForm" action="/info" method="post">
+            <!-- input type="hidden" name="item" value="${listItem}" / -->
+            <a href="#" onclick="document.getElementById('myForm').submit();">${listItem.name}</a>
+        </form>
+
+        <!-- <a href="/info">${listItem.name}</a> -->
+    </th:forEach>
+</h2>
+
+<!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+</body>
+</html>
