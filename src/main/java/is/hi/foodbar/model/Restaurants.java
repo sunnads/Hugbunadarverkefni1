@@ -29,20 +29,20 @@ public class Restaurants {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "Settu inn nafn veitingarstaðs")
-    @Size(min=1, max=100, message="Settu inn nafn veitingarstaðs")
+    //@NotNull(message = "Settu inn nafn veitingarstaðs")
+    //@Size(min=1, max=100, message="Settu inn nafn veitingarstaðs")
     private String name; // nafn á veitingastað
 
-    @NotNull(message = "Settu inn heimilisfang veitingarstaðs")
-    @Size(min=1, max=100, message="Settu inn heimilisfang veitingarstaðs")
+    //@NotNull(message = "Settu inn heimilisfang veitingarstaðs")
+    //@Size(min=1, max=100, message="Settu inn heimilisfang veitingarstaðs")
     private String address; // heimilisfang veitingarstaðar
 
-    @Min(value=100, message = "Póstnúmer verður að vera þrír stafir ")
-    @Max(value=999, message = "Póstnúmer verður að vera þrír stafir ")
+    //@Min(value=100, message = "Póstnúmer verður að vera þrír stafir ")
+    //@Max(value=999, message = "Póstnúmer verður að vera þrír stafir ")
     private int postCode; // póstnúmer á staðsetningu veitingastaðar
 
-    @Min(value=1000000, message = "Símanúmer verður að vera sjö stafir ")
-    @Max(value=9999999, message = "Símanúmer verður að vera sjö stafir ")
+    //@Min(value=1000000, message = "Símanúmer verður að vera sjö stafir ")
+    //@Max(value=9999999, message = "Símanúmer verður að vera sjö stafir ")
     private int phoneNumber; // síma númer veitingastaðar
 
     private int quality; // gæða staðall veitingastaðar
@@ -71,32 +71,41 @@ public class Restaurants {
     public String getName() {
         return name;
     }
+    public void setName(String name) { this.name = name; }
 
     public int getPostCode() {
         return postCode;
     }
+    public void setPostCode(int postCode) { this.postCode = postCode; }
 
     public String getAddress() {
         return address;
     }
+    public void setAddress(String address) { this.address = address; }
 
     public int getPhoneNumber() { return phoneNumber;}
+    public void setPhoneNumber(int phoneNumber) { this.phoneNumber = phoneNumber; }
 
     public int getQuality() {
         return quality;
     }
+    public void setQuality(int quality) { this.quality = quality; }
 
-   public ArrayList<String> getType() {return type; }
+    public ArrayList<String> getType() {return type; }
+    public void setType(ArrayList<String> type) { this.type = type; }
 
     public ArrayList<String> getMenuType() {return menuType;}
+    public void setMenuType(ArrayList<String> menuType) { this.menuType = menuType; }
 
     public int[] getOpeningTime() {
         return openingTime;
     }
+    public void setOpeningTime(int[] openingTime) { this.openingTime = openingTime; }
 
     public int[] getClosingTime() {
         return closingTime;
     }
+    public void setClosingTime(int[] closingTime) { this.closingTime = closingTime; }
 
     @Override
     public String toString() {

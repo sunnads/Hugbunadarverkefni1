@@ -28,6 +28,12 @@ public class AddRestController {
     @Autowired
     RestaurantsService restaurantService;
 
+    @ModelAttribute("restaurant")
+    public Restaurants defaultInstance() {
+        Restaurants restaurant = new Restaurants();
+        return restaurant;
+    }
+
     /**
      * Tekur við nafni, postcode, heimilisfangi, símanúmeri, gæðakröfu, tegund, matseðli,
      * opnunar- og lokunartímum og bætir við veitingastað með þessum upplýsingum.

@@ -42,13 +42,12 @@ public class RestaurantsServiceImp implements RestaurantsService{
     }
 
     @Override
-    public List<Restaurants> findAllMatches(String name, int postCode, String address,
-                                            int quality, String menuType) {
+    public List<Restaurants> findAllMatches(Restaurants restaurant) {
 
-        if(postCode < 0 && quality < 0)
-            return restaurantRep.findWithoutPostQuality(name, address, menuType);
-        else
-            return restaurantRep.findByName(name);
+        //if(restaurant.getPostCode() < 0 && restaurant.getQuality() < 0)
+        //    return restaurantRep.findWithoutPostQuality(name, address, menuType);
+        //else
+            return restaurantRep.findByName(restaurant.getName());
             //return restaurantRep.findByAll(name, postCode, address, quality, menuType);
     }
 

@@ -44,7 +44,7 @@ public interface RestaurantsService {
      * @param name Strengurinn sem notandi sló inn
      * @return listi af veitingastöðum sem hafa nafn sem passar við það sem notandi leitaði að
      */
-    List<Restaurants> findAllMatches(String name, int postCode, String address, int quality, String menuType);
+    List<Restaurants> findAllMatches(Restaurants restaurant);
 
     boolean erALifi();
 }
