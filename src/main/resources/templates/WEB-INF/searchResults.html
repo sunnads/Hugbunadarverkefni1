@@ -23,7 +23,7 @@
             <th>Póstnúmer</th>
             <th>Gæðaflokkur</th>
         </tr>
-        <tr th:each ="listItem :${listi}">
+        <tr th:each ="listItem: ${restaurantList}">
             <td th:text ="${listItem.name}"></td>
             <td th:text ="${listItem.address}"></td>
             <td th:text ="${listItem.postCode}"></td>

@@ -103,10 +103,13 @@
                                         <div class="dropdown dropdown-lg">
                                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
                                             <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                <form class="form-horizontal" role="form" method="POST" th:action="search">
+                                                <form class="form-horizontal" role="form" method="POST" th:action="@{/search}" th:object="${restaurant}">
+                                                    <ul>
+                                                        <li th:errors="*{name}" />
+                                                    </ul>
                                                     <div class="form-group">
                                                         <label>Veitingastaður</label>
-                                                        <input class="form-control" name="nafnVeitingastad" type="search" />
+                                                        <input class="form-control" name="name" type="search" th:field="*{name}" />
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="contain">Heimilisfang</label>
@@ -114,7 +117,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="filter">Póstnúmer</label>
-                                                        <select class="form-control" name="postCode">
+                                                        <select class="form-control" name="postCode" >
                                                             <option value="0">Veldu Póstnúmer</option>
                                                             <option value="1">101</option>
                                                             <option value="2">104</option>
@@ -132,7 +135,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="filter">Gæðaflokkur</label>
-                                                            <select class="form-control" name="quality">
+                                                            <select class="form-control" name="quality" >
                                                                 <option value="0">Gæðaflokkur</option>
                                                                 <option value="1">Skyndibitastaður</option>
                                                                 <option value="3">Millifínt</option>

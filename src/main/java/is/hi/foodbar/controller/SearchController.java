@@ -5,6 +5,7 @@ import is.hi.foodbar.services.RestaurantsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.validation.Valid;
 
 
 /**
@@ -28,8 +31,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Controller
 public class SearchController {
 
+    //private ArrayList<Restaurants> restaurantList = new ArrayList<Restaurants>();
+
     @Autowired
-    RestaurantsService restaurantsService;
+    private RestaurantsService restaurantsService;
+
+    @ModelAttribute("restaurant")
+    public Restaurants defaultInstance() {
+        Restaurants restaurant = new Restaurants();
+        return restaurant;
+    }
 
     /**
      * Birtir indexPage.jsp í viðmótinu.
@@ -39,7 +50,9 @@ public class SearchController {
      */
     // Þar sem klasinn hefur enga slóð, er þessi slóð "/index"
     @RequestMapping("/index")
-    public String index(){
+    public String index(Model model){
+        //Restaurants r = new Restaurants();
+        //model.addAttribute("restaurant", r);
         return "index"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
     }
     // bara test til að sjá mythmleaf keyra
@@ -62,6 +75,7 @@ public class SearchController {
      * @param model Modelið sem við notum
      * @return vefsíða sem birtir leitarniðurstöður
      */
+/*
     @RequestMapping(value="/search", method=RequestMethod.POST)
     public String search(@RequestParam(value="nafnVeitingastad", required=false) String nafnVeitingastad,
                          @RequestParam(value="postCode", required=false) Integer postCode,
@@ -96,5 +110,22 @@ public class SearchController {
         //model.addAttribute("listi", nameList);
 
         return "searchResults";
+    }
+*/
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public String search(@Valid @ModelAttribute(name="restaurant")
+                               Restaurants restaurant,
+                               BindingResult err,
+                               ModelMap model) {
+
+        if (!err.hasErrors()) {
+            ArrayList<Restaurants> restaurantList;
+            restaurantList = (ArrayList<Restaurants>) restaurantsService.findAllMatches(restaurant);
+            //restaurantList.add(restaurant);
+            model.addAttribute("restaurantList", restaurantList);
+        }
+
+        return (err.hasErrors() ) ? "index": "searchResults";
     }
 }
