@@ -113,29 +113,29 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="contain">Heimilisfang</label>
-                                                        <input class="form-control" name="address" type="text" />
+                                                        <input class="form-control" name="address" type="text" th:field="*{address}"/>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="filter">Póstnúmer</label>
-                                                        <select class="form-control" name="postCode" >
-                                                            <option value="0">Veldu Póstnúmer</option>
-                                                            <option value="1">101</option>
-                                                            <option value="2">104</option>
-                                                            <option value="3">105</option>
-                                                            <option value="4">107</option>
-                                                            <option value="5">108</option>
-                                                            <option value="6">109</option>
-                                                            <option value="7">110</option>
-                                                            <option value="8">111</option>
-                                                            <option value="9">112</option>
-                                                            <option value="10">200</option>
-                                                            <option value="11">220</option>
-                                                            <option value="12">270</option>
+                                                        <select class="form-control" name="postCode" th:field="*{postCode}">
+                                                            <option value="0" th:value="0">Veldu Póstnúmer</option>
+                                                            <option value="1" th:value="101">101</option>
+                                                            <option value="2" th:value="104">104</option>
+                                                            <option value="3" th:value="105">105</option>
+                                                            <option value="4" th:value="107">107</option>
+                                                            <option value="5" th:value="108">108</option>
+                                                            <option value="6" th:value="109">109</option>
+                                                            <option value="7" th:value="110">110</option>
+                                                            <option value="8" th:value="111">111</option>
+                                                            <option value="9" th:value="112">112</option>
+                                                            <option value="10" th:value="200">200</option>
+                                                            <option value="11" th:value="220">220</option>
+                                                            <option value="12" th:value="270">270</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="filter">Gæðaflokkur</label>
-                                                            <select class="form-control" name="quality" >
+                                                            <select class="form-control" name="quality" th:field="*{quality}">
                                                                 <option value="0">Gæðaflokkur</option>
                                                                 <option value="1">Skyndibitastaður</option>
                                                                 <option value="3">Millifínt</option>
@@ -144,7 +144,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="filter">Tegund matseðils</label>
-                                                            <select class="form-control" name="menuType" >
+                                                            <select class="form-control" name="menuType" th:field="*{menuType}">
                                                                 <option value="0">Matseðil</option>
                                                                 <option value="Morgunmatur">Morgunmatur</option>
                                                                 <option value="Kvöldmatur">Kvöldmatur</option>

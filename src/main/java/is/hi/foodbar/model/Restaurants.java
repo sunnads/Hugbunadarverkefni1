@@ -84,6 +84,7 @@ public class Restaurants {
     public void setAddress(String address) { this.address = address; }
 
     public int getPhoneNumber() { return phoneNumber;}
+    public void setPhoneNumber(int phoneNumber) { this.phoneNumber = phoneNumber; }
 
     public int getQuality() {
         return quality;
@@ -99,10 +100,12 @@ public class Restaurants {
     public int[] getOpeningTime() {
         return openingTime;
     }
+    public void setOpeningTime(int[] openingTime) { this.openingTime = openingTime; }
 
     public int[] getClosingTime() {
         return closingTime;
     }
+    public void setClosingTime(int[] closingTime) { this.closingTime = closingTime; }
 
     @Override
     public String toString() {
