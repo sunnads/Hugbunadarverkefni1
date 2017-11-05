@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 /**
  * Tekur við skipunum frá vefviðmóti til að skrá nýjan veitingastað og birta lista af
@@ -26,8 +29,14 @@ public class AddRestController {
 
     // Tenging yfir í þjónustu klasa fyrir forritið
     @Autowired
-    RestaurantsService restaurantService;
+    private RestaurantsService restaurantService;
 
+    /**
+     * Setur upp nýan restaurant object sem search aðferðin getur breytt
+     * eftir því hvað notandi leitaði að
+     *
+     * @return Restaurant object sem er tómt
+     */
     @ModelAttribute("restaurant")
     public Restaurants defaultInstance() {
         Restaurants restaurant = new Restaurants();
@@ -50,7 +59,7 @@ public class AddRestController {
      * @param model Módel með attributum
      * @return vefsíðu sem birtir upplýsingar um veitingastað sem bætt var við
      */
-    @RequestMapping(value="/addedRest", method=RequestMethod.POST)
+/*    @RequestMapping(value="/addedRest", method=RequestMethod.POST)
     public String addRestaurant(@RequestParam(value="addNameRest", required=false) String name,
                                 @RequestParam(value="addPostCode", required=false) Integer postCode,
                                 @RequestParam(value="addAddress", required=false) String address,
@@ -66,6 +75,29 @@ public class AddRestController {
         restaurantService.addRestaurant(r);
 
         return "addedRestPage";
+    }
+*/
+
+    /**
+     * Bætir við veitingastað með upplýsingum sem admin skrifaði inn.
+     *
+     * @param addRestaurant Restaurants objectið sem verður bætt í gagnagrunnin
+     * @param err BindingResult villur sem koma upp
+     * @param model Módel með attributum
+     * @return vefsíðu sem birtir upplýsingar um veitingastað sem bætt var við
+     */
+    @RequestMapping(value = "/addedRest", method = RequestMethod.POST)
+    public String addRestaurant(@Valid @ModelAttribute(name="addRestaurant")
+                         Restaurants addRestaurant,
+                         BindingResult err,
+                         ModelMap model) {
+
+        if (!err.hasErrors()) {
+            model.addAttribute("restaurants", addRestaurant);
+            restaurantService.addRestaurant(addRestaurant);
+        }
+
+        return (err.hasErrors() ) ? "addRestaurant": "addedRestPage";
     }
 
     /**
@@ -97,16 +129,20 @@ public class AddRestController {
      * Birtir síðu þar sem hægt er að slá inn upplýsingar fyrir veitingastað
      * og bæta honum í gagnagrunn.
      *
+     * @param model Módel með attributum
      * @return síða þar sem hægt er að bæta við veitingastað
      */
     @RequestMapping("/addRestaurant")
-    public String addRestaurant(){
+    public String addRestaurant(Model model){
+        Restaurants r = new Restaurants();
+        model.addAttribute("addRestaurant", r);
         return "addRestaurantPage";
     }
 
     /**
      * Dæmi til að sýna prófanir með kalli á service klasa
-     * @param model
+     *
+     * @param model Módel með attributum
      * @return skilar indexPage.jsp ef þjónustan "er á lífi" annars restaurantListPage
      */
     @RequestMapping (value = "/lifir", method=RequestMethod.GET)
