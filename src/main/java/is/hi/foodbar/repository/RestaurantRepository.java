@@ -38,7 +38,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
     /**
      * Finnum alla veitingastaði sem innihalda nafnið sem leitað er að í sínu nafni.
      *
-     * @param nafn Strengur sem leitað er að
+     * @param name Strengur sem leitað er að
      * @return lista af veitingastöðum sem passa við leitina
      */
     //@Query(value = "SELECT r FROM Restaurants r where lower(r.name) LIKE lower(concat('%', :name,'%'))")
@@ -52,6 +52,19 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
                                              @Param("address") String address,
                                              @Param("menuType") String menuType);
 
+
     @Query(value = "SELECT r FROM Restaurants r where lower(r.name) LIKE lower(concat('%', :name,'%'))")
     List<Restaurants> findByName(@Param("name") String name);
+
+    @Query(value = "SELECT r FROM Restaurants r where lower(r.address) LIKE lower(concat('%', :address,'%'))")
+    List<Restaurants> findByAddress(@Param("address") String address);
+
+    @Query(value = "SELECT r FROM Restaurants r where r.postCode = :postCode")
+    List<Restaurants> findByPostCode(@Param("postCode") int postCode);
+
+    @Query(value = "SELECT r FROM Restaurants r where r.quality = :quality")
+    List<Restaurants> findByQuality(@Param("quality") int quality);
+
+    @Query(value = "SELECT r FROM Restaurants r where lower(r.menuType) LIKE lower(concat('%', :menuType,'%'))")
+    List<Restaurants> findByMenuType(@Param("menuType") String menuType);
 }
