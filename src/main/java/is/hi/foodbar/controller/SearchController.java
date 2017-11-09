@@ -69,56 +69,6 @@ public class SearchController {
     // færa allt af index yfir á þessa síðu til að finna villu hví hún keyrir ekki í thymleaf
 
 
-    /**
-     * Notar POST til að ná í upplýsingar frá notanda og setja þær í model.
-     * Sýnir niðurstöður leitarinnar á searchPage.
-     *
-     * @param nafnVeitingastad Strengur sem inniheldur það sem notandi skrifaði í nafn gluggann
-     * @param postCode Integer sem inniheldur það sem notandi valdi fyrir póstnúmer
-     * @param address Strengur sem inniheldur það sem notandi skrifaði í address gluggan
-     * @param quality Integer sem inniheldur það sem notandi valdi fyrir gæðastaðal
-     * @param menuType Integer sem inniheldur það sem notandi valdi fyrir matseðil
-     * @param model Modelið sem við notum
-     * @return vefsíða sem birtir leitarniðurstöður
-     */
-/*
-    @RequestMapping(value="/search", method=RequestMethod.POST)
-    public String search(@RequestParam(value="nafnVeitingastad", required=false) String nafnVeitingastad,
-                         @RequestParam(value="postCode", required=false) Integer postCode,
-                         @RequestParam(value="address", required=false) String address,
-                         @RequestParam(value="quality", required=false) Integer quality,
-                         @RequestParam(value="menuType", required=false) String menuType, ModelMap model){
-
-        model.addAttribute("nafnVeitingastad", nafnVeitingastad);
-        model.addAttribute("postCode", postCode);
-        model.addAttribute("address", address);
-        model.addAttribute("quality", quality);
-        model.addAttribute("menuType", menuType);
-
-        // Passa að við fáum ekki null error
-        if(nafnVeitingastad == null) nafnVeitingastad = "";
-        if(postCode == null) postCode = -1;
-        if(address == null) address = "";
-        if(quality == null) quality = -1;
-        if(menuType == null) menuType = "";
-
-        // Setjum niðurstöður leitarinnar í lista og setjum hann í model
-        //
-        ArrayList<Restaurants> listi;
-        listi = (ArrayList<Restaurants>) restaurantsService.findAllMatches(nafnVeitingastad, postCode, address, quality, menuType);
-        model.addAttribute("listi", listi);
-
-
-        // Sýna leitarniðurstöður á searchPage (í vinnslu)
-        //ArrayList<Restaurants> nameList;
-        //nameList = (ArrayList <Restaurants>) restaurantsService.findByName("%" + nafnVeitingastad + "%");
-
-        //model.addAttribute("listi", nameList);
-
-        return "searchResults";
-    }
-*/
-
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public String search(@Valid @ModelAttribute(name="restaurant")
                                Restaurants restaurant,
