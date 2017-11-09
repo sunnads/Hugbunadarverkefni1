@@ -5,8 +5,11 @@ import is.hi.foodbar.model.Restaurants;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
+import is.hi.foodbar.model.Type;
 import is.hi.foodbar.repository.RestaurantRepository;
+import is.hi.foodbar.repository.TypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +28,24 @@ public class RestaurantsServiceImp implements RestaurantsService{
 
     // Tenging yfir í safn af veitingastöðum
     @Autowired
-    RestaurantRepository restaurantRep;
+    private RestaurantRepository restaurantRep;
+
+    // Tenging yfir í safn af tegundum fyrir veitingastaði
+    @Autowired
+    private TypeRepository typeRep;
 
     @Transactional
     @Override
     public void addRestaurant(Restaurants r) {
         restaurantRep.save(r);    // Notum save en ekki add
+    }
+
+    @Transactional
+    @Override
+    public void addType(Type t, Restaurants r) {
+        r.addType(t);
+        Set<Type> h =  r.getType();
+        typeRep.save(t);
     }
 
     @Override
@@ -39,16 +54,25 @@ public class RestaurantsServiceImp implements RestaurantsService{
     }
 
     @Override
+    public Restaurants findRestaurant(String name) {
+
+        if(restaurantRep.findByName(name).size() != 0)
+            return restaurantRep.findByName(name).iterator().next();
+        else
+            return null;
+    }
+/*
+    @Override
     public Restaurants save(Restaurants restaurants) {
         return restaurantRep.save(restaurants);
     }
-
+*/
     @Override
     public List<Restaurants> findAllMatches(Restaurants restaurant) {
 
         // Búum til lista og fyllum hann af öllum veitingastöðum sem passa við nafnið sem notandi leitaði að
         ArrayList<Restaurants> rList, filterList;
-        rList = (ArrayList<Restaurants>) restaurantRep.findByName(restaurant.getName());
+        rList = (ArrayList<Restaurants>) restaurantRep.findByNameMatch(restaurant.getName());
 
         // filterum út það sem passar ekki við heimilisfang sem notandi leitaði að
         filterList = (ArrayList<Restaurants>) restaurantRep.findByAddress(restaurant.getAddress());

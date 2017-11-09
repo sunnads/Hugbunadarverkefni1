@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 /**
- * Tenging við gagnagrunninn.
+ * Tenging við gagnagrunninn fyrir veitingastaðina.
  *
  * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
  * @author Elvar Kjartansson, elk11@hi.is
@@ -32,6 +32,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
      * Bætir við restaurant
      *
      * @param restaurants veitingastaðurinn sem á að bæta í gagnagrunninn
+     * @return Veitingastað
      */
     Restaurants save(Restaurants restaurants);
 
@@ -52,9 +53,10 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
                                              @Param("address") String address,
                                              @Param("menuType") String menuType);
 
+    List<Restaurants> findByName(String name);
 
     @Query(value = "SELECT r FROM Restaurants r where lower(r.name) LIKE lower(concat('%', :name,'%'))")
-    List<Restaurants> findByName(@Param("name") String name);
+    List<Restaurants> findByNameMatch(@Param("name") String name);
 
     @Query(value = "SELECT r FROM Restaurants r where lower(r.address) LIKE lower(concat('%', :address,'%'))")
     List<Restaurants> findByAddress(@Param("address") String address);

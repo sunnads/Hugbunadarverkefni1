@@ -1,9 +1,7 @@
 package is.hi.foodbar.services;
 
 import is.hi.foodbar.model.Restaurants;
-import is.hi.foodbar.repository.RestaurantRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import is.hi.foodbar.model.Type;
 import java.util.List;
 
 /**
@@ -24,6 +22,13 @@ public interface RestaurantsService {
     void addRestaurant(Restaurants r);
 
     /**
+     * Bætir við tegund t fyrir veitingastað r
+     * @param t tegund sem bætt er við
+     * @param r veitingastað r
+     */
+    void addType(Type t, Restaurants r);
+
+    /**
      * Skilar öllum restaurants í restaurantsRep
      *
      * @return listi af restaurants
@@ -31,17 +36,25 @@ public interface RestaurantsService {
     List<Restaurants> allRestaurants();
 
     /**
+     * Finnur fyrsta veitingastað sem inniheldur það sem leitað er að í nafninu
+     *
+     * @param name sem leitað er að
+     * @return veitingastaður sem passar við nafnið
+     */
+    Restaurants findRestaurant(String name);
+/*
+    /**
      * ónotað, óþarft?
      *
      * @param restaurants
      * @return
-     */
+     *//*
     Restaurants save(Restaurants restaurants);
-
+*/
     /**
      * Leitar í gagnagrunn að nafni sem notandi slær inn.
      *
-     * @param name Strengurinn sem notandi sló inn
+     * @param restaurant Strengurinn sem notandi sló inn
      * @return listi af veitingastöðum sem hafa nafn sem passar við það sem notandi leitaði að
      */
     List<Restaurants> findAllMatches(Restaurants restaurant);
