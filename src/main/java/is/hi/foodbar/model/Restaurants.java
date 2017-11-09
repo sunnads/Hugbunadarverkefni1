@@ -16,6 +16,7 @@ import javax.validation.constraints.Size;
  *
  * @author Elvar Kjartansson, elk11@hi.is
  * @author Karítas Sif Halldórsdóttir, ksh18@hi.is
+ * @author Brynja Pálína Sigurgeirsdóttir, bps5@hi.is
  * @date september 2017
  * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
@@ -46,16 +47,16 @@ public class Restaurants {
     private int phoneNumber; // síma númer veitingastaðar
 
     private int quality; // gæða staðall veitingastaðar
-    private ArrayList<String> type; // tengund veitingastaðar
-    private ArrayList<String> menuType; // morgun-, hádeigs-  og kvöldmatar seðill
-    private int[] openingTime; // opnunartímar veitingastaðar
-    private int[] closingTime; // lokunartímar veitingastaðar
+    private String type; // tengund veitingastaðar
+    private String menuType; // morgun-, hádeigs-  og kvöldmatar seðill
+    private String openingTime; // opnunartímar veitingastaðar
+    private String closingTime; // lokunartímar veitingastaðar
 
     public Restaurants(){}
 
     public Restaurants ( String name, int postCode, String address, int phoneNumber,
-                        int quality, ArrayList<String> type, ArrayList<String> menuType, int[] openingTime,
-                        int[] closingTime){
+                        int quality, String type, String menuType, String openingTime,
+                         String closingTime){
 
         this.name = name;
         this.postCode = postCode;
@@ -91,21 +92,21 @@ public class Restaurants {
     }
     public void setQuality(int quality) { this.quality = quality; }
 
-    public ArrayList<String> getType() {return type; }
-    public void setType(ArrayList<String> type) { this.type = type; }
+    public String getType() {return type; }
+    public void setType(String type) { this.type = type; }
 
-    public ArrayList<String> getMenuType() {return menuType;}
-    public void setMenuType(ArrayList<String> menuType) { this.menuType = menuType; }
+    public String getMenuType() {return menuType;}
+    public void setMenuType(String menuType) { this.menuType = menuType; }
 
-    public int[] getOpeningTime() {
+    public String getOpeningTime() {
         return openingTime;
     }
-    public void setOpeningTime(int[] openingTime) { this.openingTime = openingTime; }
+    public void setOpeningTime(String openingTime) { this.openingTime = openingTime; }
 
-    public int[] getClosingTime() {
+    public String getClosingTime() {
         return closingTime;
     }
-    public void setClosingTime(int[] closingTime) { this.closingTime = closingTime; }
+    public void setClosingTime(String closingTime) { this.closingTime = closingTime; }
 
     @Override
     public String toString() {
