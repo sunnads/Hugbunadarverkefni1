@@ -69,6 +69,14 @@ public class SearchController {
     // færa allt af index yfir á þessa síðu til að finna villu hví hún keyrir ekki í thymleaf
 
 
+    @RequestMapping(value = "/searchbar", method = RequestMethod.POST)
+    public String searchbar(@RequestParam("find") String find, ModelMap model) {
+        ArrayList<Restaurants> restaurantList;
+        restaurantList = (ArrayList<Restaurants>) restaurantsService.findAllMatches(find);
+        model.addAttribute("restaurantList", restaurantList);
+        return "searchResults";
+    }
+
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public String search(@Valid @ModelAttribute(name="restaurant")
                                Restaurants restaurant,
@@ -77,7 +85,7 @@ public class SearchController {
 
         if (!err.hasErrors()) {
             ArrayList<Restaurants> restaurantList;
-            restaurantList = (ArrayList<Restaurants>) restaurantsService.findAllMatches(restaurant);
+            restaurantList = (ArrayList<Restaurants>) restaurantsService.findFilteredMatches(restaurant);
             //restaurantList.add(restaurant);
             model.addAttribute("restaurantList", restaurantList);
         }

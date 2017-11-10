@@ -61,14 +61,18 @@ public class RestaurantsServiceImp implements RestaurantsService{
         else
             return null;
     }
-/*
+
     @Override
-    public Restaurants save(Restaurants restaurants) {
-        return restaurantRep.save(restaurants);
+    public List<Restaurants> findAllMatches(String find) {
+
+        // Búum til lista og fyllum hann af öllum veitingastöðum sem passa við nafnið sem notandi leitaði að
+        ArrayList<Restaurants> rList, filterList;
+        rList = (ArrayList<Restaurants>) restaurantRep.findByNameMatch(find);
+        return rList;
     }
-*/
+
     @Override
-    public List<Restaurants> findAllMatches(Restaurants restaurant) {
+    public List<Restaurants> findFilteredMatches(Restaurants restaurant) {
 
         // Búum til lista og fyllum hann af öllum veitingastöðum sem passa við nafnið sem notandi leitaði að
         ArrayList<Restaurants> rList, filterList;
