@@ -42,22 +42,22 @@ public interface RestaurantsService {
      * @return veitingastaður sem passar við nafnið
      */
     Restaurants findRestaurant(String name);
-/*
+
     /**
-     * ónotað, óþarft?
+     * Leitar í gagnagrunn að öllum vetingastöðum sem passa við það sem notandi slær inn.
      *
-     * @param restaurants
-     * @return
-     *//*
-    Restaurants save(Restaurants restaurants);
-*/
-    /**
-     * Leitar í gagnagrunn að nafni sem notandi slær inn.
-     *
-     * @param restaurant Strengurinn sem notandi sló inn
-     * @return listi af veitingastöðum sem hafa nafn sem passar við það sem notandi leitaði að
+     * @param find Strengurinn sem notandi sló inn
+     * @return listi af veitingastöðum sem passa við það sem notandi leitaði að
      */
-    List<Restaurants> findAllMatches(Restaurants restaurant);
+    List<Restaurants> findAllMatches(String find);
+
+    /**
+     * Leitar í gagnagrunn að öllum vetingastöðum sem passa við allt sem notandi slær inn.
+     *
+     * @param restaurant veitingastaðurinn sem notandi vill finna
+     * @return listi af veitingastöðum sem passa við það sem notandi leitaði að
+     */
+    List<Restaurants> findFilteredMatches(Restaurants restaurant);
 
     boolean erALifi();
 }

@@ -125,11 +125,11 @@ public class AddRestController {
      */
     @RequestMapping(value = "/addType", method = RequestMethod.POST)
     public String addType(@RequestParam("type") String typeName,
-                            @RequestParam("name") String restName, ModelMap model) {
+                          @RequestParam("name") String restName, ModelMap model) {
         Type type = new Type();
         type.setName(typeName);
         Restaurants r = restaurantService.findRestaurant(restName);
-        if (r != null) {
+        if (r != null && !typeName.equals("Invalid")) {
             restaurantService.addType(type, r);
             model.addAttribute("restaurants", r);
             return "addedTypePage";

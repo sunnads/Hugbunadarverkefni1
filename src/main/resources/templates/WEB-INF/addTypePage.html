@@ -16,12 +16,12 @@
     <form th:action="@{/addType}" role="form" method="POST">
         <input name="name" type="text" placeholder="veitingastaður" />
         <select name="type" >
-            <option>Veldu tegund</option>
+            <option value="Invalid" th:value="Invalid">Veldu tegund</option>
             <option value="Pizza" th:value="Pizza">Pizza</option>
             <option value="Pasta" th:value="Pasta">Pasta</option>
             <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
             <option value="kjot" th:value="Kjöt">Kjöt</option>
-            <option value="fiskur" th:value="Fiskur">Fsikur</option>
+            <option value="fiskur" th:value="Fiskur">Fiskur</option>
             <option value="kjuklingur" th:value="Kjúklingur">Kjúklingur</option>
             <option value="asiskt" th:value="asiskt">Asískt</option>
             <option value="graenmetis" th:value="Grænmetisréttir">Grænmetisréttir</option>

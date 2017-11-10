@@ -97,8 +97,8 @@
                     <li>
                         <div class="search-control">
                             <div class="input-group" id="adv-search">
-                                <form id="formID">
-                                <input class="form-control" type="text"  placeholder="Sláðu inn leitarorð" />
+                                <form id="formID" method="POST" th:action="@{/searchbar}">
+                                    <input class="form-control" name="find" type="text" placeholder="Sláðu inn leitarorð"/>
                                 </form>
                                   <div class="input-group-btn">
                                     <div class="btn-group" role="group">
@@ -167,7 +167,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary" form="formID" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                        <button class="btn btn-primary" form="formID" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                                     </div>
                                 </div>
                             </div>
