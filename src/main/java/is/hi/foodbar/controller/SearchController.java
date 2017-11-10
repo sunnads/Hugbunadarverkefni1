@@ -84,4 +84,5 @@ public class SearchController {
 
         return (err.hasErrors() ) ? "index": "searchResults";
     }
+
 }

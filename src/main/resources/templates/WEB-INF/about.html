@@ -1,43 +1,21 @@
-<!-- Höfundur: Brynja Pálína Sigurgeirsdóttir, bps5@hi.is -->
-<!-- Höfundur: Karítas Sif Halldórsdottir, ksh18@hi.is -->
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="head :: haus">
     <!-- linkur til að ná í Bootstrap -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous" />
-
 </head>
-
 <body>
+<!--header for webpage-->
+<div th:replace="head :: valmyndir">Staðbundinn haus</div>
 
-    <!--header for webpage-->
-    <div lang="en" th:include="head :: valmyndir"></div>
+<h1>Foo´d´bar</h1>
 
-    <h1>Admin innskráning</h1>
 
-    <form method="POST" action="/addRestaurant">
-        <fieldset>
-
-            <div>
-                <label>Admin:</label>
-                <input name="admin" type="text" placeholder="Admin"/>
-            </div>
-            <div>
-                <label>Lykilorð:</label>
-                <input name="password" type="password" placeholder="Password"/>
-            </div>
-
-            <input type="submit" value="Skrá inn" />
-
-        </fieldset>
-    </form>
-    <a method="POST" href="/index">Til baka í leit</a>
-
-    <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
+<!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -48,5 +26,4 @@
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
