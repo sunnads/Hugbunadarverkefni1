@@ -25,7 +25,17 @@
 
     <form th:action="@{/addType}" role="form" method="POST">
         <input name="name" type="text" placeholder="veitingastaður" />
-        <input name="type" type="text" placeholder="tegund" />
+        <select name="type">
+            <option>Veldu tegund</option>
+            <option value="Pizza" th:value="Pizza">Pizza</option>
+            <option value="Pasta" th:value="Pasta">Pasta</option>
+            <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
+            <option value="kjot" th:value="Kjöt">Kjöt</option>
+            <option value="fiskur" th:value="Fiskur">Fsikur</option>
+            <option value="kjuklingur" th:value="Kjúklingur">Kjúklingur</option>
+            <option value="asiskt" th:value="asiskt">Asískt</option>
+            <option value="graenmetis" th:value="Grænmetisréttir">Grænmetisréttir</option>
+        </select>
 
         <input type="submit" class="btn btn-primary" value="Bæta við tegund"/>
     </form>>
@@ -34,15 +44,15 @@
     <a method="POST" href="/addRestaurant">Til baka í bæta við veitingastaði</a>
     <a method="POST" href="/admin">Skrá út</a>
 
-    <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-            crossorigin="anonymous"></script>
+<!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 </body>
 </html>
