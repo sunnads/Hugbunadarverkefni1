@@ -65,9 +65,32 @@ public class RestaurantsServiceImp implements RestaurantsService{
     @Override
     public List<Restaurants> findAllMatches(String find) {
 
-        // Búum til lista og fyllum hann af öllum veitingastöðum sem passa við nafnið sem notandi leitaði að
-        ArrayList<Restaurants> rList, filterList;
+        // Búum til lista og fyllum hann af öllum veitingastöðum sem hafa það sem notandi leitaði að í nafninu
+        ArrayList<Restaurants> rList, addList;
         rList = (ArrayList<Restaurants>) restaurantRep.findByNameMatch(find);
+
+        // bætum við öllum veitingastöðum sem hafa það sem notandi leitaði að í heimilisfanginu
+        addList = (ArrayList<Restaurants>) restaurantRep.findByAddress(find);
+        for (int i = 0; i < addList.size(); i++) {
+            if(!rList.contains(addList.get(i))) {
+                rList.add(addList.get(i));
+            }
+        }
+
+        // Athugum hvort notandi sló inn tölu
+        try {
+            int findNumber = Integer.parseInt(find);
+
+            // bætum við öllum veitingastöðum sem hafa það sem notandi leitaði að sem póst númer
+            addList = (ArrayList<Restaurants>) restaurantRep.findByPostCode(findNumber);
+            for (int i = 0; i < addList.size(); i++) {
+                if(!rList.contains(addList.get(i))) {
+                    rList.add(addList.get(i));
+                }
+            }
+
+        } catch (NumberFormatException e) { }
+
         return rList;
     }
 
