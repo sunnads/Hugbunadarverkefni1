@@ -30,7 +30,30 @@
             </div>
             <div class="form-group col-sm-6">
                 <label for="addPostCode">Póstnúmer:</label>
-                <input type="text" class="form-control" name="addPostCode" id="addPostCode" th:field="*{postCode}" placeholder="Póstnúmer"/>
+                <select class="form-control" type="text" name="addPostCode" id="addPostCode"  th:field="*{postCode}">
+                    <option value="0" th:value="0">Veldu Póstnúmer</option>
+                    <option value="1" th:value="101">101</option>
+                    <option value="2" th:value="103">103</option>
+                    <option value="3" th:value="104">104</option>
+                    <option value="4" th:value="105">105</option>
+                    <option value="5" th:value="107">107</option>
+                    <option value="6" th:value="108">108</option>
+                    <option value="7" th:value="109">109</option>
+                    <option value="8" th:value="110">110</option>
+                    <option value="9" th:value="111">111</option>
+                    <option value="10" th:value="112">112</option>
+                    <option value="11" th:value="113">113</option>
+                    <option value="12" th:value="116">116</option>
+                    <option value="13" th:value="170">170</option>
+                    <option value="14" th:value="200">200</option>
+                    <option value="15" th:value="201">201</option>
+                    <option value="16" th:value="203">203</option>
+                    <option value="17" th:value="210">210</option>
+                    <option value="19" th:value="220">220</option>
+                    <option value="19" th:value="221">221</option>
+                    <option value="20" th:value="225">225</option>
+                    <option value="21" th:value="270">270</option>
+                </select>
             </div>
             <div class="form-group col-sm-6">
                 <label for="addAddress">Heimilisfang:</label>
@@ -38,7 +61,7 @@
             </div>
             <div class="form-group col-sm-6">
                 <label for="addNumber">Símanúmer:</label>
-                <input type="tel" class="form-control" name="addNumber" id="addNumber" th:field="*{phoneNumber}" placeholder="Símanúmer"/>
+                <input type="tel" class="form-control" name="addNumber" id="addNumber" th:field="*{phoneNumber}" placeholder="Símanúmer" maxlength="7"/>
             </div>
             <div class="form-group col-sm-6">
                 <label for="addQuality">Gæðaflokkur:</label>

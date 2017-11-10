@@ -145,23 +145,37 @@
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="filter">Tegund</label>
+                                                        <select class="form-control" name="type">
+                                                            <option>Veldu tegund</option>
+                                                            <option value="Pizza" th:value="Pizza">Pizza</option>
+                                                            <option value="Pasta" th:value="Pasta">Pasta</option>
+                                                            <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
+                                                            <option value="kjot" th:value="Kjöt">Kjöt</option>
+                                                            <option value="fiskur" th:value="Fiskur">Fsikur</option>
+                                                            <option value="kjuklingur" th:value="Kjúklingur">Kjúklingur</option>
+                                                            <option value="asiskt" th:value="asiskt">Asískt</option>
+                                                            <option value="graenmetis" th:value="Grænmetisréttir">Grænmetisréttir</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="filter">Gæðaflokkur</label>
-                                                            <select class="form-control" name="quality" th:field="*{quality}">
-                                                                <option value="0" th:value="0">Gæðaflokkur</option>
-                                                                <option value="1" th:value="1">Skyndibitastaður</option>
-                                                                <option value="3" th:value="3">Millifínt</option>
-                                                                <option value="5" th:value="5">Fínt</option>
-                                                            </select>
+                                                        <select class="form-control" name="quality" th:field="*{quality}">
+                                                            <option value="0" th:value="0">Gæðaflokkur</option>
+                                                            <option value="1" th:value="1">Skyndibitastaður</option>
+                                                            <option value="3" th:value="3">Millifínt</option>
+                                                            <option value="5" th:value="5">Fínt</option>
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="filter">Tegund matseðils</label>
-                                                            <select class="form-control" name="menuType" th:field="*{menuType}">
-                                                                <option th:value="''">Matseðil</option>
-                                                                <option th:value="'Morgunmatur'">Morgunmatur</option>
-                                                                <option th:value="'Kvöldmatur'">Kvöldmatur</option>
-                                                                <option th:value="'Hádeigismatur'">Hádeigismatur</option>
-                                                                <option th:value="'Kaffi og kökur'">Kaffi og kökur</option>
-                                                            </select>
+                                                        <select class="form-control" name="menuType" th:field="*{menuType}">
+                                                            <option th:value="''">Matseðil</option>
+                                                            <option th:value="'Morgunmatur'">Morgunmatur</option>
+                                                            <option th:value="'Kvöldmatur'">Kvöldmatur</option>
+                                                            <option th:value="'Hádeigismatur'">Hádeigismatur</option>
+                                                            <option th:value="'Kaffi og kökur'">Kaffi og kökur</option>
+                                                        </select>
                                                     </div>
                                                     <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                                                 </form>
