@@ -97,6 +97,11 @@ public class Restaurants {
         return type;
     }
 
+    public void setType(String typeName) {
+        Type ty = new Type(typeName,this);
+        addType(ty);
+    }
+
     public void addType(Type t) {
         t.setRestaurant(this);
         type.add(t);
