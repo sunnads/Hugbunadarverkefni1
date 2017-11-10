@@ -77,6 +77,20 @@ public class RestaurantsServiceImp implements RestaurantsService{
             }
         }
 
+        // Athugum hvort notandi sló inn tölu
+        try {
+            int findNumber = Integer.parseInt(find);
+
+            // bætum við öllum veitingastöðum sem hafa það sem notandi leitaði að sem póst númer
+            addList = (ArrayList<Restaurants>) restaurantRep.findByPostCode(findNumber);
+            for (int i = 0; i < addList.size(); i++) {
+                if(!rList.contains(addList.get(i))) {
+                    rList.add(addList.get(i));
+                }
+            }
+
+        } catch (NumberFormatException e) { }
+
         return rList;
     }
 
