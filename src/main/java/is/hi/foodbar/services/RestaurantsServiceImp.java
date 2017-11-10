@@ -117,6 +117,12 @@ public class RestaurantsServiceImp implements RestaurantsService{
             rList.retainAll(filterList);
         }
 
+        // filterum út það sem passar ekki við tegund sem notandi leitaði að
+        if(restaurant.getType().iterator().hasNext() && !restaurant.getType().iterator().next().getName().equals("0")) {
+            filterList = (ArrayList<Restaurants>) restaurantRep.findByType(restaurant.getType().iterator().next().getName());
+            rList.retainAll(filterList);
+        }
+
         // filterum út það sem passar ekki við matseðil sem notandi leitaði að
 /*        String menu = "";
         ArrayList<String> menuList = restaurant.getMenuType();
