@@ -1,28 +1,109 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="head :: haus">
-    <!-- linkur til að ná í Bootstrap -->
+<head th:include="head :: haus">
+    <!-- linkur til að ná í Bootstrap-->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous" />
+
+    <!-- css skjal og linkur í það-->
+   <!-- <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />-->
 </head>
+
 <body>
     <!--header for webpage-->
-    <div th:replace="head :: valmyndir">Staðbundinn haus</div>
+   <div th:replace="head :: valmyndir">Staðbundinn haus</div>
 
-    <h1>Foo´d´bar</h1>
+    <!-- Carousel
+     ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+
+                <img src="https://notendur.hi.is/ksh18/hugbo1/food-eating-potatoes-beer-8313.jpg"/>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Hvað langar þér að borða?</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ullamcorper nibh. Vivamus eget rhoncus metus, tempor tristique odio. Nullam nisl turpis, fringilla ut quam sit amet, aliquet venenatis sem. Fusce dictum sagittis arcu non hendrerit. In ut mollis augue, eu volutpat ligula. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <!-- <img src="https://notendur.hi.is/ksh18/hugbo1/steik.png">-->
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Slide 2</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ullamcorper nibh. Vivamus eget rhoncus metus, tempor tristique odio. Nullam nisl turpis, fringilla ut quam sit amet, aliquet venenatis sem. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <!-- <img src="http://upload.wikimedia.org/wikipedia/commons/3/30/Panel%C3%A1ky_Ko%C5%A1%C3%ADk.jpg">-->
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Třetí slajd</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ullamcorper nibh. Vivamus eget rhoncus metus, tempor tristique odio. Nullam nisl turpis, fringilla ut quam sit amet, aliquet venenatis sem. Fusce dictum sagittis arcu non hendrerit. In ut mollis augue, eu volutpat ligula.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </div>
+    <!-- /.carousel -->
 
 
-<!--footer for webpage-->
-<div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+        <!-- Three columns of text below the carousel -->
+        <div class="row" id="about">
+            <div class="col-md-4 text-center">
+                <img src="https://notendur.hi.is/ksh18/hugbo1/steik.png"/>
+                <h2>Aktuality</h2>
+                <p>Buďte informování a informujte ostatní. Aktuality, které jsou dostupné i ve formátu RSS, jsou nejlepším způsobem, jak zveřejňvat novinky.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="https://notendur.hi.is/ksh18/hugbo1/hamburger.png"/>
+                <h2>Schůze</h2>
+                <p>Záznam z každé schůze s přehlednou historií. Vše na jednom místě s pohodlným vyhledáváním.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img  src="https://notendur.hi.is/ksh18/hugbo1/chines.png"/>
+                <h2>Soubory</h2>
+                <p>Nabídněte členům ke stažení soubory, které mohou potřebovat. Formuláře, žádosti, postupy a seznamy. Cokoliv by mohl některý z nich potřebovat.</p>
+            </div>
+        </div><!-- /.row -->
+
+
+
+
+
+    </div><!-- /.container -->
+
+    <!--footer for webpage-->
+    <footer class="container-fluid bg-4 text-center">
+
         <p class="navbar-text pull-left">© 2017 - Verkefni unnið fyrir Hugbúnaðarverkefni 1, Háskoli Íslands
         </p>
-    </div>
 
-</div>
+    </footer>
+
 
 <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -34,5 +115,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
+
 </body>
 </html>
