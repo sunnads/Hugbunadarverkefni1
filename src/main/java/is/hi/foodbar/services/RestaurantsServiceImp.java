@@ -100,6 +100,22 @@ public class RestaurantsServiceImp implements RestaurantsService{
             }
         }
 
+        // bætum við öllum veitingastöðum sem hafa það sem notandi leitaði að sem tegund
+        addList = (ArrayList<Restaurants>) restaurantRep.findByType(find);
+        for (int i = 0; i < addList.size(); i++) {
+            if(!rList.contains(addList.get(i))) {
+                rList.add(addList.get(i));
+            }
+        }
+
+        // bætum við öllum veitingastöðum sem hafa það sem notandi leitaði að sem matseðilstegund
+        addList = (ArrayList<Restaurants>) restaurantRep.findByMenuType(find);
+        for (int i = 0; i < addList.size(); i++) {
+            if(!rList.contains(addList.get(i))) {
+                rList.add(addList.get(i));
+            }
+        }
+
         // Athugum hvort notandi sló inn tölu
         try {
             int findNumber = Integer.parseInt(find);
