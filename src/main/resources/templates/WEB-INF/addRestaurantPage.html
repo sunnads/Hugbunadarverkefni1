@@ -65,15 +65,12 @@
             </div>
             <div class="form-group col-sm-6">
                 <label for="addQuality">Gæðaflokkur:</label>
-                <input type="text" class="form-control" name="addQuality" id="addQuality" th:field="*{quality}" placeholder="Gæðaflokkur" required="required"/>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="addMenuType">Matseðill:</label>
-                <input type="text" class="form-control" name="addMenuType" id="addMenuType" th:field="*{menuType}" placeholder="Matseðill" required="required"/>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="addType">Tegund:</label>
-                <input type="text" class="form-control" name="addType" id="addType" th:field="*{type}" placeholder="Tegund matar" required="required"/>
+                <select class="form-control" name="addQuality" id="addQuality"  th:field="*{quality}">
+                    <option value="0" th:value="0">Veldu Gæðaflokk</option>
+                    <option value="1" th:value="1">Skyndibitastaður</option>
+                    <option value="3" th:value="3">Millifínt</option>
+                    <option value="5" th:value="5">Fínt</option>
+                </select>
             </div>
             <div class="form-group col-sm-3">
                 <label for="addOpenMon">Opnunartími:</label>
@@ -91,6 +88,7 @@
     <div class="button-actions">
         <a method="POST" href="/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
         <a method="POST" href="/addTypes" role="button" class="btn btn-primary">Bæta tegundum við veitingastaði</a>
+        <a method="POST" href="/addMenuTypes" role="button" class="btn btn-primary">Bæta matseðilstegundum við veitingastaði</a>
         <a method="POST" href="/admin" role="button" class="btn btn-primary">Skrá út</a>
     </div>
 </div>

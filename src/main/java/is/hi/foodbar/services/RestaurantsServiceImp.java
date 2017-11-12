@@ -1,18 +1,17 @@
 
 package is.hi.foodbar.services;
 
-import is.hi.foodbar.model.Restaurants;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
+import is.hi.foodbar.model.MenuType;
+import is.hi.foodbar.model.Restaurants;
 import is.hi.foodbar.model.Type;
+import is.hi.foodbar.repository.MenuTypeRepository;
 import is.hi.foodbar.repository.RestaurantRepository;
 import is.hi.foodbar.repository.TypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 
 /**
@@ -34,6 +33,10 @@ public class RestaurantsServiceImp implements RestaurantsService{
     @Autowired
     private TypeRepository typeRep;
 
+    // Tenging yfir í safn af tegundum matseðla fyrir veitingastaði
+    @Autowired
+    private MenuTypeRepository menuTypeRep;
+
     @Transactional
     @Override
     public void addRestaurant(Restaurants r) {
@@ -43,9 +46,29 @@ public class RestaurantsServiceImp implements RestaurantsService{
     @Transactional
     @Override
     public void addType(Type t, Restaurants r) {
+        // Athugum hvort veitingastaðurinn hefur nú þegar þessa tegund
+        Set<Type> types = r.getType();
+        for (Type ty: types) {
+            if(ty.getName().equals(t.getName())) return; // ef svo er hættum
+        }
+        // ef ekki bætum henni við veitingastaðinn.
         r.addType(t);
         Set<Type> h =  r.getType();
         typeRep.save(t);
+    }
+
+    @Transactional
+    @Override
+    public void addMenuType(MenuType m, Restaurants r) {
+        // Athugum hvort veitingastaðurinn hefur nú þegar þessa tegund matseðils
+        Set<MenuType> menus = r.getMenuType();
+        for (MenuType mt: menus) {
+            if(mt.getName().equals(m.getName())) return; // ef svo er hættum
+        }
+        // ef ekki bætum henni við veitingastaðinn.
+        r.addMenuType(m);
+        Set<Type> h =  r.getType();
+        menuTypeRep.save(m);
     }
 
     @Override
@@ -71,6 +94,22 @@ public class RestaurantsServiceImp implements RestaurantsService{
 
         // bætum við öllum veitingastöðum sem hafa það sem notandi leitaði að í heimilisfanginu
         addList = (ArrayList<Restaurants>) restaurantRep.findByAddress(find);
+        for (int i = 0; i < addList.size(); i++) {
+            if(!rList.contains(addList.get(i))) {
+                rList.add(addList.get(i));
+            }
+        }
+
+        // bætum við öllum veitingastöðum sem hafa það sem notandi leitaði að sem tegund
+        addList = (ArrayList<Restaurants>) restaurantRep.findByType(find);
+        for (int i = 0; i < addList.size(); i++) {
+            if(!rList.contains(addList.get(i))) {
+                rList.add(addList.get(i));
+            }
+        }
+
+        // bætum við öllum veitingastöðum sem hafa það sem notandi leitaði að sem matseðilstegund
+        addList = (ArrayList<Restaurants>) restaurantRep.findByMenuType(find);
         for (int i = 0; i < addList.size(); i++) {
             if(!rList.contains(addList.get(i))) {
                 rList.add(addList.get(i));
@@ -117,15 +156,18 @@ public class RestaurantsServiceImp implements RestaurantsService{
             rList.retainAll(filterList);
         }
 
-        // filterum út það sem passar ekki við matseðil sem notandi leitaði að
-/*        String menu = "";
-        ArrayList<String> menuList = restaurant.getMenuType();
-        for (int i=0; i < menuList.size(); i++) {
-            menu += "" + menuList.get(i) + " ";
+        // filterum út það sem passar ekki við tegund sem notandi leitaði að
+        if(restaurant.getType().iterator().hasNext() && !restaurant.getType().iterator().next().getName().equals("0")) {
+            filterList = (ArrayList<Restaurants>) restaurantRep.findByType(restaurant.getType().iterator().next().getName());
+            rList.retainAll(filterList);
         }
-        filterList = (ArrayList<Restaurants>) restaurantRep.findByMenuType(menu);
-        rList.retainAll(filterList);
-*/
+
+        // filterum út það sem passar ekki við matseðil sem notandi leitaði að
+        if(restaurant.getMenuType().iterator().hasNext() && !restaurant.getMenuType().iterator().next().getName().equals("0")) {
+            filterList = (ArrayList<Restaurants>) restaurantRep.findByMenuType(restaurant.getMenuType().iterator().next().getName());
+            rList.retainAll(filterList);
+        }
+
         return rList;
     }
 
