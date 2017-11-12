@@ -1,7 +1,6 @@
 package is.hi.foodbar.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import javax.validation.constraints.Max;
@@ -49,14 +48,16 @@ public class Restaurants {
 
     @OneToMany(mappedBy = "restaurants", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Type> type = new HashSet<Type>(); // tengund veitingastaðar
-    private String menuType; // morgun-, hádeigs-  og kvöldmatar seðill
+
+    @OneToMany(mappedBy = "restaurants", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<MenuType> menuType = new HashSet<MenuType>(); // morgun-, hádeigs-  og kvöldmatar seðill
     private String openingTime; // opnunartímar veitingastaðar
     private String closingTime; // lokunartímar veitingastaðar
 
     public Restaurants(){}
 
     public Restaurants ( String name, int postCode, String address, int phoneNumber,
-                        int quality, Set<Type> type, String menuType, String openingTime,
+                        int quality, Set<Type> type, Set<MenuType> menuType, String openingTime,
                          String closingTime){
 
         this.name = name;
@@ -102,13 +103,31 @@ public class Restaurants {
         addType(ty);
     }
 
+    /**
+     * Bætir tegund við vetingastaðinn
+     *
+     * @param t tegundin sem á að bæta við
+     */
     public void addType(Type t) {
         t.setRestaurant(this);
         type.add(t);
     }
 
-    public String getMenuType() {return menuType;}
-    public void setMenuType(String menuType) { this.menuType = menuType; }
+    public Set<MenuType> getMenuType() {return menuType;}
+    public void setMenuType(String menuName) {
+        MenuType menu = new MenuType(menuName,this);
+        addMenuType(menu);
+    }
+
+    /**
+     * Bætir matseðli við vetingastaðinn
+     *
+     * @param m matseðillinn sem á að bæta við
+     */
+    public void addMenuType(MenuType m) {
+        m.setRestaurant(this);
+        menuType.add(m);
+    }
 
     public String getOpeningTime() {
         return openingTime;

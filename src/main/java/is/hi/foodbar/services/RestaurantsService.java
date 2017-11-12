@@ -1,5 +1,6 @@
 package is.hi.foodbar.services;
 
+import is.hi.foodbar.model.MenuType;
 import is.hi.foodbar.model.Restaurants;
 import is.hi.foodbar.model.Type;
 import java.util.List;
@@ -27,6 +28,13 @@ public interface RestaurantsService {
      * @param r veitingastað r
      */
     void addType(Type t, Restaurants r);
+
+    /**
+     * Bætir við matseðilstegund m fyrir veitingastað r
+     * @param m tegund matseðils sem bætt er við
+     * @param r veitingastað r
+     */
+    void addMenuType(MenuType m, Restaurants r);
 
     /**
      * Skilar öllum restaurants í restaurantsRep

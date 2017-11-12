@@ -50,9 +50,9 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
     @Query(value = "SELECT r FROM Restaurants r where r.quality = :quality")
     List<Restaurants> findByQuality(@Param("quality") int quality);
 
-    @Query(value = "SELECT r from Restaurants r JOIN r.type t WHERE t.name = :type")
+    @Query(value = "SELECT r from Restaurants r JOIN r.type t WHERE lower(t.name) LIKE lower(concat('%', :type,'%'))")
     List<Restaurants> findByType(@Param("type") String type);
 
-    @Query(value = "SELECT r FROM Restaurants r where lower(r.menuType) LIKE lower(concat('%', :menuType,'%'))")
+    @Query(value = "SELECT r from Restaurants r JOIN r.menuType m WHERE lower(m.name) LIKE lower(concat('%', :menuType,'%'))")
     List<Restaurants> findByMenuType(@Param("menuType") String menuType);
 }

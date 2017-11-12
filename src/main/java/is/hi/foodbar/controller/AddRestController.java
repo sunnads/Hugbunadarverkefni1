@@ -1,9 +1,9 @@
 package is.hi.foodbar.controller;
 
+import is.hi.foodbar.model.MenuType;
 import is.hi.foodbar.model.Restaurants;
-import java.util.ArrayList;
-
 import is.hi.foodbar.model.Type;
+import java.util.ArrayList;
 import is.hi.foodbar.services.RestaurantsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -120,8 +120,8 @@ public class AddRestController {
      * Býr til tegund (type) og bætir henni við veitingastaðinn (name)
      * @param typeName tegund á veitingastað
      * @param restName nafn á veitingastað
-     * @return birtir síðu sem spyr hvaða námskeið kennari kenni. Ef kennarinn
-     * fannst ekki eru birt villuskilaboð
+     * @return Birtir síðu til að bæta við fleiri tegundum,
+     * og sýnir veitingastaðinn sem tegundinni var bætt við ef það heppnaðist
      */
     @RequestMapping(value = "/addType", method = RequestMethod.POST)
     public String addType(@RequestParam("type") String typeName,
@@ -129,14 +129,41 @@ public class AddRestController {
         Type type = new Type();
         type.setName(typeName);
         Restaurants r = restaurantService.findRestaurant(restName);
-        if (r != null && !typeName.equals("Invalid")) {
+        if (r != null && !typeName.equals("0")) {
             restaurantService.addType(type, r);
             model.addAttribute("restaurants", r);
-            return "addedTypePage";
-        } else {
-            //model.addAttribute("name",restName);
-            return "addTypePage";
         }
+        return "addTypePage";
+    }
+
+    /**
+     * Birtir síðu til að bæta matseðilstegund við veitingastað
+     *
+     * @return síða til að bæta matseðilstegund við veitingastað
+     */
+    @RequestMapping("/addMenuTypes")
+    public String addMenuTypes(){
+        return "addMenuTypePage";
+    }
+
+    /**
+     * Býr til matseðilstegund (menuType) og bætir henni við veitingastaðinn (name)
+     * @param menuTypeName tegund matseðils fyrir veitingastað
+     * @param restName nafn á veitingastað
+     * @return Birtir síðu til að bæta við fleiri matseðilstegundum,
+     * og sýnir veitingastaðinn sem matseðilstegundinni var bætt við ef það heppnaðist
+     */
+    @RequestMapping(value = "/addMenuType", method = RequestMethod.POST)
+    public String addMenuType(@RequestParam("menuType") String menuTypeName,
+                          @RequestParam("name") String restName, ModelMap model) {
+        MenuType menuType = new MenuType();
+        menuType.setName(menuTypeName);
+        Restaurants r = restaurantService.findRestaurant(restName);
+        if (r != null && !menuTypeName.equals("0")) {
+            restaurantService.addMenuType(menuType, r);
+            model.addAttribute("restaurants", r);
+        }
+        return "addMenuTypePage";
     }
 
     /**
