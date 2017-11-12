@@ -25,7 +25,7 @@
             <div class="form-group col-sm-6">
                 <label for="addNameRest">Nafn:</label>
                 <div>
-                    <input type="text" class="form-control" name="addNameRest" id="addNameRest" th:field="*{name}" placeholder="Nafn á veitingastað"/>
+                    <input type="text" class="form-control" name="addNameRest" id="addNameRest" th:field="*{name}" placeholder="Nafn á veitingastað" required="required"/>
                 </div>
             </div>
             <div class="form-group col-sm-6">
@@ -57,11 +57,11 @@
             </div>
             <div class="form-group col-sm-6">
                 <label for="addAddress">Heimilisfang:</label>
-                <input type="text" class="form-control" name="addAddress" id="addAddress" th:field="*{address}" placeholder="Heimilisfang"/>
+                <input type="text" class="form-control" name="addAddress" id="addAddress" th:field="*{address}" placeholder="Heimilisfang" required="required"/>
             </div>
             <div class="form-group col-sm-6">
                 <label for="addNumber">Símanúmer:</label>
-                <input type="tel" class="form-control" name="addNumber" id="addNumber" th:field="*{phoneNumber}" placeholder="Símanúmer" maxlength="7"/>
+                <input type="tel" class="form-control" name="addNumber" id="addNumber" th:field="*{phoneNumber}" placeholder="Símanúmer" maxlength="7" required="required"/>
             </div>
             <div class="form-group col-sm-6">
                 <label for="addQuality">Gæðaflokkur:</label>
@@ -74,12 +74,11 @@
             </div>
             <div class="form-group col-sm-3">
                 <label for="addOpenMon">Opnunartími:</label>
-                <input type="time" class="form-control" name="addOpenMon" id="addOpenMon" th:field="*{openingTime}" placeholder="Opnunartími"/>
+                <input type="time" class="form-control" name="addOpenMon" id="addOpenMon" th:field="*{openingTime}" placeholder="Opnunartími" required="required"/>
             </div>
             <div class="form-group col-sm-3">
                 <label for="addCloseMon">Lokunartími:</label>
-                <input type="time" class="form-control" name="addCloseMon" id="addCloseMon" th:field="*{closingTime}" placeholder="Lokunartími"/>
-
+                <input type="time" class="form-control" name="addCloseMon" id="addCloseMon" th:field="*{closingTime}" placeholder="Lokunartími" required="required"/>
             </div>
             <div class="form-actions">
                 <input type="submit" class="btn btn-primary" value="Bæta við veitingastað"/>
