@@ -51,8 +51,9 @@ public class Restaurants {
 
     @OneToMany(mappedBy = "restaurants", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<MenuType> menuType = new HashSet<MenuType>(); // morgun-, hádeigs-  og kvöldmatar seðill
-    private String openingTime; // opnunartímar veitingastaðar
-    private String closingTime; // lokunartímar veitingastaðar
+
+    @OneToMany(mappedBy = "restaurants", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<OpeningTimes> openingTimes = new HashSet<OpeningTimes>(); // opnunartímar veitingastaðar
 
     public Restaurants(){}
 
