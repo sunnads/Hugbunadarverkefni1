@@ -11,28 +11,40 @@
 </head>
 <body>
 <div th:replace="head :: valmyndir">Staðbundinn haus</div>
-    <h1>Bæta tegund við veitingastað</h1>
+<h1>Bæta tegund við veitingastað</h1>
 
-    <form th:action="@{/addType}" role="form" method="POST">
-        <input name="name" type="text" placeholder="veitingastaður" />
-        <select name="type" >
-            <option value="Invalid" th:value="Invalid">Veldu tegund</option>
-            <option value="Pizza" th:value="Pizza">Pizza</option>
-            <option value="Pasta" th:value="Pasta">Pasta</option>
-            <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
-            <option value="kjot" th:value="Kjöt">Kjöt</option>
-            <option value="fiskur" th:value="Fiskur">Fiskur</option>
-            <option value="kjuklingur" th:value="Kjúklingur">Kjúklingur</option>
-            <option value="asiskt" th:value="asiskt">Asískt</option>
-            <option value="graenmetis" th:value="Grænmetisréttir">Grænmetisréttir</option>
-        </select>
+<div th:if="${restaurants} != null">
+    <p>Nafn:</p><p th:text ="${restaurants.name}"></p>
+    <p th:text ="${restaurants.address}"></p>
+    <p th:text ="${restaurants.postCode}"></p>
+    <p th:text ="${restaurants.phoneNumber}"></p>
+    <p th:text ="${restaurants.quality}"></p>
+    <p th:text ="${restaurants.type}"></p>
+    <p th:text ="${restaurants.menuType}"></p>
+    <p th:text ="${restaurants.openingTime}"></p>
+    <p th:text ="${restaurants.closingTime}"></p>
+</div>
 
-        <input type="submit" class="btn btn-primary" value="Bæta við tegund"/>
-    </form>>
+<form th:action="@{/addType}" role="form" method="POST">
+    <input name="name" type="text" placeholder="veitingastaður" />
+    <select name="type">
+        <option value="0" th:value="0">Veldu tegund</option>
+        <option value="Pizza" th:value="Pizza">Pizza</option>
+        <option value="Pasta" th:value="Pasta">Pasta</option>
+        <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
+        <option value="kjot" th:value="Kjöt">Kjöt</option>
+        <option value="fiskur" th:value="Fiskur">Fiskur</option>
+        <option value="kjuklingur" th:value="Kjúklingur">Kjúklingur</option>
+        <option value="asiskt" th:value="asiskt">Asískt</option>
+        <option value="graenmetis" th:value="Grænmetisréttir">Grænmetisréttir</option>
+    </select>
 
-    <a method="POST" href="/restList">Skoða veitingastaði</a>
-    <a method="POST" href="/addRestaurant">Til baka í bæta við veitingastaði</a>
-    <a method="POST" href="/admin">Skrá út</a>
+    <input type="submit" class="btn btn-primary" value="Bæta við tegund"/>
+</form>>
+
+<a method="POST" href="/restList">Skoða veitingastaði</a>
+<a method="POST" href="/addRestaurant">Til baka í bæta við veitingastaði</a>
+<a method="POST" href="/admin">Skrá út</a>
 
 <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
