@@ -3,44 +3,53 @@
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="head :: haus">
-    <!-- linkur til að ná í Bootstrap -->
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous" />
-</head>
-<body>
-    <div th:replace="head :: valmyndir">Staðbundinn haus</div>
+    <head th:replace="head :: haus">
+        <!-- linkur til að ná í Bootstrap -->
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+    </head>
+    <body>
+        <div th:replace="head :: valmyndir">Staðbundinn haus</div>
+        <div class="container">
+            <h1>Niðurstöður leitar</h1>
 
-    <h1>Foo'd'bar</h1>
+            <div class="row">
+                <div class="col-sm-4" th:each ="listItem: ${restaurantList}">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <form class="form-horizontal" role="form" method="POST" th:action="@{/info}" >
+                                <h2 th:text ="${listItem.name}" ></h2>
+                                <p th:text ="${listItem.address}"></p>
+                                <p th:text ="${listItem.postCode}"></p>
+                                <p th:text ="${listItem.phoneNumber}"></p>
+                                <input class="form-control" name="name" type="hidden" th:value ="${listItem.name}" />
+                                <button type="submit" class="btn btn-primary">Nánari upplýsingar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                crossorigin="anonymous"></script>
 
-
-    <table>
-        <tr>
-            <th>Veitingarstaður</th>
-            <th>Heimilsfang</th>
-            <th>Póstnúmer</th>
-            <th>Gæðaflokkur</th>
-        </tr>
-        <tr th:each ="listItem: ${restaurantList}">
-            <td th:text ="${listItem.name}"></td>
-            <td th:text ="${listItem.address}"></td>
-            <td th:text ="${listItem.postCode}"></td>
-            <td th:text ="${listItem.quality}"></td>
-        </tr>
-    </table>
-
-    <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-            crossorigin="anonymous"></script>
-
-</body>
+    </body>
 </html>
+
+<style>
+    .card-border {
+        border: 1px solid #d3d3d3;
+        margin: 10px;
+        padding: 20px;
+    }
+</style>
