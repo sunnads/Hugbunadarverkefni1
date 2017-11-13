@@ -27,14 +27,15 @@ public class InfoController {
      * Þar eru sýndar upplýsingar um veitingastaðin sem notandi valdi
      *
      * @return slóðin á skránna infoPage.jsp
-     *//*
-    @RequestMapping(value = "/info", method = RequestMethod.GET)
+     */
+    @RequestMapping(value = "/info", method = RequestMethod.POST)
     public String info(@RequestParam(value = "name", required = true) String name, ModelMap model) {
-        ArrayList<Restaurants> chosenRests;
-        chosenRests = (ArrayList<Restaurants>) restaurantsService.findAllMatches(name);
+        ArrayList<Restaurants> chosenRest;
+        chosenRest = (ArrayList<Restaurants>) restaurantsService.findAllMatches(name);
         model.addAttribute("chosenRest", chosenRest);
+        return "infoPage";
     }
-*/
+/*
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     public String search(@Valid @ModelAttribute(name="restaurant")
                          Restaurants restaurant,
@@ -44,11 +45,11 @@ public class InfoController {
 
         if (!err.hasErrors()) {
             ArrayList<Restaurants> chosenRest;
-            chosenRest = (ArrayList<Restaurants>) restaurantsService.findAllMatches(restaurant);
+            chosenRest = (ArrayList<Restaurants>) restaurantsService.findFilteredMatches(restaurant);
             model.addAttribute("chosenRest", chosenRest);
         }
 
         return (err.hasErrors() ) ? "searchResults": "infoPage";
     }
-
+*/
 }
