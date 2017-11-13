@@ -11,7 +11,7 @@
 </head>
 <body>
 <div th:replace="head :: valmyndir">Staðbundinn haus</div>
-<h1>Bæta tegund við veitingastað</h1>
+<h1>Bæta matseðilstegund við veitingastað</h1>
 
 <div th:if="${restaurants} != null">
     <p>Nafn:</p><p th:text ="${restaurants.name}"></p>
@@ -24,21 +24,30 @@
     <p th:text ="${restaurants.openingTimes}"></p>
 </div>
 
-<form th:action="@{/addType}" role="form" method="POST">
+<form th:action="@{/addOpeningTime}" th:object="${addOpeningTimes}" role="form" method="POST">
     <input name="name" type="text" placeholder="veitingastaður" />
-    <select name="type">
-        <option value="0" th:value="0">Veldu tegund</option>
-        <option value="Pizza" th:value="Pizza">Pizza</option>
-        <option value="Pasta" th:value="Pasta">Pasta</option>
-        <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
-        <option value="kjot" th:value="Kjöt">Kjöt</option>
-        <option value="fiskur" th:value="Fiskur">Fiskur</option>
-        <option value="kjuklingur" th:value="Kjúklingur">Kjúklingur</option>
-        <option value="asiskt" th:value="asiskt">Asískt</option>
-        <option value="graenmetis" th:value="Grænmetisréttir">Grænmetisréttir</option>
-    </select>
+    <input name="openMon" type="text" th:field="*{mondayOpen}" placeholder="opnar Mánudaga" />
+    <input name="closeMon" type="text" th:field="*{mondayClosed}" placeholder="lokar Mánudaga" />
 
-    <input type="submit" class="btn btn-primary" value="Bæta við tegund"/>
+    <input name="openMon" type="text" th:field="*{tuesdayOpen}" placeholder="opnar Þriðjudaga" />
+    <input name="closeMon" type="text" th:field="*{tuesdayClosed}" placeholder="lokar Þriðjudaga" />
+
+    <input name="openMon" type="text" th:field="*{wednesdayOpen}" placeholder="opnar Miðvikudaga" />
+    <input name="closeMon" type="text" th:field="*{wednesdayClosed}" placeholder="lokar Miðvikudaga" />
+
+    <input name="openMon" type="text" th:field="*{thursdayOpen}" placeholder="opnar Fimmtudaga" />
+    <input name="closeMon" type="text" th:field="*{thursdayClosed}" placeholder="lokar Fimmtudaga" />
+
+    <input name="openMon" type="text" th:field="*{fridayOpen}" placeholder="opnar Föstudaga" />
+    <input name="closeMon" type="text" th:field="*{fridayClosed}" placeholder="lokar Föstudaga" />
+
+    <input name="openMon" type="text" th:field="*{saturdayOpen}" placeholder="opnar Laugardaga" />
+    <input name="closeMon" type="text" th:field="*{saturdayClosed}" placeholder="lokar Laugardaga" />
+
+    <input name="openMon" type="text" th:field="*{sundayOpen}" placeholder="opnar Sunnudaga" />
+    <input name="closeMon" type="text" th:field="*{sundayClosed}" placeholder="lokar Sunnudaga" />
+
+    <input type="submit" class="btn btn-primary" value="Bæta við opnunartímum"/>
 </form>>
 
 <a method="POST" href="/restList">Skoða veitingastaði</a>

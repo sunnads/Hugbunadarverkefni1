@@ -51,14 +51,14 @@ public class Restaurants {
 
     @OneToMany(mappedBy = "restaurants", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<MenuType> menuType = new HashSet<MenuType>(); // morgun-, hádeigs-  og kvöldmatar seðill
-    private String openingTime; // opnunartímar veitingastaðar
-    private String closingTime; // lokunartímar veitingastaðar
+
+    @OneToMany(mappedBy = "restaurants", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<OpeningTimes> openingTimes = new HashSet<OpeningTimes>(); // opnunartímar veitingastaðar
 
     public Restaurants(){}
 
     public Restaurants ( String name, int postCode, String address, int phoneNumber,
-                        int quality, Set<Type> type, Set<MenuType> menuType, String openingTime,
-                         String closingTime){
+                        int quality, Set<Type> type, Set<MenuType> menuType, Set<OpeningTimes> openingTimes){
 
         this.name = name;
         this.postCode = postCode;
@@ -67,8 +67,7 @@ public class Restaurants {
         this.quality = quality;
         this.type = type;
         this.menuType = menuType;
-        this.openingTime = openingTime;
-        this.closingTime = closingTime;
+        this.openingTimes = openingTimes;
     }
 
     public String getName() {
@@ -114,6 +113,7 @@ public class Restaurants {
     }
 
     public Set<MenuType> getMenuType() {return menuType;}
+
     public void setMenuType(String menuName) {
         MenuType menu = new MenuType(menuName,this);
         addMenuType(menu);
@@ -129,15 +129,26 @@ public class Restaurants {
         menuType.add(m);
     }
 
-    public String getOpeningTime() {
-        return openingTime;
-    }
-    public void setOpeningTime(String openingTime) { this.openingTime = openingTime; }
+    public Set<OpeningTimes> getOpeningTimes() {return openingTimes;}
 
-    public String getClosingTime() {
-        return closingTime;
+    public void setOpeningTimes(OpeningTimes o) {
+        OpeningTimes open = new OpeningTimes(o.getMondayOpen(), o.getMondayClosed(),o.getTuesdayOpen(),
+                                             o.getTuesdayClosed(),o.getWednesdayOpen(),o.getWednesdayClosed(),
+                                             o.getThursdayOpen(),o.getThursdayClosed(),o.getFridayOpen(),
+                                             o.getFridayClosed(),o.getSaturdayOpen(), o.getSaturdayClosed(),
+                                             o.getSundayOpen(),o.getSundayClosed(), this);
+        addOpeningTimes(open);
     }
-    public void setClosingTime(String closingTime) { this.closingTime = closingTime; }
+
+    /**
+     * Bætir opnunartíma við vetingastaðinn
+     *
+     * @param o opnunartíminn sem á að bæta við
+     */
+    public void addOpeningTimes(OpeningTimes o) {
+        o.setRestaurant(this);
+        openingTimes.add(o);
+    }
 
     @Override
     public String toString() {
