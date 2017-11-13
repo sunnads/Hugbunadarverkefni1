@@ -14,10 +14,9 @@
             <h1>Niðurstöður leitar</h1>
             <div class="row">
                 <div class="col-sm-4" th:each ="listItem: ${restaurantList}">
-                    <div class="card card-border">
-                        <div class="card-body container" th:fragment="show_data">
-                            <h2 class="card-title" th:text ="${listItem.name}"></h2>
-                            <p><span th:text="${somedata}></span></p>
+                    <div class="card card-border" th:object="${restaurant}">
+                        <div class="card-body container">
+                            <h2 class="card-title" th:text ="${listItem.name}" th:field="name"></h2>
                             <p class="card-text" th:text ="${listItem.address}"></p>
                             <p class="card-text" th:text ="${listItem.postCode}"></p>
                             <p class="card-text" th:text ="${listItem.phoneNumber}"></p>

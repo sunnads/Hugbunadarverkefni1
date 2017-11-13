@@ -29,7 +29,7 @@ public class InfoController {
      * @return slóðin á skránna infoPage.jsp
      */
 
-    /*@RequestMapping(value = "/info", method = RequestMethod.POST)
+    @RequestMapping(value = "/info", method = RequestMethod.POST)
     public String search(@Valid @ModelAttribute(name="restaurant")
                          Restaurants restaurant,
                          BindingResult err,
@@ -38,15 +38,9 @@ public class InfoController {
         if (!err.hasErrors()) {
             ArrayList<Restaurants> chosenRest;
             chosenRest = (ArrayList<Restaurants>) restaurantsService.findAllMatches(restaurant);
-            model.addAttribute("restaurantList", chosenRest);
+            model.addAttribute("chosenRest", chosenRest);
         }
 
         return (err.hasErrors() ) ? "searchResults": "infoPage";
-    }*/
-
-    @RequestMapping(value = "/info", method = RequestMethod.POST)
-    public String info(Model model) {
-        model.addAttribute("somedata", "this is test data.");
-        return "info";
     }
 }
