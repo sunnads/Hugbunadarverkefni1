@@ -87,10 +87,12 @@ public class AddRestController {
      *
      * @return síða fyrir admin innskráningu
      */
+    /*
     @RequestMapping("/admin")
     public String admin(){
         return "adminPage";
     }
+    */
 
     /**
      * Birtir síðu þar sem hægt er að slá inn upplýsingar fyrir veitingastað
