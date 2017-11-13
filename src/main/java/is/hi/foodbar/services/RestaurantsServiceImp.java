@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import is.hi.foodbar.model.MenuType;
+import is.hi.foodbar.model.OpeningTimes;
 import is.hi.foodbar.model.Restaurants;
 import is.hi.foodbar.model.Type;
 import is.hi.foodbar.repository.MenuTypeRepository;
+import is.hi.foodbar.repository.OpeningTimesRepository;
 import is.hi.foodbar.repository.RestaurantRepository;
 import is.hi.foodbar.repository.TypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,10 @@ public class RestaurantsServiceImp implements RestaurantsService{
     // Tenging yfir í safn af tegundum matseðla fyrir veitingastaði
     @Autowired
     private MenuTypeRepository menuTypeRep;
+
+    // Tenging yfir í safn af opnunartímum fyrir veitingastaði
+    @Autowired
+    private OpeningTimesRepository openingTimesRep;
 
     @Transactional
     @Override
@@ -69,6 +75,14 @@ public class RestaurantsServiceImp implements RestaurantsService{
         r.addMenuType(m);
         Set<Type> h =  r.getType();
         menuTypeRep.save(m);
+    }
+
+    @Transactional
+    @Override
+    public void addOpeningTimes(OpeningTimes o, Restaurants r) {
+        r.addOpeningTimes(o);
+        Set<Type> h =  r.getType();
+        openingTimesRep.save(o);
     }
 
     @Override
