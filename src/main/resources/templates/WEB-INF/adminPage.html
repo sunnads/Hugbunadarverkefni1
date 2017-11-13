@@ -16,26 +16,31 @@
 
     <!--header for webpage-->
     <div lang="en" th:include="head :: valmyndir"></div>
+    <div class="adminform" >
+        <h1>Admin innskráning</h1>
+        <div class="adminbox">
+            <form method="POST" action="/addRestaurant">
+                <fieldset>
 
-    <h1>Admin innskráning</h1>
+                    <div>
+                        <label>Admin:</label>
+                        <input class="form-control" name="admin" type="text" placeholder="Admin"/>
+                    </div>
+                    <br/>
+                    <div>
+                        <label>Lykilorð:</label>
+                        <input class="form-control" name="password" type="password" placeholder="Password"/>
+                    </div>
+                    <br/>
+                    <div class="buttonsadmins">
+                        <input type="submit" class="btn btn-primary" value="Skrá inn" />
 
-    <form method="POST" action="/addRestaurant">
-        <fieldset>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 
-            <div>
-                <label>Admin:</label>
-                <input name="admin" type="text" placeholder="Admin"/>
-            </div>
-            <div>
-                <label>Lykilorð:</label>
-                <input name="password" type="password" placeholder="Password"/>
-            </div>
-
-            <input type="submit" value="Skrá inn" />
-
-        </fieldset>
-    </form>
-    <a method="POST" href="/index">Til baka í leit</a>
 
     <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

@@ -1,0 +1,16 @@
+.adminform{
+    padding: 30px;
+    position: fixed;
+
+}
+
+.adminbox{
+
+    width: 300px;
+    align-items: center;
+}
+
+.buttonsadmins{
+    align-items: center;
+}
+
