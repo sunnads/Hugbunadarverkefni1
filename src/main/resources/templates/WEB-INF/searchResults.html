@@ -5,22 +5,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="head :: haus">
         <!-- linkur til að ná í Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
     </head>
     <body>
         <div th:replace="head :: valmyndir">Staðbundinn haus</div>
         <div class="container">
             <h1>Niðurstöður leitar</h1>
+
             <div class="row">
                 <div class="col-sm-4" th:each ="listItem: ${restaurantList}">
-                    <div class="card card-border">
-                        <div class="card-body container">
+                    <div class="thumbnail">
+                        <div class="caption">
                             <form class="form-horizontal" role="form" method="POST" th:action="@{/info}" >
-                                <h2 class="card-title" th:text ="${listItem.name}" ></h2>
-                                <p class="card-text" th:text ="${listItem.address}"></p>
-                                <p class="card-text" th:text ="${listItem.postCode}"></p>
-                                <p class="card-text" th:text ="${listItem.phoneNumber}"></p>
+                                <h2 th:text ="${listItem.name}" ></h2>
+                                <p th:text ="${listItem.address}"></p>
+                                <p th:text ="${listItem.postCode}"></p>
+                                <p th:text ="${listItem.phoneNumber}"></p>
                                 <input class="form-control" name="name" type="hidden" th:value ="${listItem.name}" />
                                 <button type="submit" class="btn btn-primary">Nánari upplýsingar</button>
                             </form>

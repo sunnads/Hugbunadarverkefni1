@@ -23,6 +23,18 @@ public class InfoController {
     private RestaurantsService restaurantsService;
 
     /**
+     * Setur upp nýan restaurant object sem search aðferðin getur breytt
+     * eftir því hvað notandi leitaði að
+     *
+     * @return Restaurant object sem er tómt
+     */
+    @ModelAttribute("restaurant")
+    public Restaurants defaultInstance() {
+        Restaurants restaurant = new Restaurants();
+        return restaurant;
+    }
+
+    /**
      * Birtir infoPage.jsp í viðmótinu.
      * Þar eru sýndar upplýsingar um veitingastaðin sem notandi valdi
      *
