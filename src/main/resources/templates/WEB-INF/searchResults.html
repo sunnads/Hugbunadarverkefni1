@@ -24,6 +24,10 @@
                                 <p th:text ="${listItem.address}"></p>
                                 <p th:text ="${listItem.postCode}"></p>
                                 <p th:text ="${listItem.phoneNumber}"></p>
+                                <!-- Er opið? -->
+                                <div th:unless="${listItem.openingTimes.isEmpty()}">
+                                    <th:block th:text="${listItem.openingTimes[0].isOpen()}"/>
+                                </div>
                                 <input class="form-control" name="name" type="hidden" th:value ="${listItem.name}" />
                                 <button type="submit" class="btn btn-primary">Nánari upplýsingar</button>
                             </form>
