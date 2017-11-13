@@ -45,6 +45,7 @@ public class AddRestController {
         return restaurant;
     }
 
+
     /**
      * Bætir við veitingastað með upplýsingum sem admin skrifaði inn.
      *
@@ -99,12 +100,12 @@ public class AddRestController {
      * @param model Módel með attributum
      * @return síða þar sem hægt er að bæta við veitingastað
      */
-    @RequestMapping("/addRestaurant")
+  /*  @RequestMapping("/addRestaurant")
     public String addRestaurant(Model model){
         Restaurants r = new Restaurants();
         model.addAttribute("addRestaurant", r);
         return "addRestaurantPage";
-    }
+    }*/
 
     /**
      * Birtir síðu til að bæta tegund við veitingastað

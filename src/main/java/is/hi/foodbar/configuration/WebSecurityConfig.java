@@ -12,7 +12,11 @@ import org.springframework.security.config.annotation.web.configuration.*;
 import javax.persistence.*;
 
 /**
- * Created by Lenovo on 13.11.2017.
+ * @author Karítas Sif Halldórsdóttir ksh18@hi.is
+ * @date Nóvember 2017
+ * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
+ *
+ * Configuration for webSecurity in spring
  */
 
 @Configuration
@@ -35,6 +39,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("adminuser").password("adminpassword").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("hugbo1").password("29282322").roles("ADMIN");
     }
 }

@@ -31,9 +31,16 @@ public class AdminController {
         return restaurant;
     }
 
-    @RequestMapping
+  /*  @RequestMapping
     public String index(Model model) {
         return "adminIndex";
+    }*/
+
+    @RequestMapping
+    public String addRestaurant(Model model){
+        Restaurants r = new Restaurants();
+        model.addAttribute("addRestaurant", r);
+        return "addRestaurantPage";
     }
 
     @RequestMapping("/login")

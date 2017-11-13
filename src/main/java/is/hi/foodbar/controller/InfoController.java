@@ -14,6 +14,11 @@ import java.util.Arrays;
 @Controller
 public class InfoController {
 
+    @ModelAttribute("restaurant")
+    public Restaurants defaultInstance() {
+        Restaurants restaurant = new Restaurants();
+        return restaurant;
+    }
     /**
      * Birtir infoPage.jsp í viðmótinu.
      * Þar eru sýndar upplýsingar um veitingastaðin sem notandi valdi
@@ -25,4 +30,5 @@ public class InfoController {
         model.addAttribute("item", item);
         return "view/infoPage"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/infoPage.jsp
     }
+
 }
