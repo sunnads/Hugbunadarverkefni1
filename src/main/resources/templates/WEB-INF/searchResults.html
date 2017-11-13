@@ -16,11 +16,11 @@
                 <div class="col-sm-4" th:each ="listItem: ${restaurantList}">
                     <div class="card card-border" th:object="${restaurant}">
                         <div class="card-body container">
-                            <h2 class="card-title" th:text ="${listItem.name}" th:field="name"></h2>
+                            <h2 class="card-title" th:text ="${listItem.name}" th:value ="${listItem.name}" name ="name"></h2>
                             <p class="card-text" th:text ="${listItem.address}"></p>
                             <p class="card-text" th:text ="${listItem.postCode}"></p>
                             <p class="card-text" th:text ="${listItem.phoneNumber}"></p>
-                            <a href="/info" class="btn btn-primary">Nánari upplýsingar</a>
+                            <a href="/info" th:value ="${listItem.name}" class="btn btn-primary">Nánari upplýsingar</a>
                         </div>
                     </div>
                 </div>
