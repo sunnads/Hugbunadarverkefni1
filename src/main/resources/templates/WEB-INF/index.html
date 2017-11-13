@@ -9,7 +9,7 @@
           crossorigin="anonymous" />
 
     <!-- css skjal og linkur í það-->
-   <!-- <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />-->
+   <script type="text/javascript" th:src="@{/js/index.js}"/>
 </head>
 
 <body>
@@ -17,51 +17,25 @@
    <div th:replace="head :: valmyndir">Staðbundinn haus</div>
 
     <!-- Carousel
+    Index útlit fengið héðan https://bootsnipp.com/snippets/8N5r
+    Tilfært og aðlagað að okkar síðu
      ================================================== -->
     <div id="myCarousel" class="carousel slide">
         <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+
         <div class="carousel-inner">
             <div class="item active">
 
-                <img src="https://notendur.hi.is/ksh18/hugbo1/food-eating-potatoes-beer-8313.jpg"/>
+                <img src="https://notendur.hi.is/ksh18/hugbo1/food1.jpg"/>
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>Hvað langar þér að borða?</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ullamcorper nibh. Vivamus eget rhoncus metus, tempor tristique odio. Nullam nisl turpis, fringilla ut quam sit amet, aliquet venenatis sem. Fusce dictum sagittis arcu non hendrerit. In ut mollis augue, eu volutpat ligula. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <!-- <img src="https://notendur.hi.is/ksh18/hugbo1/steik.png">-->
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Slide 2</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ullamcorper nibh. Vivamus eget rhoncus metus, tempor tristique odio. Nullam nisl turpis, fringilla ut quam sit amet, aliquet venenatis sem. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <!-- <img src="http://upload.wikimedia.org/wikipedia/commons/3/30/Panel%C3%A1ky_Ko%C5%A1%C3%ADk.jpg">-->
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Třetí slajd</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a ullamcorper nibh. Vivamus eget rhoncus metus, tempor tristique odio. Nullam nisl turpis, fringilla ut quam sit amet, aliquet venenatis sem. Fusce dictum sagittis arcu non hendrerit. In ut mollis augue, eu volutpat ligula.</p>
+                        <p>Foo'd'bar er einföld og góð leið til að finna góðan stað til að borða á.
+                            Þú getur leitað eftir nafni, tegund og hverfi. Njóttu þessa að uppgötva nýja staði með Foo'd'bar </p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
     </div>
     <!-- /.carousel -->
 
@@ -75,36 +49,34 @@
         <div class="row" id="about">
             <div class="col-md-4 text-center">
                 <img src="https://notendur.hi.is/ksh18/hugbo1/steik.png"/>
-                <h2>Aktuality</h2>
-                <p>Buďte informování a informujte ostatní. Aktuality, které jsou dostupné i ve formátu RSS, jsou nejlepším způsobem, jak zveřejňvat novinky.</p>
+                <h2>Foo'd'bar</h2>
+                <p>Er verkefni sem var unnið fyrir áfangan Hugbúnarðverkefni 1 í Háskóla Íslands</p>
             </div>
             <div class="col-md-4 text-center">
                 <img src="https://notendur.hi.is/ksh18/hugbo1/hamburger.png"/>
-                <h2>Schůze</h2>
-                <p>Záznam z každé schůze s přehlednou historií. Vše na jednom místě s pohodlným vyhledáváním.</p>
+                <h2>Höfundar</h2>
+                <p>Brynja Pálína Sigurgeirsdóttir</p>
+                <p>Elvar Kjartansson</p>
+                <p>Karítas Sif Halldórsdóttir</p>
+                <p>Sunna Drönf Sigfúsdóttir</p>
             </div>
             <div class="col-md-4 text-center">
                 <img  src="https://notendur.hi.is/ksh18/hugbo1/chines.png"/>
-                <h2>Soubory</h2>
-                <p>Nabídněte členům ke stažení soubory, které mohou potřebovat. Formuláře, žádosti, postupy a seznamy. Cokoliv by mohl některý z nich potřebovat.</p>
+                <h2>Hafa samband</h2>
+                <p>foodbar@foodbar.is</p>
+                <p>Símia: 555-1234</p>
             </div>
         </div><!-- /.row -->
-
-
-
-
 
     </div><!-- /.container -->
 
     <!--footer for webpage-->
-    <footer class="container-fluid bg-4 text-center">
+    <footer class="footer">
 
-        <p class="navbar-text pull-left">© 2017 - Verkefni unnið fyrir Hugbúnaðarverkefni 1, Háskoli Íslands
+        <p>© 2017 - Verkefni unnið fyrir Hugbúnaðarverkefni 1, Háskoli Íslands
         </p>
 
     </footer>
-
-
 <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
