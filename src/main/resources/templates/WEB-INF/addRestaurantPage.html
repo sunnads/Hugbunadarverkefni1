@@ -25,13 +25,13 @@
             <div class="form-group col-sm-6">
                 <label for="addNameRest">Nafn:</label>
                 <div>
-                    <input type="text" class="form-control" name="addNameRest" id="addNameRest" th:field="*{name}" placeholder="Nafn á veitingastað"/>
+                    <input type="text" class="form-control" name="addNameRest" id="addNameRest" th:field="*{name}" placeholder="Nafn á veitingastað" required="required"/>
                 </div>
             </div>
             <div class="form-group col-sm-6">
                 <label for="addPostCode">Póstnúmer:</label>
-                <select class="form-control" type="text" name="addPostCode" id="addPostCode"  th:field="*{postCode}">
-                    <option value="0" th:value="0">Veldu Póstnúmer</option>
+                <select class="form-control" type="text" name="addPostCode" id="addPostCode"  th:field="*{postCode}" required="required">
+                    <option value="0">Veldu Póstnúmer</option>
                     <option value="1" th:value="101">101</option>
                     <option value="2" th:value="103">103</option>
                     <option value="3" th:value="104">104</option>
@@ -57,11 +57,11 @@
             </div>
             <div class="form-group col-sm-6">
                 <label for="addAddress">Heimilisfang:</label>
-                <input type="text" class="form-control" name="addAddress" id="addAddress" th:field="*{address}" placeholder="Heimilisfang"/>
+                <input type="text" class="form-control" name="addAddress" id="addAddress" th:field="*{address}" placeholder="Heimilisfang" required="required"/>
             </div>
             <div class="form-group col-sm-6">
                 <label for="addNumber">Símanúmer:</label>
-                <input type="tel" class="form-control" name="addNumber" id="addNumber" th:field="*{phoneNumber}" placeholder="Símanúmer" maxlength="7"/>
+                <input type="tel" class="form-control" name="addNumber" id="addNumber" th:field="*{phoneNumber}" placeholder="Símanúmer" maxlength="7" required="required"/>
             </div>
             <div class="form-group col-sm-6">
                 <label for="addQuality">Gæðaflokkur:</label>
@@ -99,21 +99,4 @@
 </body>
 </html>
 
-<style>
-    .form-actions {
-        padding-top: 350px;
-        margin: 0;
-        background-color: transparent;
-        text-align: center;
-        padding-bottom: 20px;
-    }
-
-    .button-actions {
-        padding-top: 20px;
-        border-top: 1px solid #d3d3d3;
-        margin: 0;
-        background-color: transparent;
-        text-align: center;
-    }
-</style>
 
