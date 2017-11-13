@@ -1,11 +1,8 @@
 package is.hi.foodbar.model;
 
-import javax.persistence.Entity;
-import java.util.ArrayList;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -27,6 +24,7 @@ public class Restaurants {
 
     // Skilgrein id sem auðkenni (e. identity)  hlutarins
     @Id
+    @Column(name = "restaurantsId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -47,15 +45,19 @@ public class Restaurants {
     private int phoneNumber; // síma númer veitingastaðar
 
     private int quality; // gæða staðall veitingastaðar
-    private String type; // tengund veitingastaðar
-    private String menuType; // morgun-, hádeigs-  og kvöldmatar seðill
+
+    @OneToMany(mappedBy = "restaurants", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Type> type = new HashSet<Type>(); // tengund veitingastaðar
+
+    @OneToMany(mappedBy = "restaurants", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<MenuType> menuType = new HashSet<MenuType>(); // morgun-, hádeigs-  og kvöldmatar seðill
     private String openingTime; // opnunartímar veitingastaðar
     private String closingTime; // lokunartímar veitingastaðar
 
     public Restaurants(){}
 
     public Restaurants ( String name, int postCode, String address, int phoneNumber,
-                        int quality, String type, String menuType, String openingTime,
+                        int quality, Set<Type> type, Set<MenuType> menuType, String openingTime,
                          String closingTime){
 
         this.name = name;
@@ -92,11 +94,40 @@ public class Restaurants {
     }
     public void setQuality(int quality) { this.quality = quality; }
 
-    public String getType() {return type; }
-    public void setType(String type) { this.type = type; }
+    public Set<Type> getType() {
+        return type;
+    }
 
-    public String getMenuType() {return menuType;}
-    public void setMenuType(String menuType) { this.menuType = menuType; }
+    public void setType(String typeName) {
+        Type ty = new Type(typeName,this);
+        addType(ty);
+    }
+
+    /**
+     * Bætir tegund við vetingastaðinn
+     *
+     * @param t tegundin sem á að bæta við
+     */
+    public void addType(Type t) {
+        t.setRestaurant(this);
+        type.add(t);
+    }
+
+    public Set<MenuType> getMenuType() {return menuType;}
+    public void setMenuType(String menuName) {
+        MenuType menu = new MenuType(menuName,this);
+        addMenuType(menu);
+    }
+
+    /**
+     * Bætir matseðli við vetingastaðinn
+     *
+     * @param m matseðillinn sem á að bæta við
+     */
+    public void addMenuType(MenuType m) {
+        m.setRestaurant(this);
+        menuType.add(m);
+    }
 
     public String getOpeningTime() {
         return openingTime;

@@ -15,38 +15,43 @@
 <body>
 
     <!--header for webpage-->
-    <div th:replace="head :: valmyndir">Staðbundinn haus</div>
+    <div lang="en" th:include="head :: valmyndir"></div>
+    <div class="adminform" >
+        <h1>Admin innskráning</h1>
+        <div class="adminbox">
+            <form method="POST" action="/addRestaurant">
+                <fieldset>
 
-    <h1>Admin innskráning</h1>
+                    <div>
+                        <label>Admin:</label>
+                        <input class="form-control" name="admin" type="text" placeholder="Admin"/>
+                    </div>
+                    <br/>
+                    <div>
+                        <label>Lykilorð:</label>
+                        <input class="form-control" name="password" type="password" placeholder="Password"/>
+                    </div>
+                    <br/>
+                    <div class="buttonsadmins">
+                        <input type="submit" class="btn btn-primary" value="Skrá inn" />
 
-    <form method="POST" action="/addRestaurant">
-        <fieldset>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
 
-            <div>
-                <label>Admin:</label>
-                <input name="admin" type="text" placeholder="Admin"/>
-            </div>
-            <div>
-                <label>Lykilorð:</label>
-                <input name="password" type="password" placeholder="Password"/>
-            </div>
-
-            <input type="submit" value="Skrá inn" />
-
-        </fieldset>
-    </form>
-    <a method="POST" href="/index">Til baka í leit</a>
 
     <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-            crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

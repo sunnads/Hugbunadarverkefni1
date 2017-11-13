@@ -1,9 +1,8 @@
 package is.hi.foodbar.services;
 
+import is.hi.foodbar.model.MenuType;
 import is.hi.foodbar.model.Restaurants;
-import is.hi.foodbar.repository.RestaurantRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import is.hi.foodbar.model.Type;
 import java.util.List;
 
 /**
@@ -24,6 +23,20 @@ public interface RestaurantsService {
     void addRestaurant(Restaurants r);
 
     /**
+     * Bætir við tegund t fyrir veitingastað r
+     * @param t tegund sem bætt er við
+     * @param r veitingastað r
+     */
+    void addType(Type t, Restaurants r);
+
+    /**
+     * Bætir við matseðilstegund m fyrir veitingastað r
+     * @param m tegund matseðils sem bætt er við
+     * @param r veitingastað r
+     */
+    void addMenuType(MenuType m, Restaurants r);
+
+    /**
      * Skilar öllum restaurants í restaurantsRep
      *
      * @return listi af restaurants
@@ -31,20 +44,28 @@ public interface RestaurantsService {
     List<Restaurants> allRestaurants();
 
     /**
-     * ónotað, óþarft?
+     * Finnur fyrsta veitingastað sem inniheldur það sem leitað er að í nafninu
      *
-     * @param restaurants
-     * @return
+     * @param name sem leitað er að
+     * @return veitingastaður sem passar við nafnið
      */
-    Restaurants save(Restaurants restaurants);
+    Restaurants findRestaurant(String name);
 
     /**
-     * Leitar í gagnagrunn að nafni sem notandi slær inn.
+     * Leitar í gagnagrunn að öllum vetingastöðum sem passa við það sem notandi slær inn.
      *
-     * @param name Strengurinn sem notandi sló inn
-     * @return listi af veitingastöðum sem hafa nafn sem passar við það sem notandi leitaði að
+     * @param find Strengurinn sem notandi sló inn
+     * @return listi af veitingastöðum sem passa við það sem notandi leitaði að
      */
-    List<Restaurants> findAllMatches(Restaurants restaurant);
+    List<Restaurants> findAllMatches(String find);
+
+    /**
+     * Leitar í gagnagrunn að öllum vetingastöðum sem passa við allt sem notandi slær inn.
+     *
+     * @param restaurant veitingastaðurinn sem notandi vill finna
+     * @return listi af veitingastöðum sem passa við það sem notandi leitaði að
+     */
+    List<Restaurants> findFilteredMatches(Restaurants restaurant);
 
     boolean erALifi();
 }

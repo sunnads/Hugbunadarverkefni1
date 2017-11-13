@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 /**
- * Tenging við gagnagrunninn.
+ * Tenging við gagnagrunninn fyrir veitingastaðina.
  *
  * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
  * @author Elvar Kjartansson, elk11@hi.is
@@ -32,29 +32,14 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
      * Bætir við restaurant
      *
      * @param restaurants veitingastaðurinn sem á að bæta í gagnagrunninn
+     * @return Veitingastað
      */
     Restaurants save(Restaurants restaurants);
 
-    /**
-     * Finnum alla veitingastaði sem innihalda nafnið sem leitað er að í sínu nafni.
-     *
-     * @param name Strengur sem leitað er að
-     * @return lista af veitingastöðum sem passa við leitina
-     */
-    //@Query(value = "SELECT r FROM Restaurants r where lower(r.name) LIKE lower(concat('%', :name,'%'))")
-    @Query(value = "SELECT r FROM Restaurants r WHERE lower(r.name) LIKE lower(concat('%', :name,'%')) AND r.postCode = :postCode AND lower(r.address) LIKE lower(concat('%', :address,'%')) AND r.quality = :quality AND lower(r.menuType) LIKE lower(concat('%', :menuType,'%'))")
-    List<Restaurants> findByAll(@Param("name") String name, @Param("postCode") int postCode,
-                                 @Param("address") String address, @Param("quality") int quality,
-                                 @Param("menuType") String menuType);
-
-    @Query(value = "SELECT r FROM Restaurants r WHERE lower(r.name) LIKE lower(concat('%', :name,'%')) AND lower(r.address) LIKE lower(concat('%', :address,'%')) AND lower(r.menuType) LIKE lower(concat('%', :menuType,'%'))")
-    List<Restaurants> findWithoutPostQuality(@Param("name") String name,
-                                             @Param("address") String address,
-                                             @Param("menuType") String menuType);
-
+    List<Restaurants> findByName(String name);
 
     @Query(value = "SELECT r FROM Restaurants r where lower(r.name) LIKE lower(concat('%', :name,'%'))")
-    List<Restaurants> findByName(@Param("name") String name);
+    List<Restaurants> findByNameMatch(@Param("name") String name);
 
     @Query(value = "SELECT r FROM Restaurants r where lower(r.address) LIKE lower(concat('%', :address,'%'))")
     List<Restaurants> findByAddress(@Param("address") String address);
@@ -65,6 +50,9 @@ public interface RestaurantRepository extends JpaRepository<Restaurants, Long>{
     @Query(value = "SELECT r FROM Restaurants r where r.quality = :quality")
     List<Restaurants> findByQuality(@Param("quality") int quality);
 
-    @Query(value = "SELECT r FROM Restaurants r where lower(r.menuType) LIKE lower(concat('%', :menuType,'%'))")
+    @Query(value = "SELECT r from Restaurants r JOIN r.type t WHERE lower(t.name) LIKE lower(concat('%', :type,'%'))")
+    List<Restaurants> findByType(@Param("type") String type);
+
+    @Query(value = "SELECT r from Restaurants r JOIN r.menuType m WHERE lower(m.name) LIKE lower(concat('%', :menuType,'%'))")
     List<Restaurants> findByMenuType(@Param("menuType") String menuType);
 }
