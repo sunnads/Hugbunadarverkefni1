@@ -1,16 +1,9 @@
-
-.bg-4 {
-    background-color: #2f2f2f;
-    color: #ffffff;
-}
-
 /* BOOTSTRAP 3.x GLOBAL STYLES
 -------------------------------------------------- */
 body {
-    padding-bottom: 40px;
+    padding-bottom: 10px;
     color: #5a5a5a;
 }
-
 
 
 /* CUSTOMIZE THE CAROUSEL
@@ -52,6 +45,7 @@ body {
 .marketing {
     padding-left: 15px;
     padding-right: 15px;
+    margin-bottom: 30px;
 }
 
 /* Center align the text within the three columns below the carousel */
@@ -68,6 +62,13 @@ body {
 }
 
 
+/* Featurettes
+------------------------- */
+
+.contacts {
+    margin: 40px 0; /* Space out the Bootstrap <hr> more */
+}
+
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -81,8 +82,6 @@ body {
     }
 
 
-
-
     /* Bump up size of carousel content */
     .carousel-caption p {
         margin-bottom: 20px;
@@ -92,3 +91,12 @@ body {
 
 }
 
+.footer {
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 10px;
+}

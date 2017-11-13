@@ -20,10 +20,12 @@
         <!-- css skjal og linkur í það -->
     <link href="../static/css/head.css" th:href="@{/css/head.css}" rel="stylesheet" />
     <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
+
+    <script type="text/javascript" th:src="@{/js/index.js}"/>
 </head>
 <body>
 <div th:fragment="valmyndir">
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0px;">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
