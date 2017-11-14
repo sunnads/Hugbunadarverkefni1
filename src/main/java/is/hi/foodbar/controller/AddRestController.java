@@ -71,6 +71,24 @@ public class AddRestController {
     }
 
     /**
+     * Hendir veitingastað með id sem admin skrifaði inn
+     * og birtir svo alla veitingastaði.
+     *
+     * @param id Long id á veitingastaðnum sem á að henda
+     * @param model Módel með attributum
+     */
+    @RequestMapping(value = "/removeRest", method = RequestMethod.POST)
+    public String removeRest(@RequestParam("id") long id, Model model) {
+        if(restaurantService.findRestaurantById(id) != null) {
+            restaurantService.removeRestaurant(id);
+        }
+        ArrayList<Restaurants> listi;
+        listi = (ArrayList<Restaurants>) restaurantService.allRestaurants();
+        model.addAttribute("restaurantList", listi);
+        return "restaurantListPage";
+    }
+
+    /**
      * Birtir síðu sem hefur töflu sem sýnir alla veitingastaði í gagnagrunninum og
      * upplýsingar um þá.
      *
