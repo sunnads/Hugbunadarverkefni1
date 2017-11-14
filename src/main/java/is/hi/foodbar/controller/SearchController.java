@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.Valid;
@@ -135,7 +134,6 @@ public class SearchController {
      *
      * @return login sem er síða með formi til að skrá sig inn
      */
-
     @RequestMapping("/login")
     public String login(Model model) {
         return "login";
