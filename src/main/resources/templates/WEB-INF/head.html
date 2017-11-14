@@ -54,12 +54,60 @@
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="men">
                                         <ul class="nav-list list-inline">
-                                            <li><a href="#"><img src="https://notendur.hi.is/ksh18/hugbo1/pizza2.png"/><span>Pizza og Pasta </span></a></li>
-                                            <li><a href="#"><img src="https://notendur.hi.is/ksh18/hugbo1/chines.png"/><span>Asískt</span></a></li>
-                                            <li><a href="#"><img src="https://notendur.hi.is/ksh18/hugbo1/hamburger.png"/><span>Hamborgarar</span></a></li>
-                                            <li><a href="#"><img src="https://notendur.hi.is/ksh18/hugbo1/steik.png"/><span>Steikhús</span></a></li>
-                                            <li><a href="#"><img src="https://notendur.hi.is/ksh18/hugbo1/chikenn.png"/><span>Kjúklingur</span></a></li>
-                                            <li><a href="#"><img src="https://notendur.hi.is/ksh18/hugbo1/vegiterian.png"/><span>Grænmetisréttir</span></a></li>
+                                            <li>
+                                                <form  method="POST" th:action="@{/searchbar}">
+                                                    <a href="javascript:;" onclick="parentNode.submit();">
+                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/pizza2.png"/>
+                                                        <div>Pizza</div>
+                                                    </a>
+                                                    <input type="hidden" name="find" value="pizza"/>
+                                                </form>
+                                            </li>
+                                            <li>
+                                                <form  method="POST" th:action="@{/searchbar}">
+                                                    <a href="javascript:;" onclick="parentNode.submit();">
+                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/chines.png"/>
+                                                        <div>Asískt</div>
+                                                    </a>
+                                                    <input type="hidden" name="find" value="asískt"/>
+                                                </form>
+                                            </li>
+                                            <li>
+                                                <form  method="POST" th:action="@{/searchbar}">
+                                                    <a href="javascript:;" onclick="parentNode.submit();">
+                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/hamburger.png"/>
+                                                        <div>Hamborgarar</div>
+                                                    </a>
+                                                    <input type="hidden" name="find" value="hamborgarar"/>
+                                                </form>
+                                            </li>
+                                            <li>
+                                                <form  method="POST" th:action="@{/searchbar}">
+                                                    <a href="javascript:;" onclick="parentNode.submit();">
+                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/steik.png"/>
+                                                        <div>Steikhús</div>
+                                                    </a>
+                                                    <input type="hidden" name="find" value="kjöt"/>
+                                                </form>
+                                            </li>
+                                            <li>
+                                                <form  method="POST" th:action="@{/searchbar}">
+                                                    <a href="javascript:;" onclick="parentNode.submit();">
+                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/chikenn.png"/>
+                                                        <div>Kjúklingur</div>
+                                                    </a>
+                                                    <input type="hidden" name="find" value="kjúklingur"/>
+                                                </form>
+                                            </li>
+                                            <li>
+                                                <form  method="POST" th:action="@{/searchbar}">
+                                                    <a href="javascript:;" onclick="parentNode.submit();">
+                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/vegiterian.png"/>
+                                                        <div>Grænmetisréttir</div>
+                                                    </a>
+                                                    <input type="hidden" name="find" value="grænmetisréttir"/>
+                                                </form>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
