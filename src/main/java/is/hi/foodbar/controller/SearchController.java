@@ -2,6 +2,8 @@ package is.hi.foodbar.controller;
 
 import is.hi.foodbar.model.Restaurants;
 import is.hi.foodbar.services.RestaurantsService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -91,6 +93,19 @@ public class SearchController {
         }
 
         return (err.hasErrors() ) ? "index": "searchResults";
+    }
+
+    @RequestMapping("/login")
+    public String login(Model model) {
+        return "login";
+    }
+
+    @RequestMapping("/dev")
+    public String dev(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(auth.getName());
+        return "index";
+
     }
 
 }

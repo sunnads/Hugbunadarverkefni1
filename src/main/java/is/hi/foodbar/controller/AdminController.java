@@ -3,6 +3,7 @@ package is.hi.foodbar.controller;
 import is.hi.foodbar.model.MenuType;
 import is.hi.foodbar.model.Restaurants;
 import is.hi.foodbar.model.Type;
+import is.hi.foodbar.services.RestaurantsService;
 import java.util.ArrayList;
 import is.hi.foodbar.services.RestaurantsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import javax.validation.Valid;
 
 /**
  * Created by Lenovo on 13.11.2017.
  */
-
+/*
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -35,16 +37,24 @@ public class AdminController {
     public String index(Model model) {
         return "adminIndex";
     }*/
-
-    @RequestMapping
+    /**
+     * Birtir síðu þar sem hægt er að slá inn upplýsingar fyrir veitingastað
+     * og bæta honum í gagnagrunn.
+     *
+     * @param model Módel með attributum
+     * @return síða þar sem hægt er að bæta við veitingastað
+     */
+ /*   @RequestMapping
     public String addRestaurant(Model model){
         Restaurants r = new Restaurants();
         model.addAttribute("addRestaurant", r);
         return "addRestaurantPage";
     }
 
+
+
     @RequestMapping("/login")
     public String login(Model model) {
         return "login";
     }
-}
+}*/

@@ -42,9 +42,11 @@
     <input type="submit" class="btn btn-primary" value="Bæta við tegund"/>
 </form>>
 
-<a method="POST" href="/restList">Skoða veitingastaði</a>
-<a method="POST" href="/addRestaurant">Til baka í bæta við veitingastaði</a>
-<a method="POST" href="/admin">Skrá út</a>
+<a method="POST" href="restList">Skoða veitingastaði</a>
+<a method="POST" href="addRestaurant">Til baka í bæta við veitingastaði</a>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 
 <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

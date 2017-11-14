@@ -25,11 +25,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/admin", "/admin/*").authenticated()
+                .antMatchers("/admin", "/admin/**").authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/admin/login")
-                .successForwardUrl("/admin")
+                .loginPage("/login")
+                .successForwardUrl("/admin/addRestaurant")
                 .permitAll()
                 .and()
                 .logout()
@@ -39,6 +39,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("hugbo1").password("29282322").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("hug").password("123").roles("ADMIN");
     }
 }
