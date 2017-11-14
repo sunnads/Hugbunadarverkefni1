@@ -11,38 +11,46 @@
 </head>
 <body>
 <div th:replace="head :: valmyndir">Staðbundinn haus</div>
-<h1>Bæta matseðilstegund við veitingastað</h1>
+<div class="contentlogin">
+    <h1>Bæta matseðilstegund við veitingastað</h1>
 
-<div th:if="${restaurants} != null">
-    <p>Nafn:</p><p th:text ="${restaurants.name}"></p>
-    <p th:text ="${restaurants.address}"></p>
-    <p th:text ="${restaurants.postCode}"></p>
-    <p th:text ="${restaurants.phoneNumber}"></p>
-    <p th:text ="${restaurants.quality}"></p>
-    <p th:text ="${restaurants.type}"></p>
-    <p th:text ="${restaurants.menuType}"></p>
-    <p th:text ="${restaurants.openingTimes}"></p>
+    <div th:if="${restaurants} != null">
+        <p>Nafn:</p><p th:text ="${restaurants.name}"></p>
+        <p th:text ="${restaurants.address}"></p>
+        <p th:text ="${restaurants.postCode}"></p>
+        <p th:text ="${restaurants.phoneNumber}"></p>
+        <p th:text ="${restaurants.quality}"></p>
+        <p th:text ="${restaurants.type}"></p>
+        <p th:text ="${restaurants.menuType}"></p>
+        <p th:text ="${restaurants.openingTimes}"></p>
+    </div>
+
+    <form th:action="@{/addMenuType}" role="form" method="POST">
+         <div class="form-group col-sm-2">
+             <input class="form-control" name="name" type="text" placeholder="veitingastaður" />
+         </div>
+        <div  class="form-group col-sm-2">
+            <select class="form-control" name="menuType">
+                <option value="0">Veldu matseðilstegund</option>
+                <option value="Morgunmatur">Morgunmatur</option>
+                <option value="Hádegismatur">Hádegismatur</option>
+                <option value="Kaffi og kökur">Kaffi og kökur</option>
+                <option value="Kvöldmatur">Kvöldmatur</option>
+            </select>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Bæta við matseðilstegund"/>
+    </form>
+
+    <hr/>
+    <div class="buttons">
+        <a class="btn btn-primary" method="POST" href="/admin/restList">Skoða veitingastaði</a>
+        <a class="btn btn-primary" method="POST" href="/admin/addRestaurant">Til baka í bæta við veitingastaði</a>
+        <form th:action="@{/logout}" method="post">
+            <input class="btn btn-primary" type="submit" value="Sign Out"/>
+        </form>
+    </div>
 </div>
-
-<form th:action="@{/addMenuType}" role="form" method="POST">
-    <input name="name" type="text" placeholder="veitingastaður" />
-    <select name="menuType">
-        <option value="0">Veldu matseðilstegund</option>
-        <option value="Morgunmatur">Morgunmatur</option>
-        <option value="Hádegismatur">Hádegismatur</option>
-        <option value="Kaffi og kökur">Kaffi og kökur</option>
-        <option value="Kvöldmatur">Kvöldmatur</option>
-    </select>
-
-    <input type="submit" class="btn btn-primary" value="Bæta við matseðilstegund"/>
-</form>>
-
-<a method="POST" href="/admin/restList">Skoða veitingastaði</a>
-<a method="POST" href="/admin/addRestaurant">Til baka í bæta við veitingastaði</a>
-<form th:action="@{/logout}" method="post">
-    <input class="btn btn-primary" type="submit" value="Sign Out"/>
-</form>
-
 <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
