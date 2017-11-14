@@ -2,7 +2,8 @@
 <!-- Höfundur: Karítas Sif Halldórsdottir, ksh18@hi.is -->
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head th:replace="head :: haus">
     <!-- linkur til að ná í Bootstrap -->
     <link rel="stylesheet"
@@ -12,10 +13,24 @@
 
 </head>
 
-<body>
 
+<body>
     <!--header for webpage-->
     <div lang="en" th:include="head :: valmyndir"></div>
+
+    <div th:if="${param.error}">
+        Invalid username and password. <!-- will only show if authentication fails-->
+    </div>
+
+    <!-- CREATE FORM FIELDS -->
+    <form th:action = "@{/login}" method="post">
+        <label>User Name</label>
+        <input class="form-control" type="text" name="username"/>
+        <label>Password</label>
+        <input class="form-control" type="password" name="password"/>
+        <button type="submit" class="btn btn-info">Login </button>
+    </form>
+    <!--
     <div class="adminform" >
         <h1>Admin innskráning</h1>
         <div class="adminbox">
@@ -41,7 +56,7 @@
         </div>
     </div>
 
-
+-->
     <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

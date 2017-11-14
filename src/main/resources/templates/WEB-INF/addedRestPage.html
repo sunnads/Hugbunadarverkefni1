@@ -11,6 +11,7 @@
           crossorigin="anonymous" />
 </head>
 <div th:replace="head :: valmyndir">Staðbundinn haus</div>
+
 <body class="background">
     <div class="container background-tab">
         <div class="page-header">
@@ -27,9 +28,10 @@
             <label class="col-sm-2">Opnunartími:</label><p class="col-sm-10" th:text ="${restaurants.openingTimes}"></p>
         </div>
         <div class="button-actions">
-            <a method="POST" href="/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
+            <a method="POST" href="/admin/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
         </div>
     </div>
+
 
 <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

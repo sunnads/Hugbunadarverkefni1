@@ -12,6 +12,7 @@
     <!--<link href="../static/css/addRest.css" th:href="@{/css/addRest.css}" rel="stylesheet"/>-->
 </head>
 
+
 <body>
 <!--header for webpage-->
 <div th:replace="head :: valmyndir">Staðbundinn haus</div>
@@ -78,11 +79,13 @@
         </fieldset>
     </form>
     <div class="button-actions">
-        <a method="POST" href="/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
-        <a method="POST" href="/addTypes" role="button" class="btn btn-primary">Bæta tegundum við veitingastaði</a>
-        <a method="POST" href="/addOpeningTimes" role="button" class="btn btn-primary">Bæta opnunartímum við veitingastaði</a>
-        <a method="POST" href="/addMenuTypes" role="button" class="btn btn-primary">Bæta matseðilstegundum við veitingastaði</a>
-        <a method="POST" href="/admin" role="button" class="btn btn-primary">Skrá út</a>
+
+        <a method="POST" href="/admin/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
+        <a method="POST" href="/admin/addTypes" role="button" class="btn btn-primary">Bæta tegundum við veitingastaði</a>
+        <a method="POST" href="/admin/addMenuTypes" role="button" class="btn btn-primary">Bæta matseðilstegundum við veitingastaði</a>
+        <form th:action="@{/logout}" method="post">
+            <input class="btn btn-primary" type="submit" value="Sign Out"/>
+        </form>
     </div>
 </div>
 

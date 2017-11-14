@@ -7,6 +7,8 @@ import is.hi.foodbar.model.Type;
 import java.util.ArrayList;
 import is.hi.foodbar.services.RestaurantsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -28,6 +30,7 @@ import javax.validation.Valid;
  * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
 @Controller
+@RequestMapping("/admin")
 public class AddRestController {
 
     // Tenging yfir í þjónustu klasa fyrir forritið
@@ -45,6 +48,7 @@ public class AddRestController {
         Restaurants restaurant = new Restaurants();
         return restaurant;
     }
+
 
     /**
      * Bætir við veitingastað með upplýsingum sem admin skrifaði inn.
@@ -88,10 +92,10 @@ public class AddRestController {
      *
      * @return síða fyrir admin innskráningu
      */
-    @RequestMapping("/admin")
+    /*@RequestMapping("/admin")
     public String admin(){
-        return "adminPage";
-    }
+        return "admin";
+    }*/
 
     /**
      * Birtir síðu þar sem hægt er að slá inn upplýsingar fyrir veitingastað
@@ -213,5 +217,10 @@ public class AddRestController {
             return "view/indexPage";
         else
             return "view/restaurantListPage";
+    }
+
+    @RequestMapping("/login")
+    public String login(Model model) {
+        return "login";
     }
 }

@@ -14,6 +14,8 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
 /**
  * @author Karítas Sif Halldórsdóttir ksh18@hi.is
+ * @date Nóvember 2017
+ * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  *
  * Description: Configuration for the Thymeleaf and Spring MVC.
  */

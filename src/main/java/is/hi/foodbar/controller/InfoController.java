@@ -19,6 +19,7 @@ import java.util.Arrays;
 @Controller
 public class InfoController {
 
+
     @Autowired
     private RestaurantsService restaurantsService;
 
@@ -63,5 +64,6 @@ public class InfoController {
 
         return (err.hasErrors() ) ? "searchResults": "infoPage";
     }
+
 */
 }
