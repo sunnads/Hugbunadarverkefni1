@@ -86,6 +86,10 @@ public class Restaurants {
         return open;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }

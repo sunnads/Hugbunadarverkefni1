@@ -51,6 +51,20 @@ public class RestaurantsServiceImp implements RestaurantsService{
 
     @Transactional
     @Override
+    public void removeRestaurant(long id) {
+        restaurantRep.delete(id);
+    }
+
+    @Override
+    public Restaurants findRestaurantById(Long id) {
+        if(restaurantRep.findById(id).size() != 0)
+            return restaurantRep.findById(id).iterator().next();
+        else
+            return null;
+    }
+
+    @Transactional
+    @Override
     public void addType(Type t, Restaurants r) {
         // Athugum hvort veitingastaðurinn hefur nú þegar þessa tegund
         Set<Type> types = r.getType();

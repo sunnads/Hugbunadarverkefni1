@@ -24,6 +24,13 @@ public interface RestaurantsService {
     void addRestaurant(Restaurants r);
 
     /**
+     * Hendir veitingastað úr database
+     *
+     * @param id Long id á veitingastaðnum sem á að henda
+     */
+    void removeRestaurant(long id);
+
+    /**
      * Bætir við tegund t fyrir veitingastað r
      * @param t tegund sem bætt er við
      * @param r veitingastað r
@@ -58,6 +65,14 @@ public interface RestaurantsService {
      * @return veitingastaður sem passar við nafnið
      */
     Restaurants findRestaurant(String name);
+
+    /**
+     * Finnur fyrsta veitingastað sem inniheldur það sem leitað er að í nafninu
+     *
+     * @param id sem leitað er að
+     * @return veitingastaðurinn sem hefur þetta id
+     */
+    Restaurants findRestaurantById(Long id);
 
     /**
      * Leitar í gagnagrunn að öllum vetingastöðum sem passa við það sem notandi slær inn.
