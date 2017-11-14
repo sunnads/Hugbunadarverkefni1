@@ -111,6 +111,11 @@ public class RestaurantsServiceImp implements RestaurantsService{
     }
 
     @Override
+    public List<Restaurants> findAllWithName(String name) {
+        return restaurantRep.findAllByName(name);
+    }
+
+    @Override
     public List<Restaurants> findAllMatches(String find) {
 
         // Búum til lista og fyllum hann af öllum veitingastöðum sem hafa það sem notandi leitaði að í nafninu

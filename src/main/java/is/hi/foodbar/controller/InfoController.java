@@ -51,7 +51,7 @@ public class InfoController {
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     public String info(@RequestParam(value = "name", required = true) String name, ModelMap model) {
         ArrayList<Restaurants> chosenRest;
-        chosenRest = (ArrayList<Restaurants>) restaurantsService.findAllMatches(name);
+        chosenRest = (ArrayList<Restaurants>) restaurantsService.findAllWithName(name);
         model.addAttribute("chosenRest", chosenRest);
         return "infoPage";
     }

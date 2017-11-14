@@ -59,6 +59,14 @@ public interface RestaurantsService {
     List<Restaurants> allRestaurants();
 
     /**
+     * Finnur veitingastaðinn sem hefur þetta id
+     *
+     * @param id sem leitað er að
+     * @return veitingastaðurinn sem hefur þetta id
+     */
+    Restaurants findRestaurantById(Long id);
+
+    /**
      * Finnur fyrsta veitingastað sem inniheldur það sem leitað er að í nafninu
      *
      * @param name sem leitað er að
@@ -67,15 +75,15 @@ public interface RestaurantsService {
     Restaurants findRestaurant(String name);
 
     /**
-     * Finnur fyrsta veitingastað sem inniheldur það sem leitað er að í nafninu
+     * Finnur alla veitingastaði með nafnið name
      *
-     * @param id sem leitað er að
-     * @return veitingastaðurinn sem hefur þetta id
+     * @param name String nafnið sem er leitað að
+     * @return Listi af öllum veitingastöðum með þetta nafn
      */
-    Restaurants findRestaurantById(Long id);
+    List<Restaurants> findAllWithName(String name);
 
     /**
-     * Leitar í gagnagrunn að öllum vetingastöðum sem passa við það sem notandi slær inn.
+     * Leitar í gagnagrunn að öllum vetingastöðum sem passa einhvernvegin við það sem notandi slær inn.
      *
      * @param find Strengurinn sem notandi sló inn
      * @return listi af veitingastöðum sem passa við það sem notandi leitaði að
