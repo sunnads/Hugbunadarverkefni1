@@ -21,7 +21,7 @@ import javax.validation.Valid;
 
 /**
  * Controller sem stýrir hvað er gert þegar notandi eða viðmót
- * setur inn skipun.
+ * setur inn skipun sem tengist leitinni.
  *
  * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
  * @author Elvar Kjartansson, elk11@hi.is
@@ -33,7 +33,8 @@ import javax.validation.Valid;
 @Controller
 public class SearchController {
 
-    //private ArrayList<Restaurants> restaurantList = new ArrayList<Restaurants>();
+    // Geymir síðustu leitarniðurstöður
+    private ArrayList<Restaurants> lastSearch = new ArrayList<Restaurants>();
 
     @Autowired
     private RestaurantsService restaurantsService;
@@ -61,12 +62,13 @@ public class SearchController {
     public String index(Model model){
         //Restaurants r = new Restaurants();
         //model.addAttribute("restaurant", r);
-        return "index"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
+        return "index"; // skilar .html skrá sem er /resources/templates/WEB-INF/index.html
     }
+
     // bara test til að sjá mythmleaf keyra
     @RequestMapping("/test")
     public String test(){
-        return "test"; // skilar .jsp skrá sem er /webapp/WEB-INF/vefvidmot/view/indexPage.jsp
+        return "test";
     }
     // færa allt af index yfir á þessa síðu til að finna villu hví hún keyrir ekki í thymleaf
 
@@ -75,6 +77,7 @@ public class SearchController {
     public String searchbar(@RequestParam("find") String find, ModelMap model) {
         ArrayList<Restaurants> restaurantList;
         restaurantList = (ArrayList<Restaurants>) restaurantsService.findAllMatches(find);
+        lastSearch = restaurantList;
         model.addAttribute("restaurantList", restaurantList);
         return "searchResults";
     }
@@ -88,11 +91,24 @@ public class SearchController {
         if (!err.hasErrors()) {
             ArrayList<Restaurants> restaurantList;
             restaurantList = (ArrayList<Restaurants>) restaurantsService.findFilteredMatches(restaurant);
-            //restaurantList.add(restaurant);
+            lastSearch = restaurantList;
             model.addAttribute("restaurantList", restaurantList);
         }
 
         return (err.hasErrors() ) ? "index": "searchResults";
+    }
+
+    /**
+     * Aðferð til þess að fara aftur í seinustu leitaniðurstöður
+     * án þess að þurfa að leita aftur
+     *
+     * @param model Módel með attributum
+     * @return Síða með leitarniðurstöðum
+     */
+    @RequestMapping("/backToSearch")
+    public String backToSearch(Model model){
+        model.addAttribute("restaurantList", lastSearch);
+        return "searchResults";
     }
 
     /**

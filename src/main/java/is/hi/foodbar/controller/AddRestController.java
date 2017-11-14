@@ -185,6 +185,12 @@ public class AddRestController {
 
     /**
      *
+     * @param addedOpeningTimes OpeningTimes tilvik sem inniheldur tímana sem á að bæta við
+     * @param restName Strengur sem hefur nafnið á veitingastaðnum sem á að fá opnunartímana
+     * @param err BindingResult villur sem koma upp
+     * @param model Módel með attributum
+     * @return Birtir síðu til að bæta við fleiri opnunartímum,
+     * og sýnir veitingastaðinn sem opnunartímunum var bætt við ef það heppnaðist
      */
     @RequestMapping(value = "/addOpeningTime", method = RequestMethod.POST)
     public String addOpeningTime(@Valid @ModelAttribute(name="addOpeningTimes") OpeningTimes addedOpeningTimes,
