@@ -14,12 +14,21 @@
             <div class="container">
                 <div th:each ="rest: ${chosenRest}">
                     <div class="col-sm-10 background-tab">
-                        <div class="page-header">
+                        <div class="page-header header">
                             <h1 th:text ="${rest.name}"></h1>
                         </div>
-                        <p th:text ="${rest.address}"></p>
-                        <p th:text ="${rest.postCode}"></p>
-                        <p th:text ="${rest.phoneNumber}"></p>
+                        <div class="bigger-font">
+                            <label class="col-sm-2">Heimilisfang:</label><p class="col-sm-10" th:text ="${rest.address}"></p>
+                            <label class="col-sm-2">Póstnúmer:</label><p class="col-sm-10" th:text ="${rest.postCode}"></p>
+                            <label class="col-sm-2">Símanúmer:</label><p class="col-sm-10" th:text ="${rest.phoneNumber}"></p>
+                            <label class="col-sm-2">Gæði:</label><p class="col-sm-10" th:text ="${rest.quality}"></p>
+                            <label class="col-sm-2">Tegund:</label><p class="col-sm-10" th:text ="${rest.type}"></p>
+                            <label class="col-sm-2">Matseðill:</label><p class="col-sm-10" th:text ="${rest.menuType}"></p>
+                            <label class="col-sm-2">Opnunartími:</label><p class="col-sm-10" th:text ="${rest.openingTimes}"></p>
+                        </div>
+                        <div class="button-actions">
+                            <a method="POST" href="/search" role="button" class="btn btn-primary">Til baka í leit</a>
+                        </div>
                     </div>
                 </div>
             </div>
