@@ -72,7 +72,15 @@ public class SearchController {
     }
     // færa allt af index yfir á þessa síðu til að finna villu hví hún keyrir ekki í thymleaf
 
-
+    /**
+     * Leit fyrir leitargluggan í headernum.
+     * Þessi leit notar leitarorðið (find) til að leita í gegnum nöfn, heimilisföng
+     * póstnúmer og fleira og bætir öllum niðurstöðunum í lista
+     *
+     * @param find Strengur sem á að leita að
+     * @param model Módel með attributum
+     * @return Síða með leitarniðurstöðum
+     */
     @RequestMapping(value = "/searchbar", method = RequestMethod.POST)
     public String searchbar(@RequestParam("find") String find, ModelMap model) {
         ArrayList<Restaurants> restaurantList;
@@ -82,6 +90,16 @@ public class SearchController {
         return "searchResults";
     }
 
+    /**
+     * Leit fyrir dropdown leitina í headernum.
+     * Þessi leit tekur allt sem notandi setur inn í dropdown menuinu og
+     * finnur allt sem passar við allt sem notandi setti inn.
+     *
+     * @param restaurant Restaurants tilvik sem inniheldur allt sem notandi afmarkaði leitina við
+     * @param err BindingResult villur sem koma upp
+     * @param model Módel með attributum
+     * @return Síða með leitarniðurstöðum
+     */
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public String search(@Valid @ModelAttribute(name="restaurant")
                                Restaurants restaurant,
