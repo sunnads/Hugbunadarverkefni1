@@ -149,10 +149,17 @@ public class AddRestController {
                           @RequestParam("name") String restName, ModelMap model) {
         Type type = new Type();
         type.setName(typeName);
-        Restaurants r = restaurantService.findRestaurant(restName);
-        if (r != null && !typeName.equals("0")) {
-            restaurantService.addType(type, r);
-            model.addAttribute("restaurants", r);
+
+        ArrayList<Restaurants> listi;
+        listi = (ArrayList<Restaurants>) restaurantService.findAllWithName(restName);
+        Restaurants r;
+        if (!listi.isEmpty() && !typeName.equals("0")) {
+            for (int i = 0; i < listi.size(); i++) {
+                r = listi.get(i);
+                System.out.println(r);
+                restaurantService.addType(type, r);
+                model.addAttribute("restaurants", r);
+            }
         }
         return "addTypePage";
     }
@@ -179,10 +186,17 @@ public class AddRestController {
                           @RequestParam("name") String restName, ModelMap model) {
         MenuType menuType = new MenuType();
         menuType.setName(menuTypeName);
-        Restaurants r = restaurantService.findRestaurant(restName);
-        if (r != null && !menuTypeName.equals("0")) {
-            restaurantService.addMenuType(menuType, r);
-            model.addAttribute("restaurants", r);
+
+        ArrayList<Restaurants> listi;
+        listi = (ArrayList<Restaurants>) restaurantService.findAllWithName(restName);
+        Restaurants r;
+        if (!listi.isEmpty() && !menuTypeName.equals("0")) {
+            for (int i = 0; i < listi.size(); i++) {
+                r = listi.get(i);
+                System.out.println(r);
+                restaurantService.addMenuType(menuType, r);
+                model.addAttribute("restaurants", r);
+            }
         }
         return "addMenuTypePage";
     }

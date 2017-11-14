@@ -64,7 +64,7 @@ public interface RestaurantsService {
      * @param id sem leitað er að
      * @return veitingastaðurinn sem hefur þetta id
      */
-    Restaurants findRestaurantById(Long id);
+    Restaurants findRestaurantById(long id);
 
     /**
      * Finnur fyrsta veitingastað sem inniheldur það sem leitað er að í nafninu
