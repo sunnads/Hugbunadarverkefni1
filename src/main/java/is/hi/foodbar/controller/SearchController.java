@@ -2,8 +2,6 @@ package is.hi.foodbar.controller;
 
 import is.hi.foodbar.model.Restaurants;
 import is.hi.foodbar.services.RestaurantsService;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -64,13 +62,6 @@ public class SearchController {
         return "index"; // skilar .html skrá sem er /resources/templates/WEB-INF/index.html
     }
 
-    // bara test til að sjá mythmleaf keyra
-    @RequestMapping("/test")
-    public String test(){
-        return "test";
-    }
-    // færa allt af index yfir á þessa síðu til að finna villu hví hún keyrir ekki í thymleaf
-
     /**
      * Leit fyrir leitargluggan í headernum.
      * Þessi leit notar leitarorðið (find) til að leita í gegnum nöfn, heimilisföng
@@ -127,30 +118,4 @@ public class SearchController {
         model.addAttribute("restaurantList", lastSearch);
         return "searchResults";
     }
-
-    /**
-     * Birtir login.html sem er síða til að skrá sig inn á admin
-     * síðuna þar sem hægt er að bæta við veitingstöðum
-     *
-     * @return login sem er síða með formi til að skrá sig inn
-     */
-    @RequestMapping("/login")
-    public String login(Model model) {
-        return "login";
-    }
-
-    /**
-     * Birtir index.html
-     * Síða til að sjá skilaboð í keyslu hver er skráður inn
-     *
-     * @return vefsíða sem hefur upphafsviðmótið
-     */
-    @RequestMapping("/dev")
-    public String dev(){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(auth.getName());
-        return "index";
-
-    }
-
 }
