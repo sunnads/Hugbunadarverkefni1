@@ -24,7 +24,6 @@
             <th>Tegund</th>
             <th>Matseðill</th>
             <th>Opnunartími</th>
-            <th>Lokunartími</th>
         </tr>
         </thead>
         <tr th:each ="restaurant :${restaurantList}">
@@ -35,8 +34,7 @@
             <td th:text ="${restaurant.quality}"></td>
             <td th:text ="${restaurant.type}"></td>
             <td th:text ="${restaurant.menuType}"></td>
-            <td th:text ="${restaurant.openingTime}"></td>
-            <td th:text ="${restaurant.closingTime}"></td>
+            <td th:text ="${restaurant.openingTimes}"></td>
         </tr>
     </table>
 </div>

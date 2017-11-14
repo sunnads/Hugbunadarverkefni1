@@ -1,6 +1,7 @@
 package is.hi.foodbar.services;
 
 import is.hi.foodbar.model.MenuType;
+import is.hi.foodbar.model.OpeningTimes;
 import is.hi.foodbar.model.Restaurants;
 import is.hi.foodbar.model.Type;
 import java.util.List;
@@ -35,6 +36,13 @@ public interface RestaurantsService {
      * @param r veitingastað r
      */
     void addMenuType(MenuType m, Restaurants r);
+
+    /**
+     * Bætir við opnunartímum o fyrir veitingastað r
+     * @param o opnunartímar sem verið er að bæta við
+     * @param r veitingastað r
+     */
+    void addOpeningTimes(OpeningTimes o, Restaurants r);
 
     /**
      * Skilar öllum restaurants í restaurantsRep

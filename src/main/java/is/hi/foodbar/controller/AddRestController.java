@@ -1,6 +1,7 @@
 package is.hi.foodbar.controller;
 
 import is.hi.foodbar.model.MenuType;
+import is.hi.foodbar.model.OpeningTimes;
 import is.hi.foodbar.model.Restaurants;
 import is.hi.foodbar.model.Type;
 import java.util.ArrayList;
@@ -168,6 +169,38 @@ public class AddRestController {
             model.addAttribute("restaurants", r);
         }
         return "addMenuTypePage";
+    }
+
+    /**
+     * Birtir síðu til að bæta opnunartímum við veitingastað
+     *
+     * @return síða til að bæta opnunartímum við veitingastað
+     */
+    @RequestMapping("/addOpeningTimes")
+    public String addOpeningTime(Model model){
+        OpeningTimes o = new OpeningTimes();
+        model.addAttribute("addOpeningTimes", o);
+        return "addOpeningTimesPage";
+    }
+
+    /**
+     *
+     */
+    @RequestMapping(value = "/addOpeningTime", method = RequestMethod.POST)
+    public String addOpeningTime(@Valid @ModelAttribute(name="addOpeningTimes") OpeningTimes addedOpeningTimes,
+                                  @RequestParam("name") String restName,
+                                  BindingResult err,
+                                  ModelMap model) {
+
+        if (!err.hasErrors()) {
+            Restaurants r = restaurantService.findRestaurant(restName);
+            if (r != null) {
+                restaurantService.addOpeningTimes(addedOpeningTimes, r);
+                model.addAttribute("restaurants", r);
+            }
+        }
+
+        return "addOpeningTimesPage";
     }
 
     /**

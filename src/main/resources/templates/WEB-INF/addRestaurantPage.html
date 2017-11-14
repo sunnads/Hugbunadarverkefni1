@@ -73,20 +73,13 @@
                     <option value="5" th:value="5">Fínt</option>
                 </select>
             </div>
-            <div class="form-group col-sm-3">
-                <label for="addOpenMon">Opnunartími:</label>
-                <input type="time" class="form-control" name="addOpenMon" id="addOpenMon" th:field="*{openingTime}" placeholder="Opnunartími" required="required"/>
-            </div>
-            <div class="form-group col-sm-3">
-                <label for="addCloseMon">Lokunartími:</label>
-                <input type="time" class="form-control" name="addCloseMon" id="addCloseMon" th:field="*{closingTime}" placeholder="Lokunartími" required="required"/>
-            </div>
             <div class="form-actions">
                 <input type="submit" class="btn btn-primary" value="Bæta við veitingastað"/>
             </div>
         </fieldset>
     </form>
     <div class="button-actions">
+
         <a method="POST" href="/admin/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
         <a method="POST" href="/admin/addTypes" role="button" class="btn btn-primary">Bæta tegundum við veitingastaði</a>
         <a method="POST" href="/admin/addMenuTypes" role="button" class="btn btn-primary">Bæta matseðilstegundum við veitingastaði</a>
