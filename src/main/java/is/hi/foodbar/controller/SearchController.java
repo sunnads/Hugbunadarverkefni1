@@ -95,11 +95,24 @@ public class SearchController {
         return (err.hasErrors() ) ? "index": "searchResults";
     }
 
+    /**
+     * Birtir login.html sem er síða til að skrá sig inn á admin
+     * síðuna þar sem hægt er að bæta við veitingstöðum
+     *
+     * @return login sem er síða með formi til að skrá sig inn
+     */
+
     @RequestMapping("/login")
     public String login(Model model) {
         return "login";
     }
 
+    /**
+     * Birtir index.html
+     * Síða til að sjá skilaboð í keyslu hver er skráður inn
+     *
+     * @return vefsíða sem hefur upphafsviðmótið
+     */
     @RequestMapping("/dev")
     public String dev(){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

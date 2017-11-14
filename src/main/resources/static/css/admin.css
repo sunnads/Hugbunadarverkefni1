@@ -1,3 +1,5 @@
+/* css fyrir login.html */
+
 .adminform{
     padding: 30px;
     position: fixed;
@@ -13,4 +15,11 @@
 .buttonsadmins{
     align-items: center;
 }
+
+/* css fyrir addTypePage.html */
+.contentAddTypePage{
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
 

@@ -22,14 +22,20 @@
         Invalid username and password. <!-- will only show if authentication fails-->
     </div>
 
-    <!-- CREATE FORM FIELDS -->
-    <form th:action = "@{/login}" method="post">
-        <label>User Name</label>
-        <input class="form-control" type="text" name="username"/>
-        <label>Password</label>
-        <input class="form-control" type="password" name="password"/>
-        <button type="submit" class="btn btn-info">Login </button>
-    </form>
+    <div class="adminform" >
+        <h1>Admin innskráning</h1>
+        <div class="adminbox">
+            <form th:action = "@{/login}" method="post">
+                <label>User Name</label>
+                <input class="form-control" type="text" name="username" placeholder="Username"/>
+                <br/>
+                <label>Password:</label>
+                <input class="form-control" type="password" name="password" placeholder="Password"/>
+                <br/>
+                <button type="submit" class="btn btn-info">Login </button>
+            </form>
+        </div>
+    </div>
     <!--
     <div class="adminform" >
         <h1>Admin innskráning</h1>
