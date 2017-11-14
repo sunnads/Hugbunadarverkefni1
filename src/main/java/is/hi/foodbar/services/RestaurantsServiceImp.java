@@ -56,7 +56,7 @@ public class RestaurantsServiceImp implements RestaurantsService{
     }
 
     @Override
-    public Restaurants findRestaurantById(Long id) {
+    public Restaurants findRestaurantById(long id) {
         if(restaurantRep.findById(id).size() != 0)
             return restaurantRep.findById(id).iterator().next();
         else
