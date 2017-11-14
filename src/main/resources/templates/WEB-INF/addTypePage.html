@@ -25,7 +25,7 @@
             <p th:text ="${restaurants.openingTimes}"></p>
         </div>
 
-    <form th:action="@{/addType}" role="form" method="POST">
+    <form th:action="@{/admin/addType}" role="form" method="POST">
         <div class="form-group col-sm-2">
             <input class="form-control" name="name" type="text" placeholder="veitingastaður" />
         </div>
@@ -34,6 +34,7 @@
                 <option value="0" th:value="0">Veldu tegund</option>
                 <option value="Pizza" th:value="Pizza">Pizza</option>
                 <option value="Pasta" th:value="Pasta">Pasta</option>
+                <option value="Samlokur" th:value="Samlokur">Samlokur</option>
                 <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
                 <option value="kjot" th:value="Kjöt">Kjöt</option>
                 <option value="fiskur" th:value="Fiskur">Fiskur</option>
@@ -49,8 +50,8 @@
     <hr/>
 
     <div class="buttons">
-        <a class="btn btn-primary" method="POST" href="restList">Skoða veitingastaði</a>
-        <a class="btn btn-primary" method="POST" href="addRestaurant">Til baka í bæta við veitingastaði</a>
+        <a class="btn btn-primary" method="POST" href="/admin/restList">Skoða veitingastaði</a>
+        <a class="btn btn-primary" method="POST" href="/admin/addRestaurant">Til baka í bæta við veitingastaði</a>
         <br/>
         <form th:action="@{/logout}" method="post">
             <input class="btn btn-primary" type="submit" value="Sign Out"/>
