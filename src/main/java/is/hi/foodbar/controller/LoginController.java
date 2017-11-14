@@ -8,6 +8,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * Controller sem stýrir hvað er gert þegar notandi eða viðmót
+ * setur inn skipun sem tengist admin login.
+ *
+ * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
+ * @author Elvar Kjartansson, elk11@hi.is
+ * @author Karítas Sif Halldórsdóttir, ksh18@hi.is
+ * @author Sunna Dröfn Sigfúsdóttir, sds21@hi.is
+ * @date Nóvember 2017
+ * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
+ */
 @Controller
 public class LoginController {
 

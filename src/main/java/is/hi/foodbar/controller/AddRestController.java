@@ -7,8 +7,6 @@ import is.hi.foodbar.model.Type;
 import java.util.ArrayList;
 import is.hi.foodbar.services.RestaurantsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
