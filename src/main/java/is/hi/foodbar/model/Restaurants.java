@@ -70,6 +70,22 @@ public class Restaurants {
         this.openingTimes = openingTimes;
     }
 
+    /**
+     * Athugar hvort veitingastaðurinn er opinn núna.
+     *
+     * @return boolean true ef opið, false ef lokað
+     */
+    public boolean isOpen() {
+        boolean open = false;
+        if(!openingTimes.isEmpty()) {
+            for (OpeningTimes o : openingTimes) {
+                System.out.println(o);
+                open = open || o.isOpen();
+            }
+        }
+        return open;
+    }
+
     public String getName() {
         return name;
     }

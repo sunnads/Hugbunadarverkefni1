@@ -2,8 +2,6 @@ package is.hi.foodbar.controller;
 
 import is.hi.foodbar.model.Restaurants;
 import is.hi.foodbar.services.RestaurantsService;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.Valid;
@@ -65,14 +62,15 @@ public class SearchController {
         return "index"; // skilar .html skrá sem er /resources/templates/WEB-INF/index.html
     }
 
-    // bara test til að sjá mythmleaf keyra
-    @RequestMapping("/test")
-    public String test(){
-        return "test";
-    }
-    // færa allt af index yfir á þessa síðu til að finna villu hví hún keyrir ekki í thymleaf
-
-
+    /**
+     * Leit fyrir leitargluggan í headernum.
+     * Þessi leit notar leitarorðið (find) til að leita í gegnum nöfn, heimilisföng
+     * póstnúmer og fleira og bætir öllum niðurstöðunum í lista
+     *
+     * @param find Strengur sem á að leita að
+     * @param model Módel með attributum
+     * @return Síða með leitarniðurstöðum
+     */
     @RequestMapping(value = "/searchbar", method = RequestMethod.POST)
     public String searchbar(@RequestParam("find") String find, ModelMap model) {
         ArrayList<Restaurants> restaurantList;
@@ -82,6 +80,16 @@ public class SearchController {
         return "searchResults";
     }
 
+    /**
+     * Leit fyrir dropdown leitina í headernum.
+     * Þessi leit tekur allt sem notandi setur inn í dropdown menuinu og
+     * finnur allt sem passar við allt sem notandi setti inn.
+     *
+     * @param restaurant Restaurants tilvik sem inniheldur allt sem notandi afmarkaði leitina við
+     * @param err BindingResult villur sem koma upp
+     * @param model Módel með attributum
+     * @return Síða með leitarniðurstöðum
+     */
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     public String search(@Valid @ModelAttribute(name="restaurant")
                                Restaurants restaurant,
@@ -110,31 +118,4 @@ public class SearchController {
         model.addAttribute("restaurantList", lastSearch);
         return "searchResults";
     }
-
-    /**
-     * Birtir login.html sem er síða til að skrá sig inn á admin
-     * síðuna þar sem hægt er að bæta við veitingstöðum
-     *
-     * @return login sem er síða með formi til að skrá sig inn
-     */
-
-    @RequestMapping("/login")
-    public String login(Model model) {
-        return "login";
-    }
-
-    /**
-     * Birtir index.html
-     * Síða til að sjá skilaboð í keyslu hver er skráður inn
-     *
-     * @return vefsíða sem hefur upphafsviðmótið
-     */
-    @RequestMapping("/dev")
-    public String dev(){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println(auth.getName());
-        return "index";
-
-    }
-
 }

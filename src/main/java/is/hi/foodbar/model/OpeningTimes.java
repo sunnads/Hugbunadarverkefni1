@@ -261,6 +261,7 @@ public class OpeningTimes {
     private String formatNum(int num) {
         String number = ""+num;
         String s = "";
+        if(num == -1) return "00:00";
         char[] digits = number.toCharArray();
         if(digits.length > 4) return s;
         if(digits.length == 4) {

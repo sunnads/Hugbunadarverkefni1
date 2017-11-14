@@ -25,11 +25,17 @@
                                 <p th:text ="${listItem.postCode}"></p>
                                 <p th:text ="${listItem.phoneNumber}"></p>
                                 <!-- Er opið? -->
-                                <div th:unless="${listItem.openingTimes.isEmpty()}">
-                                    <th:block th:text="${listItem.openingTimes[0].isOpen()}"/>
+                                <!--th:block th:text="${listItem.isOpen()}"/-->
+                                <div th:if="${listItem.isOpen()}">
+                                    <p>Opið</p>
+                                </div>
+                                <div th:unless="${listItem.isOpen()}">
+                                    <p>Lokað</p>
                                 </div>
                                 <input class="form-control" name="name" type="hidden" th:value ="${listItem.name}" />
-                                <button type="submit" class="btn btn-primary">Nánari upplýsingar</button>
+                                <div>
+                                    <button type="submit" class="btn btn-primary">Nánari upplýsingar</button>
+                                </div>
                             </form>
                         </div>
                     </div>

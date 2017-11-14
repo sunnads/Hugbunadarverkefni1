@@ -59,7 +59,6 @@ public class RestaurantsServiceImp implements RestaurantsService{
         }
         // ef ekki bætum henni við veitingastaðinn.
         r.addType(t);
-        Set<Type> h =  r.getType();
         typeRep.save(t);
     }
 
@@ -73,7 +72,6 @@ public class RestaurantsServiceImp implements RestaurantsService{
         }
         // ef ekki bætum henni við veitingastaðinn.
         r.addMenuType(m);
-        Set<Type> h =  r.getType();
         menuTypeRep.save(m);
     }
 
@@ -81,7 +79,6 @@ public class RestaurantsServiceImp implements RestaurantsService{
     @Override
     public void addOpeningTimes(OpeningTimes o, Restaurants r) {
         r.addOpeningTimes(o);
-        Set<Type> h =  r.getType();
         openingTimesRep.save(o);
     }
 
