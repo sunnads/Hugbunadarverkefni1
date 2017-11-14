@@ -24,35 +24,55 @@
     <p th:text ="${restaurants.openingTimes}"></p>
 </div>
 
-<form th:action="@{/addOpeningTime}" th:object="${addOpeningTimes}" role="form" method="POST">
-    <input name="name" type="text" placeholder="veitingastaður" />
-    <input name="openMon" type="text" th:field="*{mondayOpen}" placeholder="opnar Mánudaga" />
-    <input name="closeMon" type="text" th:field="*{mondayClosed}" placeholder="lokar Mánudaga" />
-
-    <input name="openMon" type="text" th:field="*{tuesdayOpen}" placeholder="opnar Þriðjudaga" />
-    <input name="closeMon" type="text" th:field="*{tuesdayClosed}" placeholder="lokar Þriðjudaga" />
-
-    <input name="openMon" type="text" th:field="*{wednesdayOpen}" placeholder="opnar Miðvikudaga" />
-    <input name="closeMon" type="text" th:field="*{wednesdayClosed}" placeholder="lokar Miðvikudaga" />
-
-    <input name="openMon" type="text" th:field="*{thursdayOpen}" placeholder="opnar Fimmtudaga" />
-    <input name="closeMon" type="text" th:field="*{thursdayClosed}" placeholder="lokar Fimmtudaga" />
-
-    <input name="openMon" type="text" th:field="*{fridayOpen}" placeholder="opnar Föstudaga" />
-    <input name="closeMon" type="text" th:field="*{fridayClosed}" placeholder="lokar Föstudaga" />
-
-    <input name="openMon" type="text" th:field="*{saturdayOpen}" placeholder="opnar Laugardaga" />
-    <input name="closeMon" type="text" th:field="*{saturdayClosed}" placeholder="lokar Laugardaga" />
-
-    <input name="openMon" type="text" th:field="*{sundayOpen}" placeholder="opnar Sunnudaga" />
-    <input name="closeMon" type="text" th:field="*{sundayClosed}" placeholder="lokar Sunnudaga" />
-
+<form th:action="@{/admin/addOpeningTime}" th:object="${addOpeningTimes}" role="form" method="POST">
+    <div class="form-group">
+        <label>Veitingastaður</label>
+        <input name="name" type="text" placeholder="veitingastaður" />
+    </div>
+    <div class="form-group">
+        <label>Mánudagar:</label>
+        Opnar:<input name="openMon" type="text" th:field="*{mondayOpen}" placeholder="opnar Mánudaga" />
+        Lokar:<input name="closeMon" type="text" th:field="*{mondayClosed}" placeholder="lokar Mánudaga" />
+    </div>
+    <div class="form-group">
+        <label>Þriðjudagar:</label>
+        Opnar:<input name="openMon" type="text" th:field="*{tuesdayOpen}" placeholder="opnar Þriðjudaga" />
+        Lokar:<input name="closeMon" type="text" th:field="*{tuesdayClosed}" placeholder="lokar Þriðjudaga" />
+    </div>
+    <div class="form-group">
+        <label>Miðvikudagar:</label>
+        Opnar:<input name="openMon" type="text" th:field="*{wednesdayOpen}" placeholder="opnar Miðvikudaga" />
+        Lokar:<input name="closeMon" type="text" th:field="*{wednesdayClosed}" placeholder="lokar Miðvikudaga" />
+    </div>
+    <div class="form-group">
+        <label>Fimmtudagr:</label>
+        Opnar:<input name="openMon" type="text" th:field="*{thursdayOpen}" placeholder="opnar Fimmtudaga" />
+        Lokar:<input name="closeMon" type="text" th:field="*{thursdayClosed}" placeholder="lokar Fimmtudaga" />
+    </div>
+    <div class="form-group">
+        <label>Föstudagar:</label>
+        Opnar:<input name="openMon" type="text" th:field="*{fridayOpen}" placeholder="opnar Föstudaga" />
+        Lokar:<input name="closeMon" type="text" th:field="*{fridayClosed}" placeholder="lokar Föstudaga" />
+    </div>
+    <div class="form-group">
+        <label>Laugardagar:</label>
+        Opnar:<input name="openMon" type="text" th:field="*{saturdayOpen}" placeholder="opnar Laugardaga" />
+        Lokar:<input name="closeMon" type="text" th:field="*{saturdayClosed}" placeholder="lokar Laugardaga" />
+    </div>
+    <div class="form-group">
+        <label>Sunnudagar:</label>
+        Opnar:<input name="openMon" type="text" th:field="*{sundayOpen}" placeholder="opnar Sunnudaga" />
+        Lokar:<input name="closeMon" type="text" th:field="*{sundayClosed}" placeholder="lokar Sunnudaga" />
+    </div>
     <input type="submit" class="btn btn-primary" value="Bæta við opnunartímum"/>
-</form>>
+</form>
 
-<a method="POST" href="/restList">Skoða veitingastaði</a>
-<a method="POST" href="/addRestaurant">Til baka í bæta við veitingastaði</a>
-<a method="POST" href="/admin">Skrá út</a>
+<div class="button-actions">
+    <a method="POST" href="/admin/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
+    <a method="POST" href="/admin/addRestaurant" role="button" class="btn btn-primary">Til baka í bæta við veitingastaði</a>
+    <a method="POST" href="/admin/addTypes" role="button" class="btn btn-primary">Bæta tegundum við veitingastaði</a>
+    <a method="POST" href="/admin/addMenuTypes" role="button" class="btn btn-primary">Bæta matseðilstegundum við veitingastaði</a>
+</div>
 
 <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
