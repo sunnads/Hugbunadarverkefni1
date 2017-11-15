@@ -1,5 +1,6 @@
 <!-- Höfundur: Brynja Pálína Sigurgeirsdóttir, bps5@hi.is -->
 <!-- Höfundur: Karítas Sif Halldórsdottir, ksh18@hi.is -->
+<!-- Höfundur: Sunna Dröfn Sigfúsdóttir, sds21@hi.is -->
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
@@ -17,10 +18,15 @@
                 <div class="page-header">
                     <h1>Eftirfarandi veitingastaðir eru nú þegar til</h1>
                 </div>
-                <form method="POST" th:action="@{/admin/removeRest}">
-                    <input class="form-control" name="id" type="text" placeholder="Id" />
-                    <input type="submit" class="btn btn-primary" value="Henda Veitingastað"/>
-                </form>
+                <!-- var hérna -->
+
+                    <form method="POST" th:action="@{/admin/removeRest}">
+
+                            <input class=" col-sm-4 form-control" name="id" type="text" placeholder="Id" />
+
+                        <input type="submit" class="btn btn-primary" value=" Henda Veitingastað "/>
+                    </form>
+
                 <div th:if="${not #lists.isEmpty(restaurantList)}" class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -49,6 +55,8 @@
                         </tr>
                     </table>
                 </div>
+
+
                 <div class="button-actions">
                     <a method="POST" href="/admin/addRestaurant" role="button" class="btn btn-primary">Bæta við öðrum veitingastaði</a>
                 </div>
