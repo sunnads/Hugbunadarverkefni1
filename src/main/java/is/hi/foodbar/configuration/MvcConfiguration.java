@@ -1,10 +1,7 @@
 package is.hi.foodbar.configuration;
 
-import java.util.Locale;
-import org.springframework.core.SpringVersion;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -20,7 +17,6 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
  *
  * Description: Configuration for the Thymeleaf and Spring MVC.
  */
-
 @Configuration
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 

@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
 
 /**
- * Tekur við skipunum frá vefviðmóti til að skrá nýjan veitingastað og birta lista af
- * veitingastöðum.
+ * Tekur við skipunum frá vefviðmóti til að skrá nýjan veitingastað og
+ * birta lista af veitingastöðum.
  *
  * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
  * @author Elvar Kjartansson, elk11@hi.is
@@ -37,7 +37,9 @@ public class AddRestController {
 
     /**
      * Setur upp nýan restaurant object sem search aðferðin getur breytt
-     * eftir því hvað notandi leitaði að
+     * eftir því hvað notandi leitaði að.
+     * Header leitin þarf að hafa tilbúið Restaurant tilvik til að nota
+     * í @ModelAttribute.
      *
      * @return Restaurant object sem er tómt
      */
@@ -74,7 +76,7 @@ public class AddRestController {
      * Hendir veitingastað með id sem admin skrifaði inn
      * og birtir svo alla veitingastaði.
      *
-     * @param id Long id á veitingastaðnum sem á að henda
+     * @param id long id á veitingastaðnum sem á að henda
      * @param model Módel með attributum
      */
     @RequestMapping(value = "/removeRest", method = RequestMethod.POST)
@@ -104,16 +106,6 @@ public class AddRestController {
     }
 
     /**
-     * Birtir admin innskráningu
-     *
-     * @return síða fyrir admin innskráningu
-     */
-    /*@RequestMapping("/admin")
-    public String admin(){
-        return "admin";
-    }*/
-
-    /**
      * Birtir síðu þar sem hægt er að slá inn upplýsingar fyrir veitingastað
      * og bæta honum í gagnagrunn.
      *
@@ -138,7 +130,8 @@ public class AddRestController {
     }
 
     /**
-     * Býr til tegund (type) og bætir henni við veitingastaðinn (name)
+     * Býr til tegund (typeName) og bætir henni við veitingastaðinn (restName)
+     *
      * @param typeName tegund á veitingastað
      * @param restName nafn á veitingastað
      * @return Birtir síðu til að bæta við fleiri tegundum,
@@ -175,7 +168,8 @@ public class AddRestController {
     }
 
     /**
-     * Býr til matseðilstegund (menuType) og bætir henni við veitingastaðinn (name)
+     * Býr til matseðilstegund (menuTypeName) og bætir henni við veitingastaðinn (restName)
+     *
      * @param menuTypeName tegund matseðils fyrir veitingastað
      * @param restName nafn á veitingastað
      * @return Birtir síðu til að bæta við fleiri matseðilstegundum,
@@ -214,6 +208,7 @@ public class AddRestController {
     }
 
     /**
+     * Býr til opnunartíma (addedOpeningTimes) og bætir þeim við veitingastaðinn (restName)
      *
      * @param addedOpeningTimes OpeningTimes tilvik sem inniheldur tímana sem á að bæta við
      * @param restName Strengur sem hefur nafnið á veitingastaðnum sem á að fá opnunartímana
@@ -240,21 +235,11 @@ public class AddRestController {
     }
 
     /**
-     * Dæmi til að sýna prófanir með kalli á service klasa
+     * Biritr síðu til að skrá sig inn sem admin.
      *
      * @param model Módel með attributum
-     * @return skilar indexPage.jsp ef þjónustan "er á lífi" annars restaurantListPage
+     * @return admin login síða
      */
-    @RequestMapping (value = "/lifir", method=RequestMethod.GET)
-    public String lifir(Model model) {
-        Restaurants r = new Restaurants();
-        model.addAttribute("restaurants", r);
-        if(restaurantService.erALifi())
-            return "view/indexPage";
-        else
-            return "view/restaurantListPage";
-    }
-
     @RequestMapping("/login")
     public String login(Model model) {
         return "login";
