@@ -2,83 +2,83 @@
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="head :: haus">
-    <!-- linkur til að ná í Bootstrap -->
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous" />
-</head>
-<body>
-<div th:replace="head :: valmyndir">Staðbundinn haus</div>
-<div class="contentlogin container">
-    <div class="spacing">
-        <h1>Bæta tegund við veitingastað</h1>
+    <head th:replace="head :: haus">
+        <!-- linkur til að ná í Bootstrap -->
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+    </head>
+    <body>
+        <div th:replace="head :: valmyndir">Staðbundinn haus</div>
+        <div class="contentlogin container">
+            <div class="spacing">
+                <h1>Bæta tegund við veitingastað</h1>
 
-        <div th:if="${restaurants} != null">
-            <label class="col-md-2">Nafn:</label><p class="col-md-10" th:text ="${restaurants.name}"></p>
-            <label class="col-md-2">Heimilisfang:</label><p class="col-md-10" th:text ="${restaurants.address}"></p>
-            <label class="col-md-2">Póstnúmer:</label><p class="col-md-10" th:text ="${restaurants.postCode}"></p>
-            <label class="col-md-2">Símanúmer:</label><p class="col-md-10" th:text ="${restaurants.phoneNumber}"></p>
-            <label class="col-md-2">Gæði:</label>
-            <th:block th:switch="${restaurants.quality}">
-                <p class="col-md-10" th:case="1">
-                    Skyndibitastaður
-                </p>
-                <p class="col-md-10" th:case="3">
-                    Millifínt
-                </p>
-                <p class="col-md-10" th:case="5">
-                    Fínt
-                </p>
-                <p class="col-md-10" th:case="0">
-                    Engar gæðarkröfur eru skráðar
-                </p>
-            </th:block>
-            <label class="col-md-2">Tegund:</label><p class="col-md-10" th:text ="${restaurants.type}"></p>
-            <label class="col-md-2">Matseðill:</label><p class="col-md-10" th:text ="${restaurants.menuType}"></p>
-            <label class="col-md-2">Opnunartími:</label><p class="col-md-10" th:text ="${restaurants.openingTimes}"></p>
+                <div th:if="${restaurants} != null">
+                    <label class="col-md-2">Nafn:</label><p class="col-md-10" th:text ="${restaurants.name}"></p>
+                    <label class="col-md-2">Heimilisfang:</label><p class="col-md-10" th:text ="${restaurants.address}"></p>
+                    <label class="col-md-2">Póstnúmer:</label><p class="col-md-10" th:text ="${restaurants.postCode}"></p>
+                    <label class="col-md-2">Símanúmer:</label><p class="col-md-10" th:text ="${restaurants.phoneNumber}"></p>
+                    <label class="col-md-2">Gæði:</label>
+                    <th:block th:switch="${restaurants.quality}">
+                        <p class="col-md-10" th:case="1">
+                            Skyndibitastaður
+                        </p>
+                        <p class="col-md-10" th:case="3">
+                            Millifínt
+                        </p>
+                        <p class="col-md-10" th:case="5">
+                            Fínt
+                        </p>
+                        <p class="col-md-10" th:case="0">
+                            Engar gæðarkröfur eru skráðar
+                        </p>
+                    </th:block>
+                    <label class="col-md-2">Tegund:</label><p class="col-md-10" th:text ="${restaurants.type}"></p>
+                    <label class="col-md-2">Matseðill:</label><p class="col-md-10" th:text ="${restaurants.menuType}"></p>
+                    <label class="col-md-2">Opnunartími:</label><p class="col-md-10" th:text ="${restaurants.openingTimes}"></p>
+                </div>
+
+                <form th:action="@{/admin/addType}" role="form" method="POST">
+                    <div class="form-group col-sm-4">
+                        <input class="form-control" name="name" type="text" placeholder="veitingastaður" />
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <select class="form-control" name="type">
+                            <option value="0" th:value="0">Veldu tegund</option>
+                            <option value="Pizza" th:value="Pizza">Pizza</option>
+                            <option value="Pasta" th:value="Pasta">Pasta</option>
+                            <option value="Samlokur" th:value="Samlokur">Samlokur</option>
+                            <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
+                            <option value="kjot" th:value="Kjöt">Kjöt</option>
+                            <option value="fiskur" th:value="Fiskur">Fiskur</option>
+                            <option value="kjuklingur" th:value="Kjúklingur">Kjúklingur</option>
+                            <option value="asiskt" th:value="Asískt">Asískt</option>
+                            <option value="graenmetis" th:value="Grænmetisréttir">Grænmetisréttir</option>
+                        </select>
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" value="Bæta við tegund"/>
+                </form>
+            </div>
+            <div class="button-actions">
+                <a method="POST" href="/admin/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
+                <a method="POST" href="/admin/addRestaurant" role="button" class="btn btn-primary">Til baka í bæta við veitingastaði</a>
+                <a method="POST" href="/admin/addOpeningTimes" role="button" class="btn btn-primary">Bæta opnunartíma við veitingastaði</a>
+                <a method="POST" href="/admin/addMenuTypes" role="button" class="btn btn-primary">Bæta matseðilstegundum við veitingastaði</a>
+            </div>
         </div>
 
-        <form th:action="@{/admin/addType}" role="form" method="POST">
-            <div class="form-group col-sm-4">
-                <input class="form-control" name="name" type="text" placeholder="veitingastaður" />
-            </div>
-            <div class="form-group col-sm-4">
-                <select class="form-control" name="type">
-                    <option value="0" th:value="0">Veldu tegund</option>
-                    <option value="Pizza" th:value="Pizza">Pizza</option>
-                    <option value="Pasta" th:value="Pasta">Pasta</option>
-                    <option value="Samlokur" th:value="Samlokur">Samlokur</option>
-                    <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
-                    <option value="kjot" th:value="Kjöt">Kjöt</option>
-                    <option value="fiskur" th:value="Fiskur">Fiskur</option>
-                    <option value="kjuklingur" th:value="Kjúklingur">Kjúklingur</option>
-                    <option value="asiskt" th:value="Asískt">Asískt</option>
-                    <option value="graenmetis" th:value="Grænmetisréttir">Grænmetisréttir</option>
-                </select>
-            </div>
-
-            <input type="submit" class="btn btn-primary" value="Bæta við tegund"/>
-        </form>
-    </div>
-    <div class="button-actions">
-        <a method="POST" href="/admin/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
-        <a method="POST" href="/admin/addRestaurant" role="button" class="btn btn-primary">Til baka í bæta við veitingastaði</a>
-        <a method="POST" href="/admin/addOpeningTimes" role="button" class="btn btn-primary">Bæta opnunartíma við veitingastaði</a>
-        <a method="POST" href="/admin/addMenuTypes" role="button" class="btn btn-primary">Bæta matseðilstegundum við veitingastaði</a>
-    </div>
-</div>
-
-<!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
-</body>
+        <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                crossorigin="anonymous"></script>
+    </body>
 </html>

@@ -1,103 +1,105 @@
 <!-- Höfundur: Brynja Pálína Sigurgeirsdóttir, bps5@hi.is -->
 <!-- Höfundur: Elvar Kjartansson, elk11@hi.is -->
 <!-- Höfundur: Karítas Sif Halldórsdóttir, ksh18@hi.is -->
+<!-- Höfundur: Sunna Dröfn Sigfúsdóttir, sds21@hi.is -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="head :: haus">
-    <!-- linkur til að ná í Bootstrap -->
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous" />
-    <!--<link href="../static/css/addRest.css" th:href="@{/css/addRest.css}" rel="stylesheet"/>-->
-</head>
+    <head th:replace="head :: haus">
+        <!-- linkur til að ná í Bootstrap -->
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
+        <!--<link href="../static/css/addRest.css" th:href="@{/css/addRest.css}" rel="stylesheet"/>-->
+    </head>
 
 
-<body>
-<!--header for webpage-->
-<div th:replace="head :: valmyndir">Staðbundinn haus</div>
-<div class="container">
-    <h1>Bættu við veitingastað hér fyrir neðan</h1>
+    <body>
+        <!--header for webpage-->
+        <div th:replace="head :: valmyndir">Staðbundinn haus</div>
+        <div class="container">
+            <h1>Bættu við veitingastað hér fyrir neðan</h1>
 
-    <form th:action="@{/admin/addedRest}" th:object="${addRestaurant}" role="form"  method="POST">
+            <form th:action="@{/admin/addedRest}" th:object="${addRestaurant}" role="form"  method="POST">
 
-        <fieldset>
-            <legend>Grunnupplýsingar</legend>
-            <div class="form-group col-sm-6">
-                <label for="addNameRest">Nafn:</label>
-                <div>
-                    <input type="text" class="form-control" name="addNameRest" id="addNameRest" th:field="*{name}" placeholder="Nafn á veitingastað" required="required"/>
-                </div>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="addPostCode">Póstnúmer:</label>
-                <select class="form-control" type="text" name="addPostCode" id="addPostCode"  th:field="*{postCode}" required="required">
-                    <option value="0">Veldu Póstnúmer</option>
-                    <option value="1" th:value="101">101</option>
-                    <option value="2" th:value="103">103</option>
-                    <option value="3" th:value="104">104</option>
-                    <option value="4" th:value="105">105</option>
-                    <option value="5" th:value="107">107</option>
-                    <option value="6" th:value="108">108</option>
-                    <option value="7" th:value="109">109</option>
-                    <option value="8" th:value="110">110</option>
-                    <option value="9" th:value="111">111</option>
-                    <option value="10" th:value="112">112</option>
-                    <option value="11" th:value="113">113</option>
-                    <option value="12" th:value="116">116</option>
-                    <option value="13" th:value="170">170</option>
-                    <option value="14" th:value="200">200</option>
-                    <option value="15" th:value="201">201</option>
-                    <option value="16" th:value="203">203</option>
-                    <option value="17" th:value="210">210</option>
-                    <option value="19" th:value="220">220</option>
-                    <option value="19" th:value="221">221</option>
-                    <option value="20" th:value="225">225</option>
-                    <option value="21" th:value="270">270</option>
-                </select>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="addAddress">Heimilisfang:</label>
-                <input type="text" class="form-control" name="addAddress" id="addAddress" th:field="*{address}" placeholder="Heimilisfang" required="required"/>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="addNumber">Símanúmer:</label>
-                <input type="tel" class="form-control" name="addNumber" id="addNumber" th:field="*{phoneNumber}" placeholder="Símanúmer" maxlength="7" required="required"/>
-            </div>
-            <div class="form-group col-sm-6">
-                <label for="addQuality">Gæðaflokkur:</label>
-                <select class="form-control" name="addQuality" id="addQuality"  th:field="*{quality}" required="required">
-                    <option value="0" th:value="0">Veldu Gæðaflokk</option>
-                    <option value="1" th:value="1">Skyndibitastaður</option>
-                    <option value="3" th:value="3">Millifínt</option>
-                    <option value="5" th:value="5">Fínt</option>
-                </select>
-            </div>
-            <div class="form-actions">
-                <input type="submit" class="btn btn-primary" value="Bæta við veitingastað"/>
-            </div>
-        </fieldset>
-    </form>
-    <div class="button-actions">
+                <fieldset>
+                    <legend>Grunnupplýsingar</legend>
+                    <div class="form-group col-sm-6">
+                        <label for="addNameRest">Nafn:</label>
+                        <div>
+                            <input type="text" class="form-control" name="addNameRest" id="addNameRest" th:field="*{name}" placeholder="Nafn á veitingastað" required="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="addPostCode">Póstnúmer:</label>
+                        <select class="form-control" type="text" name="addPostCode" id="addPostCode"  th:field="*{postCode}" required="required">
+                            <option value="0">Veldu Póstnúmer</option>
+                            <option value="1" th:value="101">101</option>
+                            <option value="2" th:value="103">103</option>
+                            <option value="3" th:value="104">104</option>
+                            <option value="4" th:value="105">105</option>
+                            <option value="5" th:value="107">107</option>
+                            <option value="6" th:value="108">108</option>
+                            <option value="7" th:value="109">109</option>
+                            <option value="8" th:value="110">110</option>
+                            <option value="9" th:value="111">111</option>
+                            <option value="10" th:value="112">112</option>
+                            <option value="11" th:value="113">113</option>
+                            <option value="12" th:value="116">116</option>
+                            <option value="13" th:value="170">170</option>
+                            <option value="14" th:value="200">200</option>
+                            <option value="15" th:value="201">201</option>
+                            <option value="16" th:value="203">203</option>
+                            <option value="17" th:value="210">210</option>
+                            <option value="19" th:value="220">220</option>
+                            <option value="19" th:value="221">221</option>
+                            <option value="20" th:value="225">225</option>
+                            <option value="21" th:value="270">270</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="addAddress">Heimilisfang:</label>
+                        <input type="text" class="form-control" name="addAddress" id="addAddress" th:field="*{address}" placeholder="Heimilisfang" required="required"/>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="addNumber">Símanúmer:</label>
+                        <input type="tel" class="form-control" name="addNumber" id="addNumber" th:field="*{phoneNumber}" placeholder="Símanúmer" maxlength="7" required="required"/>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label for="addQuality">Gæðaflokkur:</label>
+                        <select class="form-control" name="addQuality" id="addQuality"  th:field="*{quality}" required="required">
+                            <option value="0" th:value="0">Veldu Gæðaflokk</option>
+                            <option value="1" th:value="1">Skyndibitastaður</option>
+                            <option value="3" th:value="3">Millifínt</option>
+                            <option value="5" th:value="5">Fínt</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <input type="submit" class="btn btn-primary" value="Bæta við veitingastað"/>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="button-actions">
 
-        <a method="POST" href="/admin/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
-        <a method="POST" href="/admin/addTypes" role="button" class="btn btn-primary">Bæta tegundum við veitingastaði</a>
-        <a method="POST" href="/admin/addOpeningTimes" role="button" class="btn btn-primary">Bæta opnunartímum við veitingastaði</a>
-        <a method="POST" href="/admin/addMenuTypes" role="button" class="btn btn-primary">Bæta matseðilstegundum við veitingastaði</a>
-    </div>
-</div>
+                <a method="POST" href="/admin/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
+                <a method="POST" href="/admin/addTypes" role="button" class="btn btn-primary">Bæta tegundum við veitingastaði</a>
+                <a method="POST" href="/admin/addOpeningTimes" role="button" class="btn btn-primary">Bæta opnunartímum við veitingastaði</a>
+                <a method="POST" href="/admin/addMenuTypes" role="button" class="btn btn-primary">Bæta matseðilstegundum við veitingastaði</a>
+            </div>
+        </div>
 
-<!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
-</body>
+        <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                crossorigin="anonymous"></script>
+    </body>
 </html>
 
 
