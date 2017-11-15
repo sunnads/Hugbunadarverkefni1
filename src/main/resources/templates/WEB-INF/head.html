@@ -186,16 +186,14 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <div sec:authorize="isAuthenticated('ADMIN')"> er með leyfir?</div>
-    <div sec:authorize="hasAuthority('ADMIN')" > Has Authority ADMIN </div>
-    <div sec:authorize="hasAuthority('USER')" > Has Authority USER </div>
-    <div sec:authorize="hasRole('ROLE_ADMIN')">Has Role ROLE_ADMIN</div>
-    <div sec:authorize="hasRole('ROLE_USER')">Has Role ROLE_USER</div>
-    <div sec:authorize="hasRole('ADMIN')">Has Role ADMIN</div>
-    <div sec:authorize="hasRole('USER')">Has Role USER</div>
-    <security:authorize access="hasAnyRole('ADMIN')">
-       virkar þetta ?
-    </security:authorize>
+
+    <!-- logged in? -->
+    <span sec:authorize="isAuthenticated()">
+        | Logged user: <span sec:authentication="name"></span> |
+        Roles: <span sec:authentication="principal.authorities"></span> |
+        <a th:href="@{/logout}">Sign Out</a>
+    </span>
+
 </div>
 
 <div th:fragment="prologue" >
