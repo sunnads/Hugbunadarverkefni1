@@ -1,14 +1,20 @@
-.background {
-    background-color: #5b6b84;
-    height: 100%;
-}
-
 .background-tab {
     background-color: #ffffff;
     margin-top: 50px;
     border-radius: 20px;
 }
 
+.background-info {
+    background-color: #ffffff;
+    margin-top: 50px;
+    border-radius: 20px;
+    border-style: groove;
+}
+
 .header {
     padding-left: 20px;
+}
+
+.data {
+    padding-left: 30px;
 }

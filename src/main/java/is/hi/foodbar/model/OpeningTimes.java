@@ -276,14 +276,25 @@ public class OpeningTimes {
         return s;
     }
 
+    public String[] getTimes() {
+        String[] s = {"Mán: " + formatNum(mondayOpen)+"-"+formatNum(mondayClosed),
+                "Þri: " + formatNum(tuesdayOpen)+"-"+formatNum(tuesdayClosed),
+                "Mið: " + formatNum(wednesdayOpen)+"-"+formatNum(wednesdayClosed),
+                "Fim: " + formatNum(thursdayOpen)+"-"+formatNum(thursdayClosed),
+                "Fös: " + formatNum(fridayOpen)+"-"+formatNum(fridayClosed),
+                "Lau: " + formatNum(saturdayOpen)+"-"+formatNum(saturdayClosed),
+                "Sun: " + formatNum(sundayOpen)+"-"+formatNum(sundayClosed)};
+        return s;
+    }
+
     @Override
     public String toString() {
-        return "Mon: "+formatNum(mondayOpen)+"-"+formatNum(mondayClosed)+
-                " Tue: "+formatNum(tuesdayOpen)+"-"+formatNum(tuesdayClosed)+
-                " Wed: "+formatNum(wednesdayOpen)+"-"+formatNum(wednesdayClosed)+
-                " Thu: "+formatNum(tuesdayOpen)+"-"+formatNum(thursdayClosed)+
-                " Fri: "+formatNum(fridayOpen)+"-"+formatNum(fridayClosed)+
-                " Sat: "+formatNum(saturdayOpen)+"-"+formatNum(saturdayClosed)+
-                " Sun: "+formatNum(sundayOpen)+"-"+formatNum(sundayClosed);
+        return "Mon: "+formatNum(mondayOpen)+"-"+formatNum(mondayClosed)+", \n"+
+                " Tue: "+formatNum(tuesdayOpen)+"-"+formatNum(tuesdayClosed)+", \n"+
+                " Wed: "+formatNum(wednesdayOpen)+"-"+formatNum(wednesdayClosed)+", \n"+
+                " Thu: "+formatNum(thursdayOpen)+"-"+formatNum(thursdayClosed)+", \n"+
+                " Fri: "+formatNum(fridayOpen)+"-"+formatNum(fridayClosed)+", \n"+
+                " Sat: "+formatNum(saturdayOpen)+"-"+formatNum(saturdayClosed)+", \n"+
+                " Sun: "+formatNum(sundayOpen)+"-"+formatNum(sundayClosed)+", \n";
     }
 }
