@@ -1,4 +1,3 @@
-
 package is.hi.foodbar.services;
 
 import java.util.ArrayList;
@@ -17,10 +16,11 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 /**
+ * Implementar RestaurantService Interface.
  *
  * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
  * @author Elvar Kjartansson, elk11@hi.is
- * @date október 2017
+ * @date Október 2017
  * HBV501G Hugbúnaðarverkefni 1
  * Háskóli Íslands
  */
@@ -46,6 +46,7 @@ public class RestaurantsServiceImp implements RestaurantsService{
     @Transactional
     @Override
     public void addRestaurant(Restaurants r) {
+
         restaurantRep.save(r);    // Notum save en ekki add
     }
 
@@ -199,10 +200,5 @@ public class RestaurantsServiceImp implements RestaurantsService{
         }
 
         return rList;
-    }
-
-    @Override
-    public boolean erALifi() {
-        return true;
     }
 }

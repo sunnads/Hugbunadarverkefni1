@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
  * @author Elvar Kjartansson, elk11@hi.is
  * @author Karítas Sif Halldórsdóttir, ksh18@hi.is
  * @author Brynja Pálína Sigurgeirsdóttir, bps5@hi.is
- * @date september 2017
+ * @date September 2017
  * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
 @Entity
