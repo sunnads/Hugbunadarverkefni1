@@ -1,13 +1,16 @@
 package is.hi.foodbar.model;
 
-
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
- * OpeningTimes geymir upplýsingar um opnunartíma veitingastaða
+ * OpeningTimes geymir upplýsingar um opnunartíma veitingastaða.
+ * Hver dagur hefur breytu sem segir til um hvenær það
+ * opnar þann dag og aðra breytu fyrir hvenær það lokar sama dag.
+ * Tímarnir eru geymdir í int á formi hhmm t.d. 1030 fyrir 10:30 fyrir hádegi
+ * eða 2020 fyrir 10:20 eftir hádegi.
  *
  * @author Elvar Kjartansson, elk11@hi.is
  * @date november 2017
@@ -17,12 +20,12 @@ import java.util.Date;
 @Table(name = "restaurant_open")
 public class OpeningTimes {
 
-    // Skilgrein id sem auðkenni (e. identity)  hlutarins
+    // Skilgreina id sem auðkenni (e. identity)  hlutarins
     @Id
     @Column(name = "openId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int mondayOpen = -1;
+    private int mondayOpen = -1;    // -1 ef engin tími settur
     private int mondayClosed = -1;
     private int tuesdayOpen = -1;
     private int tuesdayClosed = -1;
@@ -65,7 +68,7 @@ public class OpeningTimes {
     }
 
     /**
-     * Athugar hvort að veitingastaðurinn er opinn núna
+     * Athugar hvort að veitingastaðurinn er opinn núna.
      *
      * @return boolean gildi sem er satt ef það er opið en ósatt ef lokað
      */
@@ -75,15 +78,13 @@ public class OpeningTimes {
         Date now = new Date();
         int currentTime = -2;
 
-        SimpleDateFormat clock = new SimpleDateFormat("HHmm"); // time of day as 4 numbers e.g. 1030
+        // time of day as 4 numbers e.g. 1030
+        SimpleDateFormat clock = new SimpleDateFormat("HHmm");
 
         // Get the day of week as a number 1 is sunday
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(now);
         int day = calendar.get(Calendar.DAY_OF_WEEK);
-
-        System.out.println(" clock " + clock.format(now));
-        System.out.println(" day " + day);
 
         try {
             currentTime = Integer.parseInt(clock.format(now)); // get current time as 4 digit int
@@ -91,6 +92,7 @@ public class OpeningTimes {
             System.out.println(" Whoops time broke?");
         }
 
+        // Find today
         switch (day) {
             case 1: // sunday
                 if(sundayOpen <= currentTime && sundayClosed >= currentTime)
@@ -123,21 +125,17 @@ public class OpeningTimes {
             default:
                 break;
         }
-
         return false;
     }
 
     public Long getId() {
         return id;
     }
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public void setId(Long id) { this.id = id; }
 
     public int getMondayOpen() {
         return mondayOpen;
     }
-
     public void setMondayOpen(int mondayOpen) {
         this.mondayOpen = mondayOpen;
     }
@@ -145,7 +143,6 @@ public class OpeningTimes {
     public int getMondayClosed() {
         return mondayClosed;
     }
-
     public void setMondayClosed(int mondayClosed) {
         this.mondayClosed = mondayClosed;
     }
@@ -153,7 +150,6 @@ public class OpeningTimes {
     public int getTuesdayOpen() {
         return tuesdayOpen;
     }
-
     public void setTuesdayOpen(int tuesdayOpen) {
         this.tuesdayOpen = tuesdayOpen;
     }
@@ -161,7 +157,6 @@ public class OpeningTimes {
     public int getTuesdayClosed() {
         return tuesdayClosed;
     }
-
     public void setTuesdayClosed(int tuesdayClosed) {
         this.tuesdayClosed = tuesdayClosed;
     }
@@ -169,7 +164,6 @@ public class OpeningTimes {
     public int getWednesdayOpen() {
         return wednesdayOpen;
     }
-
     public void setWednesdayOpen(int wednesdayOpen) {
         this.wednesdayOpen = wednesdayOpen;
     }
@@ -177,7 +171,6 @@ public class OpeningTimes {
     public int getWednesdayClosed() {
         return wednesdayClosed;
     }
-
     public void setWednesdayClosed(int wednesdayClosed) {
         this.wednesdayClosed = wednesdayClosed;
     }
@@ -185,7 +178,6 @@ public class OpeningTimes {
     public int getThursdayOpen() {
         return thursdayOpen;
     }
-
     public void setThursdayOpen(int thursdayOpen) {
         this.thursdayOpen = thursdayOpen;
     }
@@ -193,7 +185,6 @@ public class OpeningTimes {
     public int getThursdayClosed() {
         return thursdayClosed;
     }
-
     public void setThursdayClosed(int thursdayClosed) {
         this.thursdayClosed = thursdayClosed;
     }
@@ -201,7 +192,6 @@ public class OpeningTimes {
     public int getFridayOpen() {
         return fridayOpen;
     }
-
     public void setFridayOpen(int fridayOpen) {
         this.fridayOpen = fridayOpen;
     }
@@ -209,7 +199,6 @@ public class OpeningTimes {
     public int getFridayClosed() {
         return fridayClosed;
     }
-
     public void setFridayClosed(int fridayClosed) {
         this.fridayClosed = fridayClosed;
     }
@@ -217,7 +206,6 @@ public class OpeningTimes {
     public int getSaturdayOpen() {
         return saturdayOpen;
     }
-
     public void setSaturdayOpen(int saturdayOpen) {
         this.saturdayOpen = saturdayOpen;
     }
@@ -225,7 +213,6 @@ public class OpeningTimes {
     public int getSaturdayClosed() {
         return saturdayClosed;
     }
-
     public void setSaturdayClosed(int saturdayClosed) {
         this.saturdayClosed = saturdayClosed;
     }
@@ -233,7 +220,6 @@ public class OpeningTimes {
     public int getSundayOpen() {
         return sundayOpen;
     }
-
     public void setSundayOpen(int sundayOpen) {
         this.sundayOpen = sundayOpen;
     }
@@ -241,7 +227,6 @@ public class OpeningTimes {
     public int getSundayClosed() {
         return sundayClosed;
     }
-
     public void setSundayClosed(int sundayClosed) {
         this.sundayClosed = sundayClosed;
     }
@@ -254,7 +239,8 @@ public class OpeningTimes {
     }
 
     /**
-     * Aðferð til þess að breyta tímum úr 4 sæta (eða færri) tölu yfir á formið hh:mm
+     * Aðferð til þess að breyta tímum úr 4 sæta (eða færri) int tölu yfir á formið hh:mm
+     *
      * @param num tíminn sem 4 sæta (eða færri) tala
      * @return Strengur sem inniheldur tíma á forminu hh:mm
      */
@@ -281,7 +267,7 @@ public class OpeningTimes {
      * er eitt stak í fylkinu. Ef s er fylkið þá er s[0] mánudagur,
      * s[1] þriðjudagur o.sv.fr.
      *
-     * @return String fylki þar sem stökin gefa opnunartíma hvers dags á forminu Dag: hh:mm-hh:mm
+     * @return String fylki þar sem stökin gefa opnunartíma hvers dags á forminu 'Dag: hh:mm-hh:mm'
      */
     public String[] getTimes() {
         String[] s = {"Mán: " + formatNum(mondayOpen)+"-"+formatNum(mondayClosed),
