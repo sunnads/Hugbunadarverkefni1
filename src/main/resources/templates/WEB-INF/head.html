@@ -174,12 +174,11 @@
                         <a href="/admin" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/login">Skrá inn</a></li>
-                                <div sec:authorize="hasRole('ROLE_ADMIN')">
+
                                 <li class="divider" ></li>
                                 <form  th:action="@{/logout}" method="post">
                                     <input type="submit" value="Sign Out"/>
                                 </form>
-                            </div>
                         </ul>
                     </li>
                 </ul>
@@ -196,6 +195,20 @@
     <security:authorize access="hasAnyRole('ADMIN')">
        virkar þetta ?
     </security:authorize>
+    <!--<div th:if="${}">test</div>-->
+    <div access="hasRole('admin')">test2</div>
+    <sec:authorize ifAllGranted="ROLE_ADMIN">
+        <p>Must have ROLE_ADMIN and ROLE_USER</p>
+    </sec:authorize>
+    <div sec:authorize="isAuthenticated()">
+        This content is only shown to authenticated users.
+    </div>
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        This content is only shown to administrators.
+    </div>
+    <div sec:authorize="hasRole('ROLE_USER')">
+        This content is only shown to users.
+    </div>
 </div>
 
 <div th:fragment="prologue" >
