@@ -13,6 +13,7 @@
     border-bottom: none;
     padding-top: 15px;
     font-weight: bold;
+    text-align: center;
 }
 .nav-tabs > li > a,
 .nav-tabs > li > a:hover,
