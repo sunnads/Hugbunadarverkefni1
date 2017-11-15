@@ -277,13 +277,13 @@ public class OpeningTimes {
     }
 
     public String[] getTimes() {
-        String[] s = {formatNum(mondayOpen)+"-"+formatNum(mondayClosed),
-                formatNum(tuesdayOpen)+"-"+formatNum(tuesdayClosed),
-                formatNum(wednesdayOpen)+"-"+formatNum(wednesdayClosed),
-                formatNum(thursdayOpen)+"-"+formatNum(thursdayClosed),
-                formatNum(fridayOpen)+"-"+formatNum(fridayClosed),
-                formatNum(saturdayOpen)+"-"+formatNum(saturdayClosed),
-                formatNum(sundayOpen)+"-"+formatNum(sundayClosed)};
+        String[] s = {"Mán: " + formatNum(mondayOpen)+"-"+formatNum(mondayClosed),
+                "Þri: " + formatNum(tuesdayOpen)+"-"+formatNum(tuesdayClosed),
+                "Mið: " + formatNum(wednesdayOpen)+"-"+formatNum(wednesdayClosed),
+                "Fim: " + formatNum(thursdayOpen)+"-"+formatNum(thursdayClosed),
+                "Fös: " + formatNum(fridayOpen)+"-"+formatNum(fridayClosed),
+                "Lau: " + formatNum(saturdayOpen)+"-"+formatNum(saturdayClosed),
+                "Sun: " + formatNum(sundayOpen)+"-"+formatNum(sundayClosed)};
         return s;
     }
 
