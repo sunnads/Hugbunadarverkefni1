@@ -174,10 +174,15 @@
                         <a href="/admin" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/login">Skrá inn</a></li>
-                                <div sec:authorize="hasRole('ROLE_ADMIN')">
+                            <div sec:authorize="hasRole('ROLE_ADMIN')">
                                 <li class="divider" ></li>
+                                <li class="adminlist"><a class="admina" href="/admin/addRestaurant">Skrá veitingastað</a></li>
+                                <li class="adminlist"><a class="admina" href="/admin/addTypes">Skrá tegund á stað</a></li>
+                                <li class="adminlist"><a class="admina" href="/admin/addMenuTypes">Skrá matseðil á stað</a></li>
+                                <li class="adminlist"><a class="admina" href="/admin/addOpeningTimes">Skrá opnunartíma</a></li>
+                                <li class="adminlist"><a class="admina" href="/admin/restList">Skoða veitingastaði</a></li>
                                 <form  th:action="@{/logout}" method="post">
-                                    <input type="submit" value="Sign Out"/>
+                                    <input class="signout" type="submit" value="Skrá út"/>
                                 </form>
                             </div>
                         </ul>
@@ -186,14 +191,6 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-
-    <!-- logged in? -->
-    <span sec:authorize="isAuthenticated()">
-        | Logged user: <span sec:authentication="name"></span> |
-        Roles: <span sec:authentication="principal.authorities"></span> |
-        <a th:href="@{/logout}">Sign Out</a>
-    </span>
-
 </div>
 
 <div th:fragment="prologue" >

@@ -57,17 +57,12 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-        <!--<version>4.3.1.Final</version>-->
     </dependency>
 
-<!-- frá kenara -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <!--<version>9.2-1004-jdbc4</version>-->
         </dependency>
-
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

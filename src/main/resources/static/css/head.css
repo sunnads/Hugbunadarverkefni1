@@ -75,9 +75,36 @@
 }
 
 .search-control {
-    margin: 8px 0px 0px 5px;
+    margin: 8px 0 0 5px;
 }
 
+.admina{
+    color: black;
+    padding: 0 10px 0 20px;
+}
+
+.admina:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.adminlist {
+    padding: 5px 0 5px 0;
+}
+.adminlist:hover {
+    background-color: #f5f5f4;
+}
+
+.signout{
+    background-color: white;
+    border: none;
+    color: black;
+    padding: 5px 100px 5px 20px;
+}
+
+.signout:hover {
+    background-color: #f5f5f4;
+}
 @media screen and (min-width: 768px) {
     #adv-search {
         width: 500px;
