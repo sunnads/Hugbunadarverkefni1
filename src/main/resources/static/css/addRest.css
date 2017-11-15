@@ -6,6 +6,13 @@
     padding-bottom: 20px;
 }
 
+.form-button {
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
 .button-actions {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -30,7 +37,7 @@
     height: 350px;
 }
 
-.table {
-    height: 100%;
-    width: 100%;
+.spacing {
+    margin-bottom: 20px;
 }
+
