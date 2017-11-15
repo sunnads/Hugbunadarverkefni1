@@ -174,41 +174,26 @@
                         <a href="/admin" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="/login">Skrá inn</a></li>
-
+                                <div sec:authorize="hasRole('ROLE_ADMIN')">
                                 <li class="divider" ></li>
                                 <form  th:action="@{/logout}" method="post">
                                     <input type="submit" value="Sign Out"/>
                                 </form>
+                            </div>
                         </ul>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <div sec:authorize="isAuthenticated('ADMIN')"> er með leyfir?</div>
-    <div sec:authorize="hasAuthority('ADMIN')" > Has Authority ADMIN </div>
-    <div sec:authorize="hasAuthority('USER')" > Has Authority USER </div>
-    <div sec:authorize="hasRole('ROLE_ADMIN')">Has Role ROLE_ADMIN</div>
-    <div sec:authorize="hasRole('ROLE_USER')">Has Role ROLE_USER</div>
-    <div sec:authorize="hasRole('ADMIN')">Has Role ADMIN</div>
-    <div sec:authorize="hasRole('USER')">Has Role USER</div>
-    <security:authorize access="hasAnyRole('ADMIN')">
-       virkar þetta ?
-    </security:authorize>
-    <!--<div th:if="${}">test</div>-->
-    <div access="hasRole('admin')">test2</div>
-    <sec:authorize ifAllGranted="ROLE_ADMIN">
-        <p>Must have ROLE_ADMIN and ROLE_USER</p>
-    </sec:authorize>
-    <div sec:authorize="isAuthenticated()">
-        This content is only shown to authenticated users.
-    </div>
-    <div sec:authorize="hasRole('ROLE_ADMIN')">
-        This content is only shown to administrators.
-    </div>
-    <div sec:authorize="hasRole('ROLE_USER')">
-        This content is only shown to users.
-    </div>
+
+    <!-- logged in? -->
+    <span sec:authorize="isAuthenticated()">
+        | Logged user: <span sec:authentication="name"></span> |
+        Roles: <span sec:authentication="principal.authorities"></span> |
+        <a th:href="@{/logout}">Sign Out</a>
+    </span>
+
 </div>
 
 <div th:fragment="prologue" >
