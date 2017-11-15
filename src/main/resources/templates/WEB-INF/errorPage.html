@@ -4,8 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       th:with="lang=${#locale.language}" th:lang="${lang}"></html>
 
- <html lang="en">
-
+<html lang="en">
     <head th:replace="head :: haus">
         <!-- linkur til að ná í Bootstrap -->
         <link rel="stylesheet"
@@ -14,15 +13,13 @@
               crossorigin="anonymous" />
     </head>
     <body>
-
-    <h1>Úps! Eitthvað fór úrskeiðis, reyndu aftur!!</h1>
-    <div>
-        <h3 th:text="|HTTP ${attrs.status} ${attrs.error}|"></h3>
-        <p th:text="${attrs.message}"></p>
-    </div>
-    <div class="button-actions col-sm-12">
-        <a method="POST" href="/index" role="button" class="btn btn-primary">Til baka á forsíðu</a>
-    </div>
-
+        <h1>Úps! Eitthvað fór úrskeiðis, reyndu aftur!!</h1>
+        <div>
+            <h3 th:text="|HTTP ${attrs.status} ${attrs.error}|"></h3>
+            <p th:text="${attrs.message}"></p>
+        </div>
+        <div class="button-actions col-sm-12">
+            <a method="POST" href="/index" role="button" class="btn btn-primary">Til baka á forsíðu</a>
+        </div>
     </body>
 </html>
