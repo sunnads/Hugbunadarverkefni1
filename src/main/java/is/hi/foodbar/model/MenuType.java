@@ -1,6 +1,5 @@
 package is.hi.foodbar.model;
 
-
 import javax.persistence.*;
 
 /**
@@ -14,7 +13,7 @@ import javax.persistence.*;
 @Table(name = "restaurant_menus")
 public class MenuType {
 
-    // Skilgrein id sem auðkenni (e. identity)  hlutarins
+    // Skilgreina id sem auðkenni (e. identity)  hlutarins
     @Id
     @Column(name = "menuId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

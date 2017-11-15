@@ -14,19 +14,21 @@ import javax.validation.constraints.Size;
  * @author Elvar Kjartansson, elk11@hi.is
  * @author Karítas Sif Halldórsdóttir, ksh18@hi.is
  * @author Brynja Pálína Sigurgeirsdóttir, bps5@hi.is
- * @date september 2017
+ * @date September 2017
  * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
-
 @Entity
 @Table (name="restaurants")
 public class Restaurants {
 
-    // Skilgrein id sem auðkenni (e. identity)  hlutarins
+    // Skilgreina id sem auðkenni (e. identity)  hlutarins
     @Id
     @Column(name = "restaurantsId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    // ATH. villumeldingar teknar út því að þær koma í veg fyrir að leitin virki rétt
+    //
 
     //@NotNull(message = "Settu inn nafn veitingarstaðs")
     //@Size(min=1, max=100, message="Settu inn nafn veitingarstaðs")
@@ -79,7 +81,6 @@ public class Restaurants {
         boolean open = false;
         if(!openingTimes.isEmpty()) {
             for (OpeningTimes o : openingTimes) {
-                System.out.println(o);
                 open = open || o.isOpen();
             }
         }
@@ -172,6 +173,6 @@ public class Restaurants {
 
     @Override
     public String toString() {
-        return String.format("<BR>" + "nafn: "+ name + "<BR>" +"heimilisfang: "+ address);
+        return String.format("nafn: "+ name +" heimilisfang: "+ address +" ");
     }
 }

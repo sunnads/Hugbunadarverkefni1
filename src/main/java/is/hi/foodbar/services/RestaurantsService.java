@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Brynja Pálína Sigurgreisdóttir, bps5@hi.is
  * @author Elvar Kjartansson, elk11@hi.is
- * @date október 2017
+ * @date Október 2017
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  */
 public interface RestaurantsService {
@@ -26,12 +26,13 @@ public interface RestaurantsService {
     /**
      * Hendir veitingastað úr database
      *
-     * @param id Long id á veitingastaðnum sem á að henda
+     * @param id long id á veitingastaðnum sem á að henda
      */
     void removeRestaurant(long id);
 
     /**
      * Bætir við tegund t fyrir veitingastað r
+     *
      * @param t tegund sem bætt er við
      * @param r veitingastað r
      */
@@ -39,6 +40,7 @@ public interface RestaurantsService {
 
     /**
      * Bætir við matseðilstegund m fyrir veitingastað r
+     *
      * @param m tegund matseðils sem bætt er við
      * @param r veitingastað r
      */
@@ -46,6 +48,7 @@ public interface RestaurantsService {
 
     /**
      * Bætir við opnunartímum o fyrir veitingastað r
+     *
      * @param o opnunartímar sem verið er að bæta við
      * @param r veitingastað r
      */
@@ -97,6 +100,4 @@ public interface RestaurantsService {
      * @return listi af veitingastöðum sem passa við það sem notandi leitaði að
      */
     List<Restaurants> findFilteredMatches(Restaurants restaurant);
-
-    boolean erALifi();
 }

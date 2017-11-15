@@ -1,20 +1,19 @@
 package is.hi.foodbar.model;
 
-
 import javax.persistence.*;
 
 /**
  * Type geymir upplýsingar um tegundir af veitingastöðum
  *
  * @author Elvar Kjartansson, elk11@hi.is
- * @date november 2017
+ * @date Nóvember 2017
  * HBV501G Hugbúnarverkefni 1 Háskóli Íslands
  */
 @Entity
 @Table(name = "restaurant_types")
 public class Type {
 
-    // Skilgrein id sem auðkenni (e. identity)  hlutarins
+    // Skilgreina id sem auðkenni (e. identity)  hlutarins
     @Id
     @Column(name = "typeId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +34,6 @@ public class Type {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -43,7 +41,6 @@ public class Type {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -51,7 +48,6 @@ public class Type {
     public Restaurants getRestaurant() {
         return restaurants;
     }
-
     public void setRestaurant(Restaurants restaurant) {
         this.restaurants = restaurant;
     }
