@@ -276,6 +276,13 @@ public class OpeningTimes {
         return s;
     }
 
+    /**
+     * Nær í opnunartímana og skilar þeim í fylki þar sem hver dagur
+     * er eitt stak í fylkinu. Ef s er fylkið þá er s[0] mánudagur,
+     * s[1] þriðjudagur o.sv.fr.
+     *
+     * @return String fylki þar sem stökin gefa opnunartíma hvers dags á forminu Dag: hh:mm-hh:mm
+     */
     public String[] getTimes() {
         String[] s = {"Mán: " + formatNum(mondayOpen)+"-"+formatNum(mondayClosed),
                 "Þri: " + formatNum(tuesdayOpen)+"-"+formatNum(tuesdayClosed),
