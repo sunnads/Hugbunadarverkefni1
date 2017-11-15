@@ -37,11 +37,11 @@
                             </p>
                         </th:block>
                         <label class="col-md-2">Tegund:</label>
-                        <p class="col-md-10 data" th:text="${rest.type != null} ? ${#strings.arrayJoin(rest.type, ', ')} : 'null value'"></p>
+                        <p class="col-md-10 data" th:text="${not rest.type.isEmpty()} ? ${#strings.arrayJoin(rest.type, ', ')} : 'ekkert skráð'"></p>
                         <label class="col-md-2">Matseðill:</label>
-                        <p class="col-md-10 data" th:text="${rest.menuType != null} ? ${#strings.arrayJoin(rest.menuType, ', ')} : 'null value'"></p>
+                        <p class="col-md-10 data" th:text="${not rest.menuType.isEmpty()} ? ${#strings.arrayJoin(rest.menuType, ', ')} : 'ekkert skráð'"></p>
                         <label class="col-md-2">Opnunartími:</label>
-                        <p class="col-md-10 data" th:text="${rest.openingTimes != null} ? ${#strings.arrayJoin(rest.openingTimes[0].getTimes(), ', ')} : 'null value'"></p>
+                        <p class="col-md-10 data" th:text="${not rest.openingTimes.isEmpty()} ? ${#strings.arrayJoin(rest.openingTimes[0].getTimes(), ', ')} : 'ekkert skráð'"></p>
                     </div>
                     <div class="button-actions col-sm-12">
                         <a href="/backToSearch" role="button" class="btn btn-primary">Til baka í leit</a>
