@@ -14,7 +14,6 @@
         <div th:replace="head :: valmyndir">Staðbundinn haus</div>
         <div class="container">
             <h1>Niðurstöður leitar</h1>
-
             <div class="row">
                 <div class="col-sm-4" th:each ="listItem: ${restaurantList}">
                     <div class="thumbnail">
@@ -24,8 +23,6 @@
                                 <p th:text ="${listItem.address}"></p>
                                 <p th:text ="${listItem.postCode}"></p>
                                 <p th:text ="${listItem.phoneNumber}"></p>
-                                <!-- Er opið? -->
-                                <!--th:block th:text="${listItem.isOpen()}"/-->
                                 <div th:if="${listItem.isOpen()}">
                                     <p>Opið</p>
                                 </div>
@@ -42,6 +39,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
                 integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -52,14 +50,5 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
                 integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
                 crossorigin="anonymous"></script>
-
     </body>
 </html>
-
-<style>
-    .card-border {
-        border: 1px solid #d3d3d3;
-        margin: 10px;
-        padding: 20px;
-    }
-</style>

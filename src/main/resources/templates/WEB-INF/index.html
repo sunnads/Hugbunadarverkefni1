@@ -1,92 +1,84 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+    <head th:include="head :: haus">
+        <!-- linkur til að ná í Bootstrap-->
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+              crossorigin="anonymous" />
 
-<head th:include="head :: haus">
-    <!-- linkur til að ná í Bootstrap-->
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-          crossorigin="anonymous" />
+        <!-- css skjal og linkur í það-->
+       <script type="text/javascript" th:src="@{/js/index.js}"/>
+    </head>
+    <body>
+        <!--header for webpage-->
+       <div th:replace="head :: valmyndir">Staðbundinn haus</div>
 
-    <!-- css skjal og linkur í það-->
-   <script type="text/javascript" th:src="@{/js/index.js}"/>
-</head>
-
-<body>
-    <!--header for webpage-->
-   <div th:replace="head :: valmyndir">Staðbundinn haus</div>
-
-    <!-- Carousel
-    Index útlit fengið héðan https://bootsnipp.com/snippets/8N5r
-    Tilfært og aðlagað að okkar síðu
-     ================================================== -->
-    <div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-
-        <div class="carousel-inner">
-            <div class="item active">
-
-                <img src="https://notendur.hi.is/ksh18/hugbo1/food1.jpg"/>
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Hvað langar þig að borða?</h1>
-                        <p>Foo'd'bar er einföld og góð leið til að finna góðan stað til að borða á.
-                            Þú getur leitað eftir nafni, tegund og hverfi. Njóttu þessa að uppgötva nýja staði með Foo'd'bar </p>
+        <!-- Carousel
+        Index útlit fengið héðan https://bootsnipp.com/snippets/8N5r
+        Tilfært og aðlagað að okkar síðu
+         ================================================== -->
+        <div id="myCarousel" class="carousel slide">
+            <!-- Indicators -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="https://notendur.hi.is/ksh18/hugbo1/food1.jpg"/>
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Hvað langar þig að borða?</h1>
+                            <p>Foo'd'bar er einföld og góð leið til að finna góðan stað til að borða á.
+                                Þú getur leitað eftir nafni, tegund og hverfi. Njóttu þessa að uppgötva nýja staði með Foo'd'bar </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- /.carousel -->
+        <!-- /.carousel -->
 
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+        <div class="container marketing">
+            <!-- Three columns of text below the carousel -->
+            <div class="row" id="about">
+                <div class="col-md-4 text-center">
+                    <img src="https://notendur.hi.is/ksh18/hugbo1/steik.png"/>
+                    <h2>Foo'd'bar</h2>
+                    <p>Verkefni sem var unnið fyrir áfangan Hugbúnaðarverkefni 1 í Háskóla Íslands</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://notendur.hi.is/ksh18/hugbo1/bookandpen.png"/>
+                    <h2>Höfundar</h2>
+                    <p>Brynja Pálína Sigurgeirsdóttir</p>
+                    <p>Elvar Kjartansson</p>
+                    <p>Karítas Sif Halldórsdóttir</p>
+                    <p>Sunna Dröfn Sigfúsdóttir</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img  src="https://notendur.hi.is/ksh18/hugbo1/phone.png"/>
+                    <h2>Hafa samband</h2>
+                    <p>foodbar@foodbar.is</p>
+                    <p>Sími: 555-1234</p>
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
 
-    <div class="container marketing">
-        <!-- Three columns of text below the carousel -->
-        <div class="row" id="about">
-            <div class="col-md-4 text-center">
-                <img src="https://notendur.hi.is/ksh18/hugbo1/steik.png"/>
-                <h2>Foo'd'bar</h2>
-                <p>Verkefni sem var unnið fyrir áfangan Hugbúnaðarverkefni 1 í Háskóla Íslands</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <img src="https://notendur.hi.is/ksh18/hugbo1/bookandpen.png"/>
-                <h2>Höfundar</h2>
-                <p>Brynja Pálína Sigurgeirsdóttir</p>
-                <p>Elvar Kjartansson</p>
-                <p>Karítas Sif Halldórsdóttir</p>
-                <p>Sunna Dröfn Sigfúsdóttir</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <img  src="https://notendur.hi.is/ksh18/hugbo1/phone.png"/>
-                <h2>Hafa samband</h2>
-                <p>foodbar@foodbar.is</p>
-                <p>Sími: 555-1234</p>
-            </div>
-        </div><!-- /.row -->
+        <!--footer for webpage-->
+        <footer class="footer">
+            <p>© 2017 - Verkefni unnið fyrir Hugbúnaðarverkefni 1, Háskóli Íslands
+            </p>
+        </footer>
 
-    </div><!-- /.container -->
-
-    <!--footer for webpage-->
-    <footer class="footer">
-
-        <p>© 2017 - Verkefni unnið fyrir Hugbúnaðarverkefni 1, Háskóli Íslands
-        </p>
-
-    </footer>
-<!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-        crossorigin="anonymous"></script>
-
-</body>
+        <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                crossorigin="anonymous"></script>
+    </body>
 </html>

@@ -5,12 +5,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" xmlns:security="ADMIN">
-
     <head th:fragment="haus" lang="en">
-
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
         <title>Foo'd'bar</title>
 
     <!-- linkur til að ná í Bootstrap -->
@@ -25,266 +22,287 @@
     <link href="../static/css/admin.css" th:href="@{/css/admin.css}" rel="stylesheet"/>
     <link href="../static/css/addRest.css" th:href="@{/css/addRest.css}" rel="stylesheet"/>
     <link href="../static/css/info.css" th:href="@{/css/info.css}" rel="stylesheet"/>
+    </head>
+    <body>
+        <div th:fragment="valmyndir">
+            <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0px;">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"></a>
+                    </div>
 
-</head>
-<body>
-<div th:fragment="valmyndir">
-    <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0px;">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-                <ul class="nav navbar-nav">
-                    <li><a href="/index">FoodBar</a></li>
-                    <li class="dropdown mega-dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Veitingarstaðir<span class="caret"></span></a>
-                        <div class="dropdown-menu mega-dropdown-menu">
-                            <div class="container-fluid">
-                                <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="men">
-                                        <ul class="nav-list list-inline">
-                                            <li>
-                                                <form  method="POST" th:action="@{/searchbar}">
-                                                    <a href="javascript:;" onclick="parentNode.submit();">
-                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/pizza2.png"/>
-                                                        <div class="textteg">Pizza</div>
-                                                    </a>
-                                                    <input type="hidden" name="find" value="pizza"/>
-                                                </form>
-                                            </li>
-                                            <li>
-                                                <form  method="POST" th:action="@{/searchbar}">
-                                                    <a href="javascript:;" onclick="parentNode.submit();">
-                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/chines.png"/>
-                                                        <div class="textteg">Asískt</div>
-                                                    </a>
-                                                    <input type="hidden" name="find" value="asískt"/>
-                                                </form>
-                                            </li>
-                                            <li>
-                                                <form  method="POST" th:action="@{/searchbar}">
-                                                    <a href="javascript:;" onclick="parentNode.submit();">
-                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/hamburger.png"/>
-                                                        <div class="textteg">Hamborgarar</div>
-                                                    </a>
-                                                    <input type="hidden" name="find" value="hamborgarar"/>
-                                                </form>
-                                            </li>
-                                            <li>
-                                                <form  method="POST" th:action="@{/searchbar}">
-                                                    <a href="javascript:;" onclick="parentNode.submit();">
-                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/steik.png"/>
-                                                        <div class="textteg">Steikhús</div>
-                                                    </a>
-                                                    <input type="hidden" name="find" value="kjöt"/>
-                                                </form>
-                                            </li>
-                                            <li>
-                                                <form  method="POST" th:action="@{/searchbar}">
-                                                    <a href="javascript:;" onclick="parentNode.submit();">
-                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/chikenn.png"/>
-                                                        <div class="textteg">Kjúklingur</div>
-                                                    </a>
-                                                    <input type="hidden" name="find" value="kjúklingur"/>
-                                                </form>
-                                            </li>
-                                            <li>
-                                                <form  method="POST" th:action="@{/searchbar}">
-                                                    <a href="javascript:;" onclick="parentNode.submit();">
-                                                        <img src="https://notendur.hi.is/ksh18/hugbo1/vegiterian.png"/>
-                                                        <div class="textteg">Grænmetisréttir</div>
-                                                    </a>
-                                                    <input type="hidden" name="find" value="grænmetisréttir"/>
-                                                </form>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs" role="tablist">
-                                <div class="flex-container">
-                                    <li>
-                                        <form  method="POST" th:action="@{/searchbar}">
-                                             <a href="javascript:;" onclick="parentNode.submit();" role="tab" data-toggle="tab">
-                                                <div class="menuType">Morgunmatur</div>
-                                             </a>
-                                            <input type="hidden" name="find" value="Morgunmatur"/>
-                                        </form>
-                                    </li>
-
-                                    <li>
-                                        <form  method="POST" th:action="@{/searchbar}">
-                                            <a href="javascript:;" onclick="parentNode.submit();" role="tab" data-toggle="tab">
-                                                <div class="menuType">Hádeigismatur</div>
-                                            </a>
-                                        <input type="hidden" name="find" value="Hádegismatur"/>
-                                        </form>
-                                    </li>
-                                    <li>
-                                        <form  method="POST" th:action="@{/searchbar}">
-                                            <a href="javascript:;" onclick="parentNode.submit();" role="tab" data-toggle="tab">
-                                                <div class="menuType">Kvöldmatur</div>
-                                            </a>
-                                        <input type="hidden" name="find" value="Kvöldmatur"/>
-                                        </form>
-                                    </li>
-                                    <li>
-                                        <form  method="POST" th:action="@{/searchbar}">
-                                            <a href="javascript:;" onclick="parentNode.submit();" role="tab" data-toggle="tab">
-                                                <div class="menuType">Kaffihús og Pubbar</div>
-                                            </a>
-                                        <input type="hidden" name="find" value="Kaffi og kökur"/>
-                                        </form>
-                                    </li>
-                                </div>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="#"></a>        </li>
-                    <li>
-                        <div class="search-control">
-                            <div class="input-group" id="adv-search">
-                                <form id="formID" method="POST" th:action="@{/searchbar}">
-                                    <input class="form-control" name="find" type="text" placeholder="Sláðu inn leitarorð"/>
-                                </form>
-                                  <div class="input-group-btn">
-                                    <div class="btn-group" role="group">
-                                        <div class="dropdown dropdown-lg">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                <form class="form-horizontal" role="form" method="POST" th:action="@{/search}" th:object="${restaurant}">
-                                                    <ul>
-                                                        <li th:errors="*{name}" />
-                                                    </ul>
-                                                    <div class="form-group">
-                                                        <label>Veitingastaður</label>
-                                                        <input class="form-control" name="name" type="search" th:field="*{name}" />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="contain">Heimilisfang</label>
-                                                        <input class="form-control" name="address" type="text" th:field="*{address}"/>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="filter">Póstnúmer</label>
-                                                        <select class="form-control" name="postCode" th:field="*{postCode}">
-                                                            <option value="0" th:value="0">Veldu Póstnúmer</option>
-                                                            <option value="1" th:value="101">101</option>
-                                                            <option value="2" th:value="103">103</option>
-                                                            <option value="3" th:value="104">104</option>
-                                                            <option value="4" th:value="105">105</option>
-                                                            <option value="5" th:value="107">107</option>
-                                                            <option value="6" th:value="108">108</option>
-                                                            <option value="7" th:value="109">109</option>
-                                                            <option value="8" th:value="110">110</option>
-                                                            <option value="9" th:value="111">111</option>
-                                                            <option value="10" th:value="112">112</option>
-                                                            <option value="11" th:value="113">113</option>
-                                                            <option value="12" th:value="116">116</option>
-                                                            <option value="13" th:value="170">170</option>
-                                                            <option value="14" th:value="200">200</option>
-                                                            <option value="15" th:value="201">201</option>
-                                                            <option value="16" th:value="203">203</option>
-                                                            <option value="17" th:value="210">210</option>
-                                                            <option value="19" th:value="220">220</option>
-                                                            <option value="19" th:value="221">221</option>
-                                                            <option value="20" th:value="225">225</option>
-                                                            <option value="21" th:value="270">270</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="filter">Tegund</label>
-                                                        <select class="form-control" name="type">
-                                                            <option value="0" th:value="0">Veldu tegund</option>
-                                                            <option value="Pizza" th:value="Pizza">Pizza</option>
-                                                            <option value="Pasta" th:value="Pasta">Pasta</option>
-                                                            <option value="Samlokur" th:value="Samlokur">Samlokur</option>
-                                                            <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
-                                                            <option value="kjot" th:value="Kjöt">Kjöt</option>
-                                                            <option value="fiskur" th:value="Fiskur">Fsikur</option>
-                                                            <option value="kjuklingur" th:value="Kjúklingur">Kjúklingur</option>
-                                                            <option value="asiskt" th:value="asiskt">Asískt</option>
-                                                            <option value="graenmetis" th:value="Grænmetisréttir">Grænmetisréttir</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="filter">Gæðaflokkur</label>
-                                                        <select class="form-control" name="quality" th:field="*{quality}">
-                                                            <option value="0" th:value="0">Gæðaflokkur</option>
-                                                            <option value="1" th:value="1">Skyndibitastaður</option>
-                                                            <option value="3" th:value="3">Millifínt</option>
-                                                            <option value="5" th:value="5">Fínt</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="filter">Tegund matseðils</label>
-                                                        <select class="form-control" name="menuType">
-                                                            <option th:value="0">Matseðil</option>
-                                                            <option th:value="'Morgunmatur'">Morgunmatur</option>
-                                                            <option th:value="'Kvöldmatur'">Kvöldmatur</option>
-                                                            <option th:value="'Hádegismatur'">Hádegismatur</option>
-                                                            <option th:value="'Kaffi og kökur'">Kaffi og kökur</option>
-                                                        </select>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-                                                </form>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/index">FoodBar</a>
+                            </li>
+                            <li class="dropdown mega-dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Veitingarstaðir<span class="caret"></span></a>
+                                <div class="dropdown-menu mega-dropdown-menu">
+                                    <div class="container-fluid">
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="men">
+                                                <ul class="nav-list list-inline">
+                                                    <li>
+                                                        <form  method="POST" th:action="@{/searchbar}">
+                                                            <a href="javascript:;" onclick="parentNode.submit();">
+                                                                <img src="https://notendur.hi.is/ksh18/hugbo1/pizza2.png"/>
+                                                                <div class="textteg">Pizza</div>
+                                                            </a>
+                                                            <input type="hidden" name="find" value="pizza"/>
+                                                        </form>
+                                                    </li>
+                                                    <li>
+                                                        <form  method="POST" th:action="@{/searchbar}">
+                                                            <a href="javascript:;" onclick="parentNode.submit();">
+                                                                <img src="https://notendur.hi.is/ksh18/hugbo1/chines.png"/>
+                                                                <div class="textteg">Asískt</div>
+                                                            </a>
+                                                            <input type="hidden" name="find" value="asískt"/>
+                                                        </form>
+                                                    </li>
+                                                    <li>
+                                                        <form  method="POST" th:action="@{/searchbar}">
+                                                            <a href="javascript:;" onclick="parentNode.submit();">
+                                                                <img src="https://notendur.hi.is/ksh18/hugbo1/hamburger.png"/>
+                                                                <div class="textteg">Hamborgarar</div>
+                                                            </a>
+                                                            <input type="hidden" name="find" value="hamborgarar"/>
+                                                        </form>
+                                                    </li>
+                                                    <li>
+                                                        <form  method="POST" th:action="@{/searchbar}">
+                                                            <a href="javascript:;" onclick="parentNode.submit();">
+                                                                <img src="https://notendur.hi.is/ksh18/hugbo1/steik.png"/>
+                                                                <div class="textteg">Steikhús</div>
+                                                            </a>
+                                                            <input type="hidden" name="find" value="kjöt"/>
+                                                        </form>
+                                                    </li>
+                                                    <li>
+                                                        <form  method="POST" th:action="@{/searchbar}">
+                                                            <a href="javascript:;" onclick="parentNode.submit();">
+                                                                <img src="https://notendur.hi.is/ksh18/hugbo1/chikenn.png"/>
+                                                                <div class="textteg">Kjúklingur</div>
+                                                            </a>
+                                                            <input type="hidden" name="find" value="kjúklingur"/>
+                                                        </form>
+                                                    </li>
+                                                    <li>
+                                                        <form  method="POST" th:action="@{/searchbar}">
+                                                            <a href="javascript:;" onclick="parentNode.submit();">
+                                                                <img src="https://notendur.hi.is/ksh18/hugbo1/vegiterian.png"/>
+                                                                <div class="textteg">Grænmetisréttir</div>
+                                                            </a>
+                                                            <input type="hidden" name="find" value="grænmetisréttir"/>
+                                                        </form>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary" form="formID" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    </div>
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <div class="flex-container">
+                                            <li>
+                                                <form  method="POST" th:action="@{/searchbar}">
+                                                     <a href="javascript:;" onclick="parentNode.submit();" role="tab" data-toggle="tab">
+                                                        <div class="menuType">Morgunmatur</div>
+                                                     </a>
+                                                    <input type="hidden" name="find" value="Morgunmatur"/>
+                                                </form>
+                                            </li>
+
+                                            <li>
+                                                <form  method="POST" th:action="@{/searchbar}">
+                                                    <a href="javascript:;" onclick="parentNode.submit();" role="tab" data-toggle="tab">
+                                                        <div class="menuType">Hádeigismatur</div>
+                                                    </a>
+                                                    <input type="hidden" name="find" value="Hádegismatur"/>
+                                                </form>
+                                            </li>
+                                            <li>
+                                                <form  method="POST" th:action="@{/searchbar}">
+                                                    <a href="javascript:;" onclick="parentNode.submit();" role="tab" data-toggle="tab">
+                                                        <div class="menuType">Kvöldmatur</div>
+                                                    </a>
+                                                    <input type="hidden" name="find" value="Kvöldmatur"/>
+                                                </form>
+                                            </li>
+                                            <li>
+                                                <form  method="POST" th:action="@{/searchbar}">
+                                                    <a href="javascript:;" onclick="parentNode.submit();" role="tab" data-toggle="tab">
+                                                        <div class="menuType">Kaffihús og Pubbar</div>
+                                                    </a>
+                                                    <input type="hidden" name="find" value="Kaffi og kökur"/>
+                                                </form>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#"></a>
+                            </li>
+                            <li>
+                                <div class="search-control">
+                                    <div class="input-group" id="adv-search">
+                                        <form id="formID" method="POST" th:action="@{/searchbar}">
+                                            <input class="form-control" name="find" type="text" placeholder="Sláðu inn leitarorð"/>
+                                        </form>
+                                        <div class="input-group-btn">
+                                            <div class="btn-group" role="group">
+                                                <div class="dropdown dropdown-lg">
+                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                        <form class="form-horizontal" role="form" method="POST" th:action="@{/search}" th:object="${restaurant}">
+                                                            <ul>
+                                                                <li th:errors="*{name}" />
+                                                            </ul>
+                                                            <div class="form-group">
+                                                                <label>Veitingastaður</label>
+                                                                <input class="form-control" name="name" type="search" th:field="*{name}" />
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="contain">Heimilisfang</label>
+                                                                <input class="form-control" name="address" type="text" th:field="*{address}"/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="filter">Póstnúmer</label>
+                                                                <select class="form-control" name="postCode" th:field="*{postCode}">
+                                                                    <option value="0" th:value="0">Veldu Póstnúmer</option>
+                                                                    <option value="1" th:value="101">101</option>
+                                                                    <option value="2" th:value="103">103</option>
+                                                                    <option value="3" th:value="104">104</option>
+                                                                    <option value="4" th:value="105">105</option>
+                                                                    <option value="5" th:value="107">107</option>
+                                                                    <option value="6" th:value="108">108</option>
+                                                                    <option value="7" th:value="109">109</option>
+                                                                    <option value="8" th:value="110">110</option>
+                                                                    <option value="9" th:value="111">111</option>
+                                                                    <option value="10" th:value="112">112</option>
+                                                                    <option value="11" th:value="113">113</option>
+                                                                    <option value="12" th:value="116">116</option>
+                                                                    <option value="13" th:value="170">170</option>
+                                                                    <option value="14" th:value="200">200</option>
+                                                                    <option value="15" th:value="201">201</option>
+                                                                    <option value="16" th:value="203">203</option>
+                                                                    <option value="17" th:value="210">210</option>
+                                                                    <option value="19" th:value="220">220</option>
+                                                                    <option value="19" th:value="221">221</option>
+                                                                    <option value="20" th:value="225">225</option>
+                                                                    <option value="21" th:value="270">270</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="filter">Tegund</label>
+                                                                <select class="form-control" name="type">
+                                                                    <option value="0" th:value="0">Veldu tegund</option>
+                                                                    <option value="Pizza" th:value="Pizza">Pizza</option>
+                                                                    <option value="Pasta" th:value="Pasta">Pasta</option>
+                                                                    <option value="Samlokur" th:value="Samlokur">Samlokur</option>
+                                                                    <option value="Hamorgarar" th:value="Hamborgarar">Hamborgarar</option>
+                                                                    <option value="kjot" th:value="Kjöt">Kjöt</option>
+                                                                    <option value="fiskur" th:value="Fiskur">Fsikur</option>
+                                                                    <option value="kjuklingur" th:value="Kjúklingur">Kjúklingur</option>
+                                                                    <option value="asiskt" th:value="asiskt">Asískt</option>
+                                                                    <option value="graenmetis" th:value="Grænmetisréttir">Grænmetisréttir</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="filter">Gæðaflokkur</label>
+                                                                <select class="form-control" name="quality" th:field="*{quality}">
+                                                                    <option value="0" th:value="0">Gæðaflokkur</option>
+                                                                    <option value="1" th:value="1">Skyndibitastaður</option>
+                                                                    <option value="3" th:value="3">Millifínt</option>
+                                                                    <option value="5" th:value="5">Fínt</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="filter">Tegund matseðils</label>
+                                                                <select class="form-control" name="menuType">
+                                                                    <option th:value="0">Matseðil</option>
+                                                                    <option th:value="'Morgunmatur'">Morgunmatur</option>
+                                                                    <option th:value="'Kvöldmatur'">Kvöldmatur</option>
+                                                                    <option th:value="'Hádegismatur'">Hádegismatur</option>
+                                                                    <option th:value="'Kaffi og kökur'">Kaffi og kökur</option>
+                                                                </select>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-primary">
+                                                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <button class="btn btn-primary" form="formID" type="submit">
+                                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="/admin" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/login">Skrá inn</a></li>
-                            <div sec:authorize="hasRole('ROLE_ADMIN')">
-                                <li class="divider" ></li>
-                                <li class="adminlist"><a class="admina" href="/admin/addRestaurant">Skrá veitingastað</a></li>
-                                <li class="adminlist"><a class="admina" href="/admin/addTypes">Skrá tegund á stað</a></li>
-                                <li class="adminlist"><a class="admina" href="/admin/addMenuTypes">Skrá matseðil á stað</a></li>
-                                <li class="adminlist"><a class="admina" href="/admin/addOpeningTimes">Skrá opnunartíma</a></li>
-                                <li class="adminlist"><a class="admina" href="/admin/restList">Skoða veitingastaði</a></li>
-                                <form  th:action="@{/logout}" method="post">
-                                    <input class="signout" type="submit" value="Skrá út"/>
-                                </form>
-                            </div>
+                            </li>
                         </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-</div>
 
-<div th:fragment="prologue" >
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="/admin" class="dropdown-toggle" data-toggle="dropdown">Admin<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="/login">Skrá inn</a>
+                                    </li>
+                                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                                        <li class="divider" ></li>
+                                        <li class="adminlist">
+                                            <a class="admina" href="/admin/addRestaurant">Skrá veitingastað</a>
+                                        </li>
+                                        <li class="adminlist">
+                                            <a class="admina" href="/admin/addTypes">Skrá tegund á stað</a>
+                                        </li>
+                                        <li class="adminlist">
+                                            <a class="admina" href="/admin/addMenuTypes">Skrá matseðil á stað</a>
+                                        </li>
+                                        <li class="adminlist">
+                                            <a class="admina" href="/admin/addOpeningTimes">Skrá opnunartíma</a>
+                                        </li>
+                                        <li class="adminlist">
+                                            <a class="admina" href="/admin/restList">Skoða veitingastaði</a>
+                                        </li>
+                                        <form  th:action="@{/logout}" method="post">
+                                            <input class="signout" type="submit" value="Skrá út"/>
+                                        </form>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
 
-    <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-            crossorigin="anonymous"></script>
-</div>
-</body>
+        <div th:fragment="prologue" >
+
+            <!-- Linkar til að ná í javascriptur tengdar Bootstrap -->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                    crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                    crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                    crossorigin="anonymous"></script>
+        </div>
+    </body>
 </html>
