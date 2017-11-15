@@ -1,4 +1,3 @@
- Í rótinni eiga að vera a.m.k. Readme.md skrá sem segir hvað þurfi að vera til staðar til að setja upp/keyra forritið.
 
 Það þarf að setja upp gagnagrun í postgres sem heitir resto 
 username=postgres
