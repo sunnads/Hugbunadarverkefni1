@@ -26,13 +26,14 @@ import java.util.ArrayList;
 @Controller
 public class InfoController {
 
-
     @Autowired
     private RestaurantsService restaurantsService;
 
     /**
      * Setur upp nýan restaurant object sem search aðferðin getur breytt
-     * eftir því hvað notandi leitaði að
+     * eftir því hvað notandi leitaði að.
+     * Header leitin þarf að hafa tilbúið Restaurant tilvik til að nota
+     * í @ModelAttribute.
      *
      * @return Restaurant object sem er tómt
      */
@@ -46,7 +47,7 @@ public class InfoController {
      * Birtir infoPage.jsp í viðmótinu.
      * Þar eru sýndar upplýsingar um veitingastaðin sem notandi valdi
      *
-     * @return slóðin á skránna infoPage.jsp
+     * @return slóðin á skránna infoPage
      */
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     public String info(@RequestParam(value = "name", required = true) String name, ModelMap model) {

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.validation.Valid;
 
 
@@ -38,7 +37,9 @@ public class SearchController {
 
     /**
      * Setur upp nýan restaurant object sem search aðferðin getur breytt
-     * eftir því hvað notandi leitaði að
+     * eftir því hvað notandi leitaði að.
+     * Header leitin þarf að hafa tilbúið Restaurant tilvik til að nota
+     * í @ModelAttribute.
      *
      * @return Restaurant object sem er tómt
      */
@@ -49,7 +50,7 @@ public class SearchController {
     }
 
     /**
-     * Birtir indexPage.jsp í viðmótinu.
+     * Birtir indexPage í viðmótinu.
      * Þar er leitin fyrir veitingastaði birt
      *
      * @return vefsíða sem hefur upphafsviðmótið
@@ -57,8 +58,6 @@ public class SearchController {
     // Þar sem klasinn hefur enga slóð, er þessi slóð "/index"
     @RequestMapping("/index")
     public String index(Model model){
-        //Restaurants r = new Restaurants();
-        //model.addAttribute("restaurant", r);
         return "index"; // skilar .html skrá sem er /resources/templates/WEB-INF/index.html
     }
 

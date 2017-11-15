@@ -24,7 +24,9 @@ public class LoginController {
 
     /**
      * Setur upp nýan restaurant object sem search aðferðin getur breytt
-     * eftir því hvað notandi leitaði að
+     * eftir því hvað notandi leitaði að.
+     * Header leitin þarf að hafa tilbúið Restaurant tilvik til að nota
+     * í @ModelAttribute.
      *
      * @return Restaurant object sem er tómt
      */
@@ -56,6 +58,5 @@ public class LoginController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         System.out.println(auth.getName());
         return "index";
-
     }
 }
