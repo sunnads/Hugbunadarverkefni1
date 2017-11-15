@@ -24,11 +24,11 @@
             <label class="col-md-2">Símanúmer:</label><p class="col-md-10" th:text ="${restaurants.phoneNumber}"></p>
             <label class="col-md-2">Gæði:</label><p class="col-md-10" th:text ="${restaurants.quality}"></p>
             <label class="col-md-2">Tegund:</label>
-            <p class="col-md-10" th:text="${restaurants.type != null} ? ${#strings.arrayJoin(restaurants.type, ', ')} : "engin tegund er skráð""></p>
+            <p class="col-md-10" th:text="${not restaurants.type.isEmpty()} ? ${#strings.arrayJoin(restaurants.type, ', ')} : 'ekkert skráð'"></p>
             <label class="col-md-2">Matseðill:</label>
-            <p class="col-md-10" th:text="${restaurants.menuType != null} ? ${#strings.arrayJoin(restaurants.menuType, ', ')} : 'null value'"></p>
+            <p class="col-md-10" th:text="${not restaurants.menuType.isEmpty()} ? ${#strings.arrayJoin(restaurants.menuType, ', ')} : 'ekkert skráð'"></p>
             <label class="col-md-2">Opnunartími:</label>
-            <p class="col-md-10" th:text="${restaurants.openingTimes != null} ? ${#strings.arrayJoin(restaurants.openingTimes, ', ')} : 'null value'"></p>
+            <p class="col-md-10" th:text="${not restaurants.openingTimes.isEmpty()} ? ${#strings.arrayJoin(restaurants.openingTimes, ', ')} : 'ekkert skráð'"></p>
         </div>
         <div class="button-actions">
             <a method="POST" href="/admin/restList" role="button" class="btn btn-primary">Skoða veitingastaði</a>
