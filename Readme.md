@@ -13,9 +13,9 @@ Linkur á síðuna: https://quiet-stream-65169.herokuapp.com/index
 
 meðlimir í verkefninu:
 
-Elvar Kjartansson, 
+Brynja Pálína Sigurgeirsdóttir,
 
-Brynja Pálína Sigurgeirsdóttir, 
+Elvar Kjartansson,  
 
 Karítas Sif Halldórsdóttir,
 
