@@ -9,10 +9,6 @@ Til að skrá sig inn á heimasíðu sem admin er Username: hug Password: 123
 
 Linkur á síðuna: https://quiet-stream-65169.herokuapp.com/index 
 
-Til að skrá sig inn á heimasíðu sem admin er 
-Username: hug 
-Password: 123
-
 # Foo'd'Bar
 
 meðlimir í verkefninu:
